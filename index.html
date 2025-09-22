@@ -9,10 +9,66 @@
             margin: 0;
             padding: 0;
             background-color: #0f172a;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
         }
         
         stripe-pricing-table {
             background-color: #0f172a !important;
+        }
+        
+        .footer {
+            background-color: #0f172a;
+            padding: 2rem 1rem;
+            text-align: center;
+            border-top: 1px solid #334155;
+            margin-top: 2rem;
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .footer-links {
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links a {
+            color: #60a5fa;
+            text-decoration: none;
+            margin: 0 1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .footer-links a:hover {
+            color: #93c5fd;
+            background-color: rgba(51, 65, 85, 0.3);
+            text-decoration: underline;
+        }
+        
+        .footer-text {
+            color: #64748b;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+        
+        .divider {
+            color: #334155;
+            margin: 0 0.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .footer-links a {
+                display: block;
+                margin: 0.5rem 0;
+            }
+            
+            .divider {
+                display: none;
+            }
         }
     </style>
 </head>
@@ -21,5 +77,18 @@
     <stripe-pricing-table pricing-table-id="prctbl_1S2e8FE1XDLOIuqqAjyOtydd"
     publishable-key="pk_live_51HncgsE1XDLOIuqqabD9TVn7RK6GJli4vCK2WEiXa7OWdvu2HlYWyJt4DTsQ1kngNjG1ByXmfhNj3ly0allIVQ6n00pCUN4gFF">
     </stripe-pricing-table>
+    
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="terms.html">Terms & Conditions</a>
+                <span class="divider">•</span>
+                <a href="mailto:support@tremscol.com">Support</a>
+            </div>
+            <div class="footer-text">
+                &copy; 2025 Tremscol LLC. All rights reserved.
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
