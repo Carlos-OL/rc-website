@@ -152,9 +152,47 @@
         }
         
         .footer {
+            background: #334155;
+            padding: 2rem 1rem;
             text-align: center;
-            color: #64748b;
+            border-top: 1px solid #4a5568;
             margin-top: 2rem;
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .footer-links {
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links a {
+            color: #0074d4;
+            text-decoration: none;
+            margin: 0 1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .footer-links a:hover {
+            color: #0ea5e9;
+            background-color: rgba(74, 85, 104, 0.3);
+            text-decoration: underline;
+        }
+        
+        .footer-text {
+            color: #64748b;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+        
+        .divider {
+            color: #4a5568;
+            margin: 0 0.5rem;
         }
         
         @media (max-width: 768px) {
@@ -168,6 +206,15 @@
             
             .header h1 {
                 font-size: 2rem;
+            }
+            
+            .footer-links a {
+                display: block;
+                margin: 0.5rem 0;
+            }
+            
+            .divider {
+                display: none;
             }
         }
     </style>
@@ -424,9 +471,18 @@
             <p>For questions, concerns, or support, please email <strong>support@tremscol.com</strong> or DM the admin in Slack.</p>
         </div>
         
-        <div class="footer">
-            <p>&copy; 2025 Tremscol LLC. All rights reserved.</p>
-        </div>
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="privacy.html">Privacy Policy</a>
+                    <span class="divider">•</span>
+                    <a href="mailto:support@tremscol.com">Support</a>
+                </div>
+                <div class="footer-text">
+                    &copy; 2025 Tremscol LLC. All rights reserved.
+                </div>
+            </div>
+        </footer>
     </div>
 </body>
 </html>
