@@ -3,24 +3,140 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pricing</title>
+    <title>Tremscol – Costco Gold Command Center</title>
     <style>
+        /* ===== GLOBAL COLOR THEME ===== */
+        /* IMPORTANT: Only ONE :root block should be uncommented at a time.
+           The last uncommented :root block will override all previous ones. */
+        
+        /* Theme 1: Slate + Gold */
+        /* :root {
+            --bg-main: #1e293b;
+            --bg-card: #0f172a;
+            --text-main: #e2e8f0;
+            --text-muted: #cbd5e1;
+            --text-gold: #facc15;
+            --border-gold: rgba(250, 204, 21, 0.22);
+        } */
+
+        /* Theme 2: Dark + Teal */
+        /* :root {
+            --bg-main: #1b1b1d;
+            --bg-card: #161616;
+            --text-main: #e5e5e5;
+            --text-muted: #a8a8a8;
+            --text-gold: #2ee6b8;
+            --border-gold: rgba(46, 230, 184, 0.25);
+        } */
+
+        /* Theme 4: Dark + Orange */
+        :root {
+            --bg-main: #1b1b1d;
+            --bg-card: #262628;
+            --text-main: #f0f0f0;
+            --text-muted: #c8c8c8;
+            --text-gold: #ff8a3d;
+            --border-gold: rgba(255, 138, 61, 0.25);
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
+        
+        html {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+        }
+        
         body {
             margin: 0;
             padding: 0;
-            background-color: #334155;
+            background-color: var(--bg-main);
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            color: var(--text-main);
+        }
+        
+        /* ===== NAVIGATION ===== */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            background: var(--bg-card);
+            border-bottom: 1px solid var(--border-gold);
+        }
+        
+        .nav-container {
+            max-width: 1300px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem 2rem;
+            align-items: center;
+        }
+        
+        .nav-logo {
+            font-size: 1.5rem;
+            color: var(--text-gold);
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .nav-logo-img {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--text-gold);
+            background: radial-gradient(circle at center, rgba(250, 204, 21, 0.25), rgba(15, 23, 42, 1));
+        }
+
+        .nav-logo-text {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-gold);
+            letter-spacing: 1px;
+        }
+        
+        .nav-links a {
+            margin-left: 1.5rem;
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 1rem;
+        }
+        
+        .nav-links a:hover {
+            color: var(--text-gold);
+        }
+        
+        .nav-cta {
+            padding: 0.4rem 1rem;
+            background: var(--text-gold);
+            color: #0f0f0f !important;
+            border-radius: 6px;
+            margin-left: 2rem;
+            font-weight: 600;
+        }
+        
+        #pricing {
+            background-color: var(--bg-main);
         }
         
         stripe-pricing-table {
-            background-color: #334155 !important;
+            background-color: var(--bg-main) !important;
         }
         
+        /* ===== FOOTER ===== */
         .footer {
-            background-color: #334155;
+            background-color: var(--bg-main);
             padding: 2rem 1rem;
             text-align: center;
-            border-top: 1px solid #4a5568;
+            border-top: 1px solid var(--border-gold);
             margin-top: 2rem;
         }
         
@@ -34,7 +150,7 @@
         }
         
         .footer-links a {
-            color: #0074d4;
+            color: var(--text-gold);
             text-decoration: none;
             margin: 0 1rem;
             padding: 0.5rem 1rem;
@@ -44,23 +160,717 @@
         }
         
         .footer-links a:hover {
-            color: #0ea5e9;
-            background-color: rgba(74, 85, 104, 0.3);
+            color: #fde047;
             text-decoration: underline;
         }
         
         .footer-text {
-            color: #64748b;
+            color: var(--text-muted);
             font-size: 0.9rem;
             margin-top: 1rem;
         }
         
+        .footer-disclaimer {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+        }
+        
         .divider {
-            color: #4a5568;
+            color: var(--text-muted);
             margin: 0 0.5rem;
         }
         
+        /* ===== HERO ===== */
+
+        .hero {
+    background: linear-gradient(180deg, var(--bg-card), var(--bg-main) 70%);
+    padding: 6rem 2rem 4rem;
+    text-align: center;
+}
+        
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin: 0;
+            background: linear-gradient(90deg, #facc15, #fde047);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+.feature-img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    border-radius: 14px;
+    border: 0.75px solid var(--border-gold);
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.6);
+    background-color: var(--bg-card);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    cursor: zoom-in;
+}
+
+.feature-media-box:hover .feature-img {
+    border-color: var(--text-gold);
+    box-shadow: 0 18px 48px var(--border-gold);
+}
+.two-images {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+
+        .hero-logo {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            position: relative;
+            width: 180px;
+            height: 180px;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid var(--text-gold);
+            padding: 4px;
+            background: radial-gradient(circle at center, rgba(250, 204, 21, 0.2), rgba(15, 23, 42, 1));
+            filter: drop-shadow(0 0 12px rgba(250, 204, 21, 0.45));
+        }
+        
+        .hero-logo img {
+            width: 190px; /* Larger than container to allow repositioning */
+            height: 190px;
+            object-fit: cover;
+            object-position: 50% center; /* Adjust horizontal: 50% = center, higher = right, lower = left */
+            display: block;
+            transform: translateX(-5px); /* Fine-tune horizontal position: positive = right, negative = left */
+        }
+
+        .hero-subtext {
+            max-width: 750px;
+            margin: 1rem auto;
+            font-size: 1.25rem;
+            color: var(--text-muted);
+        }
+        
+        .hero-community {
+            max-width: 720px;
+            margin: 1.2rem auto 2rem;
+            font-size: 1.15rem;
+            color: var(--text-gold);
+        }
+        
+        .cta-btn {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 0.9rem 2rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #0f0f0f;
+            background: var(--text-gold);
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all .25s ease;
+        }
+        
+        .cta-btn:hover {
+            background: #fde047;
+            transform: translateY(-2px);
+        }
+        
+        /* ===== FEATURES ===== */
+        .features-section {
+            padding: 2rem 1.5rem;
+            background-color: var(--bg-main);
+            text-align: center;
+        }
+        
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--text-gold);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            text-align: center;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        .feature-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-gold);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            transition: all .25s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--text-gold);
+            box-shadow: 0 0 20px rgba(250, 204, 21, 0.18);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-card h3 {
+            color: var(--text-gold);
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .feature-card p {
+            color: var(--text-main);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+        
+        /* ===== FEATURES – SIDE-BY-SIDE LAYOUT ===== */
+        .features-alt {
+            padding: 2rem 1.5rem;
+            background-color: var(--bg-main);
+        }
+        
+        .feature-row {
+            max-width: 1100px;
+            margin: 3rem auto;
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+        
+        .feature-row-reverse {
+            flex-direction: row-reverse;
+        }
+        
+        .feature-text {
+            flex: 1;
+        }
+        
+        .feature-text h3 {
+            font-size: 1.7rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-gold);
+        }
+        
+        .feature-text p {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--text-main);
+        }
+        
+        .feature-media {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .feature-media-box {
+            width: 100%;
+            max-width: 420px;
+            padding: 3px;
+            border-radius: 20px;
+            background: linear-gradient(140deg, var(--border-gold), var(--bg-card));
+            border: 1px solid var(--border-gold);
+            box-shadow: 0 20px 32px rgba(0, 0, 0, 0.5);
+        }
+        
+        /* ===== DIFFERENTIATORS ===== */
+        .diff-section {
+            padding: 2rem 1.5rem;
+            background-color: var(--bg-main);
+            text-align: center;
+        }
+        
+        .diff-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        .diff-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-gold);
+            padding: 2rem;
+            border-radius: 12px;
+            transition: all .25s ease;
+        }
+        
+        .diff-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--text-gold);
+            box-shadow: 0 0 20px rgba(250, 204, 21, 0.18);
+        }
+        
+        .diff-card h3 {
+            color: var(--text-gold);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .diff-card p {
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+        
+        .diff-card p strong {
+            color: var(--text-main);
+            font-weight: 600;
+        }
+        
+        /* ===== COMPARISON TABLE ===== */
+        .comparison-section {
+            padding: 2rem 1.5rem;
+            background-color: var(--bg-main);
+            text-align: center;
+        }
+        
+        .comparison-wrapper {
+            max-width: 1000px;
+            margin: 2rem auto;
+            overflow-x: auto;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--bg-card);
+            border: 1px solid var(--border-gold);
+        }
+        
+        .comparison-table th {
+            background: var(--bg-card);
+            padding: 1rem;
+            color: var(--text-gold);
+            border-bottom: 1px solid var(--border-gold);
+            font-size: 1.1rem;
+        }
+        
+        .comparison-table td {
+            padding: 0.9rem;
+            border-top: 1px solid rgba(250, 204, 21, 0.1);
+            color: var(--text-main);
+            font-size: 1rem;
+            text-align: center;
+        }
+        
+        .comparison-table td:first-child {
+            text-align: left;
+        }
+        
+        .comparison-table tr:hover {
+            background: var(--bg-main);
+        }
+        
+        .check-mark {
+            color: #22c55e;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .check-x {
+            color: #ef4444;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        /* ===== HOW IT WORKS ===== */
+        .how-section {
+            padding: 2rem 1.5rem;
+            background: var(--bg-main);
+            text-align: center;
+        }
+        
+        .how-grid {
+            max-width: 900px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+        }
+        
+        .how-step {
+            background: var(--bg-card);
+            border: 1px solid var(--border-gold);
+            padding: 2rem;
+            border-radius: 12px;
+        }
+        
+        .how-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--text-gold);
+            display: block;
+            line-height: 1;
+        }
+        
+        .how-step h3 {
+            margin-top: 0;
+            color: var(--text-gold);
+        }
+        
+        .how-num {
+            color: var(--text-gold);
+            font-size: inherit;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+        
+        /* ===== TESTIMONIALS ===== */
+        .testimonials-section {
+            padding: 2rem 1.5rem;
+            background: var(--bg-main);
+            text-align: center;
+        }
+        
+        .carousel {
+            position: relative;
+            max-width: 800px;
+            margin: auto;
+        }
+        
+        .testimonial {
+            display: none;
+            background: var(--bg-card);
+            border: 1px solid var(--border-gold);
+            padding: 2rem;
+            border-radius: 12px;
+            color: var(--text-main);
+            font-size: 1.2rem;
+        }
+        
+        .testimonial.active {
+            display: block;
+        }
+        
+        .testimonial span {
+            display: block;
+            margin-top: 1rem;
+            color: var(--text-gold);
+        }
+
+        /* ===== CAROUSEL ARROWS ===== */
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            font-size: 2.5rem;
+            color: var(--text-gold);
+            cursor: pointer;
+            padding: 0 0.5rem;
+            transition: color 0.25s ease, transform 0.25s ease;
+            user-select: none;
+        }
+
+        .carousel-arrow:hover {
+            color: #fde047;
+            transform: translateY(-50%) scale(1.15);
+        }
+
+        .left-arrow {
+            left: -3rem;
+        }
+
+        .right-arrow {
+            right: -3rem;
+        }
+
         @media (max-width: 768px) {
+            .left-arrow { left: -1rem; }
+            .right-arrow { right: -1rem; }
+            .carousel-arrow { font-size: 2rem; }
+        }
+        
+        /* ===== FAQ ===== */
+        .faq-section {
+            padding: 2rem 1.5rem;
+            background: var(--bg-main);
+            max-width: 900px;
+            margin: auto;
+        }
+        
+        .faq-item {
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--border-gold);
+            border-radius: 8px;
+            padding: 0 1.5rem;
+            background: var(--bg-card);
+            transition: all 0.25s ease;
+        }
+        
+        .faq-item:hover {
+            border-color: var(--text-gold);
+        }
+        
+        .faq-question {
+            width: 100%;
+            background: none;
+            border: none;
+            text-align: left;
+            padding: 1.25rem 0;
+            font-size: 1.15rem;
+            color: var(--text-gold);
+            cursor: pointer;
+            font-weight: 600;
+            position: relative;
+            padding-right: 2rem;
+            transition: color 0.25s ease;
+        }
+        
+        .faq-question:hover {
+            color: #fde047;
+        }
+        
+        .faq-question::after {
+            content: '▼';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.8rem;
+            color: var(--text-gold);
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-item.active .faq-question::after {
+            transform: translateY(-50%) rotate(180deg);
+        }
+        
+        .faq-answer {
+            display: none;
+            padding: 0 0 1.25rem;
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+        
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+        
+        .faq-answer p {
+            margin: 0;
+        }
+        
+        /* ===== TRUST STRIP ===== */
+.trust-strip {
+    background: var(--bg-card);
+    border-top: 1px solid var(--border-gold);
+    border-bottom: 1px solid var(--border-gold);
+    padding: 1rem 0;
+    text-align: center;
+}
+.trust-container {
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+.trust-item {
+    color: var(--text-main);
+    font-size: 1rem;
+}
+.trust-item strong {
+    color: var(--text-gold);
+    font-size: 1.2rem;
+}
+
+/* ===== RESULTS SECTION ===== */
+.results-section {
+    padding: 2rem 1.5rem;
+    background: var(--bg-main);
+    text-align: center;
+}
+.results-grid {
+    max-width: 1000px;
+    margin: 2rem auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.8rem;
+}
+.result-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-gold);
+    padding: 1.8rem;
+    border-radius: 12px;
+}
+.result-card strong {
+    display: block;
+    color: var(--text-gold);
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+.result-card p {
+    color: var(--text-main);
+    line-height: 1.6;
+}
+
+        /* ===== SURVEY FOOTNOTE ===== */
+        .survey-footnote {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            margin-top: 0.8rem;
+        }
+
+        /* ===== IMAGE MODAL ===== */
+        .image-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 15, 15, 0.92);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            padding: 2rem;
+        }
+
+        .image-modal img {
+            max-width: 95%;
+            max-height: 95%;
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(250, 204, 21, 0.25);
+            object-fit: contain;
+            cursor: zoom-out;
+        }
+        /* Mobile responsiveness for side-by-side layout */
+        @media (max-width: 900px) {
+            .feature-row,
+            .feature-row-reverse {
+                flex-direction: column;
+                text-align: left;
+            }
+            
+            .feature-media-box {
+                max-width: 100%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                padding: 1rem;
+            }
+            
+            .nav-links {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                margin-top: 1rem;
+            }
+            
+            .nav-links a {
+                margin: 0.5rem;
+                font-size: 0.9rem;
+            }
+            
+            .nav-cta {
+                margin-left: 0.5rem;
+            }
+            
+            .hero {
+                padding: 3rem 1.5rem 2rem;
+            }
+            
+            .hero-headline {
+                font-size: 2rem;
+                margin-bottom: 1rem;
+            }
+            
+            .hero-subtext {
+                font-size: 1.1rem;
+            }
+            
+            .hero-community {
+                font-size: 1rem;
+            }
+            
+            .cta-btn {
+                font-size: 1rem;
+                padding: 0.875rem 2rem;
+            }
+            
+            .features-section {
+                padding: 2rem 1.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+                margin-bottom: 2rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .feature-card {
+                padding: 1.5rem;
+            }
+            
+            .diff-section {
+                padding: 2rem 1.5rem;
+            }
+            
+            .diff-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .diff-card {
+                padding: 1.5rem;
+            }
+            
+            .how-section {
+                padding: 2rem 1.5rem;
+            }
+            
+            .how-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .testimonials-section {
+                padding: 2rem 1.5rem;
+            }
+            
+            .testimonial {
+                font-size: 1rem;
+                padding: 1.5rem;
+            }
+            
+            .faq-section {
+                padding: 2rem 1.5rem;
+            }
+            
             .footer-links a {
                 display: block;
                 margin: 0.5rem 0;
@@ -71,12 +881,409 @@
             }
         }
     </style>
+       
 </head>
 <body>
+    <!-- NAVIGATION BAR -->
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="assets/logo.png" alt="Gold Restock Bot Logo" class="nav-logo-img">
+                <span class="nav-logo-text">Gold Restock Bot</span>
+            </div>
+            <nav class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#differentiators">Why Us</a>
+                <a href="#comparison">Compare</a>
+                <a href="#howitworks">How It Works</a>
+                <a href="#testimonials">Testimonials</a>
+                <a href="#faq">FAQ</a>
+                <a href="#pricing" class="nav-cta">Start Tracking</a>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="hero-logo">
+            <img src="assets/logo.png" alt="Gold Restock Bot Logo">
+        </div>
+        <h1>Buy More Gold. Save More Time. Make More Profit.</h1>
+
+        <p class="hero-subtext">
+            The all-in-one tracking suite that gives active gold buyers instant online alerts, in-store inventory visibility, and unbiased payout comparisons — so you never miss an opportunity.
+        </p>
+
+        <p class="hero-community">
+            Plus join an exclusive Slack community of active buyers sharing strategies and real-time opportunities.
+        </p>
+
+        <a href="#features" class="cta-btn">Start Tracking</a>
+    </section>
+
+    <!-- TRUST STRIP -->
+    <section class="trust-strip">
+        <div class="trust-container">
+            <div class="trust-item"><strong>58%</strong> bought gold they found through in-store alerts*</div>
+            <div class="trust-item"><strong>52%</strong> make $1,000+ monthly profit using the suite*</div>
+            <div class="trust-item"><strong>50%</strong> save 3+ hours per month vs manual calling*</div>
+        </div>
+    </section>
+    
+    <!-- FEATURES SECTION (SIDE-BY-SIDE LAYOUT) -->
+    <section id="features" class="features-alt">
+        <h2 class="section-title">The Complete Arsenal for Active Gold Buyers</h2>
+        <p class="section-subtitle">Focused tools & features, all in one place, working together to give you a real edge.</p>
+        
+        <!-- ROW 1: In-Store Inventory Checker -->
+        <div class="feature-row">
+            <div class="feature-text">
+                <h3>In-Store Inventory Checker</h3>
+                <p>
+                    Search nearby warehouses, get real-time availability, and receive a fully optimized Google Maps
+                    route automatically generated from your current location — so you can start your run immediately.
+                </p>
+            </div>
+            <div class="feature-media">
+                <div class="feature-media-box">
+                    <img src="assets/features/instore.webp" alt="Instore Restock Results" class="feature-img">
+                </div>
+            </div>
+        </div>
+        
+        <!-- ROW 2: Online Restock Tracking (reversed) -->
+        <div class="feature-row feature-row-reverse">
+            <div class="feature-text">
+                <h3>Online Restock Tracking</h3>
+                <p>
+                    Live detection every 45 seconds with low-noise, high-precision alerts — giving you a 15-second
+                    head start over other tools and the ability to catch price mistakes before they disappear.
+                </p>
+            </div>
+            <div class="feature-media">
+                <div class="feature-media-box">
+                    <img src="assets/features/online.webp" alt="Online Restock Results" class="feature-img">
+                </div>
+            </div>
+        </div>
+        
+        <!-- ROW 3: Payout Comparisons -->
+        <div class="feature-row">
+            <div class="feature-text">
+                <h3>Payout Comparisons</h3>
+                <p>
+                    Side-by-side payouts from the most common online gold buyers — fully agnostic, with zero bias,
+                    so you always know who pays the most.
+                </p>
+            </div>
+            <div class="feature-media">
+                <div class="feature-media-box">
+                    <img src="assets/features/payout_comparison.webp" alt="Payout Comparison Results" class="feature-img">
+                </div>
+            </div>
+        </div>
+        
+        <!-- ROW 4: Profit & Margin Tools (reversed) -->
+        <div class="feature-row feature-row-reverse">
+            <div class="feature-text">
+                <h3>Profit &amp; Margin Tools</h3>
+                <p>
+                    Personalized profit, margin, cashback, and buyer ROI calculations using your own numbers — so you
+                    can make fast, confident, and truly profitable decisions.
+                </p>
+            </div>
+            <div class="feature-media">
+                <div class="feature-media-box">
+                    <img src="assets/features/profit_calculator.webp" alt="Profit Calculation Results" class="feature-img">
+                    <!-- <img src="assets/features/profit_results.webp" alt="Profit Calculation Results" class="feature-img"> -->
+
+                </div>
+            </div>
+        </div>
+        
+        <!-- ROW 5: Custom Tracking Lists -->
+        <div class="feature-row">
+            <div class="feature-text">
+                <h3>Personalized Alerts</h3>
+                <p>
+                    Cut through the noise with personalized alerts powered by your custom tracking lists. 
+                    Set your markup thresholds and let auto-SKU detection keep your lists updated automatically.
+                </p>
+            </div>
+            <div class="feature-media">
+                <div class="feature-media-box">
+                    <img src="assets/features/alert.webp" alt="Personalized Alerts" class="feature-img">
+
+                </div>
+            </div>
+        </div>
+        
+        <!-- ROW 6: Gold Spot Alerts (reversed) -->
+        <div class="feature-row feature-row-reverse">
+            <div class="feature-text">
+                <h3>Gold Spot Alerts</h3>
+                <p>
+                    Waiting for the right moment to sell? Get automatic alerts when gold crosses your target price
+                    levels — so you never miss the perfect exit point.
+                </p>
+            </div>
+            <div class="feature-media">
+                <div class="feature-media-box">
+                    <img src="assets/features/gold.webp" alt="Gold Alerts" class="feature-img">
+                </div>
+            </div>
+        </div>
+
+        <!-- ROW 7: Super Simple UI -->
+        <div class="feature-row">
+            <div class="feature-text">
+                <h3>Super Simple UI</h3>
+                <p>
+                    A clean, button‑based interface that accelerates actions and makes every workflow effortless.
+                    Access every tool — including in‑store searches, online restock tracking, payout comparisons,
+                    profit calculators, spot alerts, and custom lists — all with one or two clicks.
+                </p>
+            </div>
+            <div class="feature-media">
+                <div class="feature-media-box">
+                    <img src="assets/features/tools.webp" alt="Simple UI" class="feature-img">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- DIFFERENTIATORS -->
+    <section id="differentiators" class="diff-section">
+        <h2 class="section-title">Why Gold Restock Bot Is Different</h2>
+
+        <div class="diff-grid">
+            <div class="diff-card">
+                <h3>Fully Agnostic</h3>
+                <p>No bias. Compare every tracked buyer's payout, ranked entirely by <strong>your</strong> net profit.</p>
+            </div>
+
+            <div class="diff-card">
+                <h3>True All-In-One Suite</h3>
+                <p>Track online and in‑store restocks, monitor availability, check payouts, analyze profit, set spot alerts, and automate custom lists — all in one place.</p>
+            </div>
+
+            <div class="diff-card">
+                <h3>Faster Alerts</h3>
+                <p>Precision restock detection every 45 seconds — consistently faster than alternatives and quick enough to catch price mistakes before they disappear.</p>
+            </div>
+
+            <div class="diff-card">
+                <h3>Self-Updating Automation</h3>
+                <p>Auto‑Add SKUs updates your tracking lists automatically, and the system continuously detects new precious‑metal SKUs the moment they are released for sale.</p>
+            </div>
+
+            <div class="diff-card">
+                <h3>Built for Real Buyers. Proven to Deliver Results.</h3>
+                <p>Engineered around real Costco Gold buying behavior to power fast, profitable decisions. <strong style="color: var(--text-gold);">Our users collectively purchase millions in gold every month</strong> — making the suite pay for itself many times over.</p>
+            </div>
+
+            <div class="diff-card">
+                <h3>Security & Reliability</h3>
+                <p>Built on trusted, industry‑standard platforms. All billing is handled securely through Stripe, and all access is managed through Slack authentication — so we never store your payment information or login credentials.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- COMPARISON TABLE -->
+    <section id="comparison" class="comparison-section">
+        <h2 class="section-title">Gold Restock Bot vs Other Alternatives</h2>
+        <p class="section-subtitle">See Exactly What You Get That Others Don't Offer</p>
+        <div class="comparison-wrapper">
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Others</th>
+                        <th>Gold Restock Bot</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Fast online restock detection</td>
+                        <td><span class="check-mark">✓</span> 1+ minute delays</td>
+                        <td><span class="check-mark">✓</span> Every 45s</td>
+                    </tr>
+                    <tr>
+                        <td>In-store inventory checker</td>
+                        <td>Limited - Varies by provider</td>
+                        <td><span class="check-mark">✓</span> 2-4 daily queries, up to 100m radius</td>
+                    </tr>
+                    <tr>
+                        <td>Free daily in-store notifications</td>
+                        <td>Limited - Varies by provider</td>
+                        <td><span class="check-mark">✓</span> 1hr ahead of store opening</td>
+                    </tr>
+                    <tr>
+                        <td>Network alerts</td>
+                        <td><span class="check-x">×</span></td>
+                        <td><span class="check-mark">✓</span> Community power in action</td>
+                    </tr>
+                    <tr>
+                        <td>Fully agnostic buyer comparisons</td>
+                        <td><span class="check-x">×</span></td>
+                        <td><span class="check-mark">✓</span></td>
+                    </tr>
+                    
+                    <tr>
+                        <td>Custom tracking lists</td>
+                        <td>Limited - Varies by provider</td>
+                        <td><span class="check-mark">✓</span> + Auto-Add SKUs</td>
+                    </tr>
+                    <tr>
+                        <td>Personalized alerts</td>
+                        <td>Limited - Varies by provider</td>
+                        <td><span class="check-mark">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td>Automatically find and track new SKUs</td>
+                        <td><span class="check-x">×</span></td>
+                        <td><span class="check-mark">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td>Profit & margin tools</td>
+                        <td><span class="check-x">×</span></td>
+                        <td><span class="check-mark">✓</span> Built-in</td>
+                    </tr>
+                    <tr>
+                        <td>Google Maps deep links + automatic route generation</td>
+                        <td><span class="check-x">×</span></td>
+                        <td><span class="check-mark">✓</span> One-click routes</td>
+                    </tr>
+                    <tr>
+                        <td>Live "in-stock now" feed</td>
+                        <td>Limited - Varies by provider</td>
+                        <td><span class="check-mark">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td>Spot price alerts</td>
+                        <td><span class="check-x">×</span></td>
+                        <td><span class="check-mark">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td>Gold market news</td>
+                        <td><span class="check-x">×</span></td>
+                        <td><span class="check-mark">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td>Ongoing upgrades, new tools, and nonstop improvements</td>
+                        <td><span class="check-x">?</span></td>
+                        <td><span class="check-mark">✓</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+    
+    <!-- HOW IT WORKS -->
+    <section id="howitworks" class="how-section">
+        <h2 class="section-title">How It Works</h2>
+        <div class="how-grid">
+            <div class="how-step">
+                <div class="how-icon">📝</div>
+                <h3><span class="how-num">1.</span> Choose Your Plan</h3>
+                <p>Get instant access in under 2 minutes</p>
+            </div>
+            <div class="how-step">
+                <div class="how-icon">🔗</div>
+                <h3><span class="how-num">2.</span> Join Slack & Set Preferences</h3>
+                <p>No technical setup required</p>
+            </div>
+            <div class="how-step">
+                <div class="how-icon">📈</div>
+                <h3><span class="how-num">3.</span> Track & Profit</h3>
+                <p>Start receiving alerts, check local inventory, and use our tools to maximize your buying power.</p>
+            </div>
+        </div>
+    </section>
+    
     <script async src="https://js.stripe.com/v3/pricing-table.js"></script>
-    <stripe-pricing-table pricing-table-id="prctbl_1S2e8FE1XDLOIuqqAjyOtydd"
-    publishable-key="pk_live_51HncgsE1XDLOIuqqabD9TVn7RK6GJli4vCK2WEiXa7OWdvu2HlYWyJt4DTsQ1kngNjG1ByXmfhNj3ly0allIVQ6n00pCUN4gFF">
-    </stripe-pricing-table>
+    <div id="pricing">
+        <stripe-pricing-table pricing-table-id="prctbl_1S2e8FE1XDLOIuqqAjyOtydd"
+        publishable-key="pk_live_51HncgsE1XDLOIuqqabD9TVn7RK6GJli4vCK2WEiXa7OWdvu2HlYWyJt4DTsQ1kngNjG1ByXmfhNj3ly0allIVQ6n00pCUN4gFF">
+        </stripe-pricing-table>
+    </div>
+    
+    <!-- RESULTS SECTION -->
+    <section class="results-section">
+        <h2 class="section-title">Results From Our Users</h2>
+        <div class="results-grid">
+            <div class="result-card">
+                <strong>50%</strong>
+                <p>of users buy $50,000+ in gold monthly*</p>
+            </div>
+            <div class="result-card">
+                <strong>60%</strong>
+                <p>say the tools drive over half their purchases*</p>
+            </div>
+            <div class="result-card">
+                <strong>31%</strong>
+                <p>attribute 76%+ of their purchases to bot signals*</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="testimonials" class="testimonials-section">
+        <h2 class="section-title">What Our Users Say</h2>
+        <div class="carousel">
+            <div class="testimonial active">
+                <p>"For the longest time I didn't get how people were making a profit with gold reselling. I nearly gave up on it until I found this bot — super easy to use and helped me streamline and scale up my process."</p>
+                <span>- Subscriber</span>
+            </div>
+            <div class="testimonial">
+                <p>"Both the in-store and online notifications have saved me TONS of time and effort. My volume — and profit — post subscription has increased by unfathomable magnitudes."</p>
+                <span>- Long-time User</span>
+            </div>
+            <div class="testimonial">
+                <p>"It's a critical tool for anyone buying gold at scale. You should price it higher — it's that valuable."</p>
+                <span>- Gold Buyer</span>
+            </div>
+            <div class="testimonial">
+                <p>"Simple, no-frills tool that clearly gives me the information I need to spend the minimum amount of time gathering data and making decisions."</p>
+                <span>- Slack User</span>
+            </div>
+            <div class="testimonial">
+                <p>"My Swiss Army knife for gold purchases. Total game changer."</p>
+                <span>- Power User</span>
+            </div>
+            <button class="carousel-arrow left-arrow">❮</button>
+            <button class="carousel-arrow right-arrow">❯</button>
+        </div>
+    </section>
+    
+    <!-- FAQ -->
+    <section id="faq" class="faq-section">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <div class="faq-item">
+            <button class="faq-question">Does Gold Restock Bot auto-checkout?</button>
+            <div class="faq-answer"><p>No. Gold Restock Bot is an advanced tracking and analytics suite — not an automated purchasing bot.</p></div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question">Do I need to install anything?</button>
+            <div class="faq-answer"><p>No installation needed. Everything runs directly through Slack and the Gold Restock Bot platform.</p></div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question">What makes Gold Restock Bot more accurate?</button>
+            <div class="faq-answer"><p>Our online monitor pulls directly from Costco's live inventory feed, not cached public endpoints.</p></div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question">Can I cancel anytime?</button>
+            <div class="faq-answer"><p>Yes — your Stripe dashboard lets you cancel with a single click.</p></div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question">What is "agnostic" pricing?</button>
+            <div class="faq-answer"><p>We show all buyer payouts with zero bias. You decide who makes sense for you.</p></div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question">How is this different from just checking Costco.com myself?</button>
+            <div class="faq-answer"><p>Manual checking or calling warehouses mean you're always behind. Our system monitors every 45 seconds and alerts you within seconds of a restock — 
+                giving you several minutes head start over people checking manually.</p></div>
+        </div>
+    </section>
     
     <footer class="footer">
         <div class="footer-content">
@@ -90,7 +1297,63 @@
             <div class="footer-text">
                 &copy; 2025 Tremscol LLC. All rights reserved.
             </div>
+            <p class="footer-disclaimer">
+                Disclaimer: This service is an independent third-party product and is not affiliated with, endorsed by, or sponsored by Costco.
+            </p>
+            <p class="footer-disclaimer">
+                Costco® is a registered trademark of Costco Wholesale Corporation. All product names, logos, and brands are property of their respective owners.
+            </p>
         </div>
     </footer>
+
+    <div id="imgModal" class="image-modal">
+        <img id="modalImg" src="" alt="Expanded Image">
+    </div>
+    
+    <script>
+        let index = 0;
+        const testimonials = document.querySelectorAll('.testimonial');
+        setInterval(() => {
+            testimonials[index].classList.remove('active');
+            index = (index + 1) % testimonials.length;
+            testimonials[index].classList.add('active');
+        }, 4500);
+    </script>
+    <script>
+    const leftArrow = document.querySelector('.left-arrow');
+    const rightArrow = document.querySelector('.right-arrow');
+
+    function showTestimonial(i) {
+        testimonials[index].classList.remove('active');
+        index = (i + testimonials.length) % testimonials.length;
+        testimonials[index].classList.add('active');
+    }
+
+    leftArrow.addEventListener('click', () => showTestimonial(index - 1));
+    rightArrow.addEventListener('click', () => showTestimonial(index + 1));
+    </script>
+    <script>
+    document.querySelectorAll('.faq-question').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const faqItem = btn.closest('.faq-item');
+            faqItem.classList.toggle('active');
+        });
+    });
+    </script>
+    <script>
+    document.querySelectorAll('.feature-img').forEach(img => {
+        img.addEventListener('dblclick', () => {
+            const modal = document.getElementById('imgModal');
+            const modalImg = document.getElementById('modalImg');
+            modalImg.src = img.src;
+            modal.style.display = 'flex';
+        });
+    });
+
+    document.getElementById('imgModal').addEventListener('click', () => {
+        document.getElementById('imgModal').style.display = 'none';
+    });
+    </script>
 </body>
 </html>
+
