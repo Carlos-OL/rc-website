@@ -406,10 +406,22 @@
         
         .diff-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            grid-template-columns: repeat(4, 1fr);
             gap: 2rem;
-            max-width: 1100px;
+            max-width: 1400px;
             margin: 0 auto;
+        }
+        
+        @media (max-width: 1200px) {
+            .diff-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .diff-grid {
+                grid-template-columns: 1fr;
+            }
         }
         
         .diff-card {
@@ -1085,6 +1097,17 @@
                 <h3>Security & Reliability</h3>
                 <p>Built on trusted, industry‑standard platforms. All billing is handled securely through Stripe, and all access is managed through Slack authentication — so we never store your payment information or login credentials.</p>
             </div>
+
+            <div class="diff-card">
+                <h3>Proven Track Record</h3>
+                <p>Nearly 2 years of consistent operation, delivering thousands of alerts monthly to users who 
+                    collectively buy millions in gold — with survey-verified results in time saved and profit earned.</p>
+            </div>
+
+            <div class="diff-card">
+                <h3>Earn Free Months</h3>
+                <p>Refer friends and earn free months. Sharing the advantage, reduces your costs.</p>
+            </div>
         </div>
     </section>
     
@@ -1110,7 +1133,12 @@
                     <tr>
                         <td>In-store inventory checker</td>
                         <td>Limited - Varies by provider</td>
-                        <td><span class="check-mark">✓</span> 2-4 daily queries, up to 100m radius</td>
+                        <td><span class="check-mark">✓</span> 2-4 daily queries, up to 100m radius, any zipcode nationwide</td>
+                    </tr>
+                    <tr>
+                        <td>Search local inventory for any SKU</td>
+                        <td><span class="check-x">×</span></td>
+                        <td><span class="check-mark">✓</span> Any SKU sold on Costco.com</td>
                     </tr>
                     <tr>
                         <td>Free daily in-store notifications</td>
@@ -1165,6 +1193,11 @@
                     </tr>
                     <tr>
                         <td>Gold market news</td>
+                        <td><span class="check-x">×</span></td>
+                        <td><span class="check-mark">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td>Referral program</td>
                         <td><span class="check-x">×</span></td>
                         <td><span class="check-mark">✓</span></td>
                     </tr>
