@@ -5,17 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Terms & Conditions - Restock Bot Alerts</title>
     <style>
+        /* ===== GLOBAL COLOR THEME ===== */
+        /* IMPORTANT: Only ONE :root block should be uncommented at a time.
+           The last uncommented :root block will override all previous ones. */
+        
+        /* Theme 1: Slate + Gold */
+        /* :root {
+            --bg-main: #1e293b;
+            --bg-card: #0f172a;
+            --text-main: #e2e8f0;
+            --text-muted: #cbd5e1;
+            --text-gold: #facc15;
+            --border-gold: rgba(250, 204, 21, 0.22);
+        } */
+
+        /* Theme 2: Dark + Teal */
+        /* :root {
+            --bg-main: #1b1b1d;
+            --bg-card: #161616;
+            --text-main: #e5e5e5;
+            --text-muted: #a8a8a8;
+            --text-gold: #2ee6b8;
+            --border-gold: rgba(46, 230, 184, 0.25);
+        } */
+
+        /* Theme 4: Dark + Orange */
+        :root {
+            --bg-main: #1b1b1d;
+            --bg-card: #262628;
+            --text-main: #f0f0f0;
+            --text-muted: #c8c8c8;
+            --text-gold: #ff8a3d;
+            --border-gold: rgba(255, 138, 61, 0.25);
+        }
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
         
+        html {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+        }
+        
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
-            color: #e2e8f0;
-            background-color: #334155;
+            color: var(--text-main);
+            background-color: var(--bg-main);
             min-height: 100vh;
         }
         
@@ -31,59 +70,61 @@
         }
         
         .header h1 {
-            color: #f1f5f9;
+            color: var(--text-main);
             font-size: 2.5rem;
             margin-bottom: 0.5rem;
             text-shadow: 0 2px 4px rgba(0,0,0,0.5);
         }
         
         .header p {
-            color: #cbd5e1;
+            color: var(--text-muted);
             font-size: 1.1rem;
         }
         
         .back-link {
             display: inline-block;
-            color: #f1f5f9;
+            color: var(--text-main);
             text-decoration: none;
             margin-bottom: 2rem;
             padding: 0.5rem 1rem;
-            background: rgba(51, 65, 85, 0.5);
+            background: var(--bg-card);
             border-radius: 8px;
             transition: background 0.3s ease;
+            border: 1px solid var(--border-gold);
         }
         
         .back-link:hover {
-            background: rgba(51, 65, 85, 0.8);
+            background: var(--bg-card);
+            border-color: var(--text-gold);
         }
         
         .terms-content {
-            background: #2d3748;
+            background: var(--bg-card);
             border-radius: 15px;
             padding: 3rem;
             box-shadow: 0 20px 40px rgba(0,0,0,0.3);
             margin-bottom: 2rem;
-            border: 1px solid #4a5568;
+            border: 1px solid var(--border-gold);
         }
         
         .terms-content h1 {
-            color: #f1f5f9;
+            color: var(--text-main);
             font-size: 2rem;
             margin-bottom: 1rem;
-            border-bottom: 3px solid #0074d4;
+            border-bottom: 3px solid var(--text-gold);
             padding-bottom: 0.5rem;
         }
         
         .terms-content h2 {
-            color: #e2e8f0;
+            color: var(--text-main);
             font-size: 1.4rem;
             margin: 2rem 0 1rem 0;
             padding-left: 1rem;
-            border-left: 4px solid #0074d4;
+            border-left: 4px solid var(--text-gold);
         }
         
         .terms-content h3 {
-            color: #cbd5e1;
+            color: var(--text-muted);
             font-size: 1.2rem;
             margin: 1.5rem 0 0.5rem 0;
         }
@@ -102,22 +143,22 @@
         }
         
         .terms-content strong {
-            color: #f1f5f9;
+            color: var(--text-main);
         }
         
         .last-updated {
             font-style: italic;
-            color: #94a3b8;
+            color: var(--text-muted);
             text-align: center;
             margin-bottom: 2rem;
         }
         
         .table-of-contents {
-            background: #2d3748;
+            background: var(--bg-card);
             border-radius: 8px;
             padding: 1.5rem;
             margin: 2rem 0;
-            border: 1px solid #4a5568;
+            border: 1px solid var(--border-gold);
         }
         
         .table-of-contents h2 {
@@ -135,27 +176,27 @@
         }
         
         .table-of-contents a {
-            color: #0074d4;
+            color: var(--text-gold);
             text-decoration: none;
         }
         
         .table-of-contents a:hover {
             text-decoration: underline;
-            color: #0ea5e9;
+            color: var(--text-gold);
         }
         
         hr {
             border: none;
             height: 2px;
-            background: linear-gradient(90deg, transparent, #0074d4, transparent);
+            background: linear-gradient(90deg, transparent, var(--text-gold), transparent);
             margin: 2rem 0;
         }
         
         .footer {
-            background: #334155;
+            background: var(--bg-main);
             padding: 2rem 1rem;
             text-align: center;
-            border-top: 1px solid #4a5568;
+            border-top: 1px solid var(--border-gold);
             margin-top: 2rem;
         }
         
@@ -169,7 +210,7 @@
         }
         
         .footer-links a {
-            color: #0074d4;
+            color: var(--text-gold);
             text-decoration: none;
             margin: 0 1rem;
             padding: 0.5rem 1rem;
@@ -179,19 +220,19 @@
         }
         
         .footer-links a:hover {
-            color: #0ea5e9;
-            background-color: rgba(74, 85, 104, 0.3);
+            color: var(--text-gold);
+            background-color: var(--bg-card);
             text-decoration: underline;
         }
         
         .footer-text {
-            color: #64748b;
+            color: var(--text-muted);
             font-size: 0.9rem;
             margin-top: 1rem;
         }
         
         .divider {
-            color: #4a5568;
+            color: var(--text-muted);
             margin: 0 0.5rem;
         }
         
