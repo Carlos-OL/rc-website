@@ -1459,11 +1459,9 @@
                 // Check if referral ID is available
                 if (window.promotekit_referral) {
                     clearInterval(initReferral);
-                    console.log("PromoteKit loaded:", window.promotekit_referral);
                     applyReferralId(window.promotekit_referral);
                 } else if (attempts >= maxAttempts) {
                     clearInterval(initReferral);
-                    console.log("PromoteKit did not initialize within 10 seconds");
                 }
             }, 500);
 
