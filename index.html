@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tremscol – Costco Gold Command Center</title>
+    <script async src="https://cdn.promotekit.com/promotekit.js"
+        data-promotekit="6e339f87-dcc5-474f-b751-b204f36dc867"></script>
     <style>
         /* ===== GLOBAL COLOR THEME ===== */
         /* IMPORTANT: Only ONE :root block should be uncommented at a time.
@@ -1445,28 +1447,46 @@
             document.getElementById('imgModal').style.display = 'none';
         });
     </script>
-    <script async src="https://cdn.promotekit.com/promotekit.js"
-        data-promotekit="6e339f87-dcc5-474f-b751-b204f36dc867"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            setTimeout(function () {
+            // Polling mechanism to wait for PromoteKit to initialize
+            let attempts = 0;
+            const maxAttempts = 20; // Try for 10 seconds (20 * 500ms)
+
+            const initReferral = setInterval(function () {
+                attempts++;
+
+                // Check if referral ID is available
+                if (window.promotekit_referral) {
+                    clearInterval(initReferral);
+                    console.log("PromoteKit loaded:", window.promotekit_referral);
+                    applyReferralId(window.promotekit_referral);
+                } else if (attempts >= maxAttempts) {
+                    clearInterval(initReferral);
+                    console.log("PromoteKit did not initialize within 10 seconds");
+                }
+            }, 500);
+
+            function applyReferralId(referralId) {
+                // Update Stripe links
                 document.querySelectorAll('a[href^="https://buy.stripe.com/"]').forEach(function (link) {
                     const oldBuyUrl = link.getAttribute("href");
-                    const referralId = window.promotekit_referral;
                     if (!oldBuyUrl.includes("client_reference_id")) {
                         const newBuyUrl = oldBuyUrl + "?client_reference_id=" + referralId;
                         link.setAttribute("href", newBuyUrl);
                     }
                 });
 
+                // Update Pricing Tables
                 document.querySelectorAll("[pricing-table-id]").forEach(function (element) {
-                    element.setAttribute("client-reference-id", window.promotekit_referral);
+                    element.setAttribute("client-reference-id", referralId);
                 });
 
+                // Update Buy Buttons
                 document.querySelectorAll("[buy-button-id]").forEach(function (element) {
-                    element.setAttribute("client-reference-id", window.promotekit_referral);
+                    element.setAttribute("client-reference-id", referralId);
                 });
-            }, 1500);
+            }
         });
     </script>
 </body>
