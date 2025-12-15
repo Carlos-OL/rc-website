@@ -1,0 +1,35 @@
+/* ===== GLOBAL COLOR THEME ===== */
+/* Change colors here to update all pages at once */
+
+/* Theme Options (uncomment ONE):
+   
+   Theme 1: Slate + Gold
+   --text-gold: #facc15;
+   --border-gold: rgba(250, 204, 21, 0.22);
+   
+   Theme 2: Dark + Teal
+   --text-gold: #2ee6b8;
+   --border-gold: rgba(46, 230, 184, 0.25);
+   
+   Theme 3: Dark + Cyan (Current)
+   --text-gold: #10e9df;
+   --border-gold: rgba(255, 138, 61, 0.25);
+   
+   Theme 4: Dark + Orange
+   --text-gold: #ff8a3d;
+   --border-gold: rgba(255, 138, 61, 0.25);
+*/
+
+:root {
+    /* Background Colors */
+    --bg-main: #1b1b1d;
+    --bg-card: #262628;
+
+    /* Text Colors */
+    --text-main: #f0f0f0;
+    --text-muted: #c8c8c8;
+
+    /* Accent Color (change this to switch themes) */
+    --text-gold: #10e9df;
+    --border-gold: rgba(255, 138, 61, 0.25);
+}
