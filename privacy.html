@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +9,7 @@
         /* ===== GLOBAL COLOR THEME ===== */
         /* IMPORTANT: Only ONE :root block should be uncommented at a time.
            The last uncommented :root block will override all previous ones. */
-        
+
         /* Theme 1: Slate + Gold */
         /* :root {
             --bg-main: #1e293b;
@@ -38,18 +39,18 @@
             --text-gold: #ff8a3d;
             --border-gold: rgba(255, 138, 61, 0.25);
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         html {
             background-color: var(--bg-main);
             color: var(--text-main);
         }
-        
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
@@ -57,13 +58,13 @@
             background-color: var(--bg-main);
             min-height: 100vh;
         }
-        
+
         .container {
             max-width: 800px;
             margin: 0 auto;
             padding: 2rem;
         }
-        
+
         .back-link {
             display: inline-block;
             color: var(--text-main);
@@ -75,21 +76,21 @@
             transition: background 0.3s ease;
             border: 1px solid var(--border-gold);
         }
-        
+
         .back-link:hover {
             background: var(--bg-card);
             border-color: var(--text-gold);
         }
-        
+
         .privacy-content {
             background: var(--bg-card);
             border-radius: 15px;
             padding: 3rem;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
             margin-bottom: 2rem;
             border: 1px solid var(--border-gold);
         }
-        
+
         .privacy-content h1 {
             color: var(--text-main);
             font-size: 2rem;
@@ -97,7 +98,7 @@
             border-bottom: 3px solid var(--text-gold);
             padding-bottom: 0.5rem;
         }
-        
+
         .privacy-content h2 {
             color: var(--text-main);
             font-size: 1.4rem;
@@ -105,37 +106,37 @@
             padding-left: 1rem;
             border-left: 4px solid var(--text-gold);
         }
-        
+
         .privacy-content h3 {
             color: var(--text-muted);
             font-size: 1.2rem;
             margin: 1.5rem 0 0.5rem 0;
         }
-        
+
         .privacy-content p {
             margin-bottom: 1rem;
             text-align: justify;
         }
-        
+
         .privacy-content ul {
             margin: 1rem 0 1rem 2rem;
         }
-        
+
         .privacy-content li {
             margin-bottom: 0.5rem;
         }
-        
+
         .privacy-content strong {
             color: var(--text-main);
         }
-        
+
         .last-updated {
             font-style: italic;
             color: var(--text-muted);
             text-align: center;
             margin-bottom: 2rem;
         }
-        
+
         .table-of-contents {
             background: var(--bg-card);
             border-radius: 8px;
@@ -143,38 +144,38 @@
             margin: 2rem 0;
             border: 1px solid var(--border-gold);
         }
-        
+
         .table-of-contents h2 {
             border: none;
             padding: 0;
             margin-bottom: 1rem;
         }
-        
+
         .table-of-contents ol {
             margin-left: 1.5rem;
         }
-        
+
         .table-of-contents li {
             margin-bottom: 0.3rem;
         }
-        
+
         .table-of-contents a {
             color: var(--text-gold);
             text-decoration: none;
         }
-        
+
         .table-of-contents a:hover {
             text-decoration: underline;
             color: var(--text-gold);
         }
-        
+
         hr {
             border: none;
             height: 2px;
             background: linear-gradient(90deg, transparent, var(--text-gold), transparent);
             margin: 2rem 0;
         }
-        
+
         .footer {
             background: var(--bg-main);
             padding: 2rem 1rem;
@@ -182,16 +183,16 @@
             border-top: 1px solid var(--border-gold);
             margin-top: 2rem;
         }
-        
+
         .footer-content {
             max-width: 800px;
             margin: 0 auto;
         }
-        
+
         .footer-links {
             margin-bottom: 1rem;
         }
-        
+
         .footer-links a {
             color: var(--text-gold);
             text-decoration: none;
@@ -201,54 +202,57 @@
             transition: all 0.3s ease;
             display: inline-block;
         }
-        
+
         .footer-links a:hover {
             color: var(--text-gold);
             background-color: var(--bg-card);
             text-decoration: underline;
         }
-        
+
         .footer-text {
             color: var(--text-muted);
             font-size: 0.9rem;
             margin-top: 1rem;
         }
-        
+
         .divider {
             color: var(--text-muted);
             margin: 0 0.5rem;
         }
-        
+
         @media (max-width: 768px) {
             .container {
                 padding: 1rem;
             }
-            
+
             .privacy-content {
                 padding: 1.5rem;
             }
-            
+
             .footer-links a {
                 display: block;
                 margin: 0.5rem 0;
             }
-            
+
             .divider {
                 display: none;
             }
         }
     </style>
 </head>
+
 <body>
-    <div class="container">        
+    <div class="container">
         <a href="/" class="back-link">← Back to Home</a>
-        
+
         <div class="privacy-content">
             <h1>Privacy Policy</h1>
-            <p class="last-updated"><strong>Last Updated: September 22nd, 2025</strong></p>
-            
-            <p>At Tremscol LLC, we take your privacy seriously. This Privacy Policy describes how we collect, use, store, and protect your personal information when you use our Slack-based alert and tracking services (the "Service").</p>
-            
+            <p class="last-updated"><strong>Last Updated: December 14th, 2025</strong></p>
+
+            <p>At Tremscol LLC, we take your privacy seriously. This Privacy Policy describes how we collect, use,
+                store, and protect your personal information when you use our Slack-based alert and tracking services
+                (the "Service").</p>
+
             <div class="table-of-contents">
                 <h2>Contents</h2>
                 <ol>
@@ -260,6 +264,7 @@
                     <li><a href="#privacy-rights">Your Privacy Rights</a></li>
                     <li><a href="#california-rights">California Privacy Rights (CCPA)</a></li>
                     <li><a href="#slack-integration">Slack Integration</a></li>
+                    <li><a href="#orders-dashboard">Orders Dashboard</a></li>
                     <li><a href="#communications">Communications</a></li>
                     <li><a href="#childrens-privacy">Children's Privacy</a></li>
                     <li><a href="#international-transfers">International Data Transfers</a></li>
@@ -271,7 +276,7 @@
             <hr>
 
             <h2 id="information-we-collect">1. Information We Collect</h2>
-            
+
             <h3>Information You Provide to Us</h3>
             <ul>
                 <li><strong>Email address</strong> for account creation and billing</li>
@@ -279,8 +284,10 @@
                 <li><strong>Subscription preferences</strong> and service configuration settings</li>
                 <li><strong>Geographic data</strong> (ZIP codes) for in-store inventory checking</li>
                 <li><strong>Support communications</strong> when you contact us for assistance</li>
+                <li><strong>Costco order data</strong> for precious metals purchases when using the Orders Dashboard
+                    (see Section 9)</li>
             </ul>
-            
+
             <h3>Information We Collect Automatically</h3>
             <ul>
                 <li><strong>Usage data</strong> including which features you use and how often</li>
@@ -288,7 +295,7 @@
                 <li><strong>Service performance data</strong> to monitor system reliability and uptime</li>
                 <li><strong>Query history</strong> for in-store inventory searches and alert preferences</li>
             </ul>
-            
+
             <h3>Information from Third Parties</h3>
             <ul>
                 <li><strong>Slack profile information</strong> when you join our workspace</li>
@@ -300,9 +307,11 @@
             <h2 id="how-we-use">2. How We Use Your Information</h2>
             <p>We use your personal information to:</p>
             <ul>
-                <li><strong>Provide our services</strong> including restock alerts, inventory checking, and market data</li>
+                <li><strong>Provide our services</strong> including restock alerts, inventory checking, and market data
+                </li>
                 <li><strong>Process payments</strong> and manage your subscription</li>
-                <li><strong>Send notifications</strong> via Slack messages and email as configured in your preferences</li>
+                <li><strong>Send notifications</strong> via Slack messages and email as configured in your preferences
+                </li>
                 <li><strong>Improve our services</strong> through usage analytics and performance monitoring</li>
                 <li><strong>Provide customer support</strong> and respond to your inquiries</li>
                 <li><strong>Ensure service security</strong> and prevent fraud or abuse</li>
@@ -313,22 +322,24 @@
             <hr>
 
             <h2 id="information-sharing">3. Information Sharing and Third Parties</h2>
-            
+
             <h3>Third-Party Services We Use</h3>
             <ul>
                 <li><strong>Stripe</strong> for payment processing and subscription management</li>
                 <li><strong>Slack</strong> for delivering alerts and managing our community workspace</li>
                 <li><strong>Cloud hosting providers</strong> for secure data storage and service delivery</li>
             </ul>
-            
+
             <h3>When We Share Information</h3>
             <ul>
-                <li><strong>Service providers</strong> who help us operate the Service under strict confidentiality agreements</li>
+                <li><strong>Service providers</strong> who help us operate the Service under strict confidentiality
+                    agreements</li>
                 <li><strong>Legal compliance</strong> when required by law, court order, or regulatory authorities</li>
                 <li><strong>Business transfers</strong> in the event of a merger, acquisition, or sale of assets</li>
-                <li><strong>Safety and security</strong> to protect the rights and safety of our users and the public</li>
+                <li><strong>Safety and security</strong> to protect the rights and safety of our users and the public
+                </li>
             </ul>
-            
+
             <h3>What We Don't Do</h3>
             <ul>
                 <li><strong>We do not sell</strong> your personal information to third parties</li>
@@ -339,27 +350,37 @@
             <hr>
 
             <h2 id="data-security">4. Data Security</h2>
-            <p>We rely on reputable third-party services to protect your information. While we choose trusted service providers with strong security practices, we cannot guarantee absolute security. Each service provider maintains their own security standards and incident response procedures.</p>
+            <p>We rely on reputable third-party services to protect your information. While we choose trusted service
+                providers with strong security practices, we cannot guarantee absolute security. Each service provider
+                maintains their own security standards and incident response procedures.</p>
 
             <hr>
 
             <h2 id="data-retention">5. Data Retention</h2>
-            <p>We retain your personal information only as long as necessary for the purposes outlined in this policy:</p>
+            <p>We retain your personal information only as long as necessary for the purposes outlined in this policy:
+            </p>
             <ul>
                 <li><strong>Active subscriptions</strong>: Data is retained for the duration of your subscription</li>
-                <li><strong>Canceled accounts</strong>: Users are removed from Slack workspace immediately; other data may be retained for business purposes unless deletion is specifically requested</li>
-                <li><strong>Legal requirements</strong>: Some data may be retained longer to comply with legal obligations</li>
-                <li><strong>Support records</strong>: Communications may be kept for up to 2 years for service improvement</li>
-                <li><strong>Payment records</strong>: Retained in our payment processor for business, legal, and fraud prevention purposes</li>
+                <li><strong>Canceled accounts</strong>: Users are removed from Slack workspace immediately; other data
+                    may be retained for business purposes unless deletion is specifically requested</li>
+                <li><strong>Legal requirements</strong>: Some data may be retained longer to comply with legal
+                    obligations</li>
+                <li><strong>Support records</strong>: Communications may be kept for up to 2 years for service
+                    improvement</li>
+                <li><strong>Payment records</strong>: Retained in our payment processor for business, legal, and fraud
+                    prevention purposes</li>
+                <li><strong>Orders Dashboard data</strong>: See Section 9 for specific retention policies</li>
             </ul>
-            <p>You may request deletion of your personal information at any time by contacting us, subject to certain legal and business limitations.</p>
+            <p>You may request deletion of your personal information at any time by contacting us, subject to certain
+                legal and business limitations.</p>
 
             <hr>
 
             <h2 id="privacy-rights">6. Your Privacy Rights</h2>
             <p>You have the right to:</p>
             <ul>
-                <li><strong>Access</strong> your personal information and obtain a copy of the data we hold about you</li>
+                <li><strong>Access</strong> your personal information and obtain a copy of the data we hold about you
+                </li>
                 <li><strong>Correct</strong> any inaccurate or incomplete personal information</li>
                 <li><strong>Delete</strong> your personal information, subject to certain limitations</li>
                 <li><strong>Restrict</strong> the processing of your personal information in certain circumstances</li>
@@ -372,11 +393,13 @@
             <hr>
 
             <h2 id="california-rights">7. California Privacy Rights (CCPA)</h2>
-            <p>If you are a California resident, you have additional rights under the California Consumer Privacy Act:</p>
+            <p>If you are a California resident, you have additional rights under the California Consumer Privacy Act:
+            </p>
             <ul>
                 <li><strong>Right to know</strong> what personal information we collect, use, and share</li>
                 <li><strong>Right to delete</strong> your personal information, subject to certain exceptions</li>
-                <li><strong>Right to opt-out</strong> of the sale of personal information (we do not sell personal information)</li>
+                <li><strong>Right to opt-out</strong> of the sale of personal information (we do not sell personal
+                    information)</li>
                 <li><strong>Right to non-discrimination</strong> for exercising your privacy rights</li>
             </ul>
             <p>To exercise these rights, email us at support@tremscol.com with your request.</p>
@@ -395,60 +418,115 @@
 
             <hr>
 
-            <h2 id="communications">9. Communications</h2>
+            <h2 id="orders-dashboard">9. Orders Dashboard</h2>
+            <p>The Orders Dashboard feature allows you to export and visualize your Costco precious metals purchase
+                history. This section explains how data is handled when you use this feature.</p>
+
+            <h3>How the Export Script Works</h3>
+            <p>The export script runs locally in your browser and applies keyword filtering to identify precious metals
+                purchases only. Orders that don't match are never transmitted to our servers. Even within a single
+                order, only precious metals line items are exported—other items in the same transaction are filtered out
+                locally.</p>
+
+            <h3>Data We Collect Through the Dashboard</h3>
+            <p>For qualifying orders, we collect:</p>
+            <ul>
+                <li><strong>Order details</strong>: date, time, item description, SKU, quantity, and price</li>
+                <li><strong>Order type</strong>: whether the purchase was made online or in-store</li>
+                <li><strong>Membership email</strong>: to help you identify which Costco membership the order belongs to
+                </li>
+                <li><strong>Payment method</strong>: last four digits and card type (Visa, Mastercard, etc.) to help you
+                    track rewards across cards</li>
+            </ul>
+            <p>We do not collect your Costco password or shipping address through this feature.</p>
+
+            <h3>How Your Dashboard Data is Secured</h3>
+            <p>Your exported order data is stored in a secure database with row-level security, meaning only you can
+                access your data through the dashboard. Your unique identifier links you to your data, which is why it
+                is important to keep it private. As the service operator, we have backend access for troubleshooting and
+                support purposes only.</p>
+
+            <h3>Dashboard Data Retention</h3>
+            <p>Your order data remains in the system while you are an active subscriber. If you cancel your
+                subscription, your identifiable information will be automatically purged within 30 days. Anonymized,
+                aggregate data (such as purchase volumes and dates with no link to your identity) may be retained for
+                service improvement purposes.</p>
+            <p>If you want your identifiable information deleted at any time, contact support@tremscol.com and it will
+                be handled within 7 business days.</p>
+
+            <h3>Exporting Your Data</h3>
+            <p>Gold tier members can export their full order history as a CSV directly from the dashboard. Silver tier
+                members can request a data export by emailing support@tremscol.com—requests are fulfilled within 7
+                business days.</p>
+
+            <h3>Your Control</h3>
+            <p>You can stop using the export script at any time without affecting your other Gold Restock Bot features,
+                request a full export of your stored data, and request deletion of your identifiable information at any
+                time (this will disable dashboard features).</p>
+
+            <hr>
+
+            <h2 id="communications">10. Communications</h2>
             <p>By using our Service, you consent to receive:</p>
             <ul>
                 <li><strong>Service alerts</strong> via Slack based on your configured preferences</li>
-                <li><strong>Account notifications</strong> via email for billing, subscription changes, and important updates</li>
+                <li><strong>Account notifications</strong> via email for billing, subscription changes, and important
+                    updates</li>
                 <li><strong>Service announcements</strong> about new features, maintenance, or significant changes</li>
             </ul>
             <p>You can:</p>
             <ul>
                 <li><strong>Manage Slack notifications</strong> through your Slack settings and our bot commands</li>
-                <li><strong>Unsubscribe from emails</strong> using the unsubscribe link in our messages</li>
                 <li><strong>Cancel your subscription</strong> at any time through your customer portal</li>
             </ul>
 
             <hr>
 
-            <h2 id="childrens-privacy">10. Children's Privacy</h2>
-            <p>We do not knowingly collect personal information from minors under 18. If you believe we have collected information from someone under 18, please contact us immediately and we will delete it promptly.</p>
+            <h2 id="childrens-privacy">11. Children's Privacy</h2>
+            <p>We do not knowingly collect personal information from minors under 18. If you believe we have collected
+                information from someone under 18, please contact us immediately and we will delete it promptly.</p>
 
             <hr>
 
-            <h2 id="international-transfers">11. International Data Transfers</h2>
-            <p>Your information may be transferred to and processed in the United States and other countries where our service providers operate. By using our Service, you consent to such transfers, and we rely on our service providers to protect your data in accordance with applicable laws.</p>
+            <h2 id="international-transfers">12. International Data Transfers</h2>
+            <p>Your information may be transferred to and processed in the United States and other countries where our
+                service providers operate. By using our Service, you consent to such transfers. We ensure that
+                appropriate safeguards are in place to protect your information in accordance with this Privacy Policy
+                and applicable laws.</p>
 
             <hr>
 
-            <h2 id="changes-policy">12. Changes to This Policy</h2>
-            <p>We may update this Privacy Policy from time to time to reflect changes in our practices or applicable laws. We will notify you of material changes by:</p>
+            <h2 id="changes-policy">13. Changes to This Policy</h2>
+            <p>We may update this Privacy Policy from time to time to reflect changes in our practices or applicable
+                laws. We will notify you of material changes by:</p>
             <ul>
                 <li><strong>Posting the updated policy</strong> on our website</li>
                 <li><strong>Updating the "Last Updated" date</strong> at the top of this policy</li>
                 <li><strong>Sending email notifications</strong> for significant changes that affect your rights</li>
                 <li><strong>Slack announcements</strong> for service-related privacy updates</li>
             </ul>
-            <p>Your continued use of the Service after changes become effective constitutes your acceptance of the updated policy.</p>
+            <p>Your continued use of the Service after changes become effective constitutes your acceptance of the
+                updated policy.</p>
 
             <hr>
 
-            <h2 id="contact-us">13. Contact Us</h2>
+            <h2 id="contact-us">14. Contact Us</h2>
             <p>If you have questions about this Privacy Policy or our privacy practices, please contact us:</p>
             <ul>
                 <li><strong>Email</strong>: support@tremscol.com</li>
                 <li><strong>Slack</strong>: DM the admin in our workspace</li>
             </ul>
             <p>For privacy-specific inquiries, please include "Privacy Policy" in your subject line.</p>
-            
+
             <hr>
-            
+
             <p style="font-style: italic; text-align: center; color: var(--text-muted); margin-top: 2rem;">
-                This Privacy Policy is designed to comply with applicable privacy laws including the GDPR, CCPA, and other relevant regulations. It was last reviewed and updated on September 22nd, 2025.
+                This Privacy Policy is designed to comply with applicable privacy laws including the GDPR, CCPA, and
+                other relevant regulations. It was last reviewed and updated on December 14th, 2025.
             </p>
         </div>
     </div>
-    
+
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-links">
@@ -462,4 +540,5 @@
         </div>
     </footer>
 </body>
+
 </html>
