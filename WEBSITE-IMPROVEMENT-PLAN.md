@@ -257,16 +257,16 @@ These questions were identified during analysis. Consider addressing them via co
 ## Implementation Checklist
 
 ### Phase 1: Quick Wins (< 1 hour total)
-- [ ] Fix page title (Tremscol → Gold Restock Bot)
+- [x] Fix page title (Tremscol → Gold Restock Bot)
 - [ ] Add Slack requirement FAQ
-- [ ] Add US-only clarification
-- [ ] Update "How It Works" Step 2 copy
+- [x] Add US-only clarification
+- [x] Update "How It Works" Step 2 copy
 
 ### Phase 2: Content Updates (2-3 hours)
 - [ ] Add mobile-friendly messaging
 - [ ] Add target audience qualifier
-- [ ] Add trial FAQ
-- [ ] Add risk-free messaging near CTAs
+- [x] Add trial FAQ
+- [x] Add risk-free messaging near CTAs
 - [ ] Move Results section above pricing
 
 ### Phase 3: Asset Creation (4+ hours)
