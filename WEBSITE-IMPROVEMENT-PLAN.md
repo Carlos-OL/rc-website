@@ -258,22 +258,39 @@ These questions were identified during analysis. Consider addressing them via co
 
 ### Phase 1: Quick Wins (< 1 hour total)
 - [x] Fix page title (Tremscol → Gold Restock Bot)
-- [ ] Add Slack requirement FAQ
+- [x] Add Slack requirement FAQ
 - [x] Add US-only clarification
 - [x] Update "How It Works" Step 2 copy
 
 ### Phase 2: Content Updates (2-3 hours)
-- [ ] Add mobile-friendly messaging
+- [x] Add mobile-friendly messaging (Mobile-First Experience section + hero teaser)
 - [ ] Add target audience qualifier
 - [x] Add trial FAQ
 - [x] Add risk-free messaging near CTAs
-- [ ] Move Results section above pricing
+- [x] ~~Move Results section above pricing~~ (removed — keeping current structure)
 
 ### Phase 3: Asset Creation (4+ hours)
-- [ ] Create/add mobile UI screenshot
-- [ ] Create Slack alert notification mockup
+- [x] Create/add mobile UI screenshot (Restocks + push notifications.webp)
+- [x] ~~Create Slack alert notification mockup~~ (removed — all images now from PWA)
 - [ ] Update testimonials with names/specifics
-- [ ] Add final CTA section
+- [x] Add final CTA section
+- [x] Add profitability dashboard images carousel
+
+### Phase 4: New Feature Messaging (from discussion)
+- [ ] **Live In-Store Searches** — Highlight that searches hit Costco's backend live (not cached). Add to In-Store Checker section or comparison table
+- [ ] **Homegrown Infrastructure** — Messaging about owning all core code, no third-party dependencies for key features. Add to differentiators section
+- [ ] **Gold + Silver Alerts** — Highlight that we track both gold and silver restocks
+- [ ] **Price Mistakes** — Gold members only feature for price mistake alerts
+
+### Stripe / Backend Updates
+- [ ] Update Stripe pricing table to add "Mobile Dashboard (Early Access)" to Gold tier
+- [ ] Update Stripe pricing table to add "Profitability Analytics (Early Access)" to Gold tier
+
+### Post-Beta Launch
+- [ ] Update all "Gold Early Access" badges to "Gold Only" once out of beta
+
+### Image Updates (Ongoing)
+- [ ] **Update all website images** — Replace remaining old screenshots with new PWA/web interface images
 
 ---
 
@@ -283,6 +300,8 @@ These questions were identified during analysis. Consider addressing them via co
 |------|--------------|-----------------|
 | 2026-01-23 | Initial analysis and plan created | — |
 | 2026-01-23 | Fixed title, updated How It Works, added trial FAQ, added risk-free messaging, changed CTAs to "Start Your Free Trial", updated comparison table to say "any US zipcode" | #1, #3, #6, #7, #8 |
+| 2026-01-24 | Added Mobile-First Experience section, Profitability Dashboard section with carousel, hero teaser, comparison table rows for mobile app and analytics | Mobile messaging, profitability dashboard |
+| 2026-01-25 | Updated all "Gold" → "Precious Metals" terminology, added Stock Search carousel (3 images), Profit Calculator carousel (2 images), updated differentiators (All-in-One, Faster Alerts, Built for Buyers), hero subtext to "discovery, tracking, and profitability" with teal highlight, updated image links (Online Restocks, Buyer Payouts, Gold Alerts) | Terminology updates, carousels, differentiators |
 
 ---
 

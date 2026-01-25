@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gold Restock Bot – The Costco Gold Command Center</title>
+    <title>Gold Restock Bot – The Costco Precious Metals Command Center</title>
     <link rel="stylesheet" href="theme.css">
     <script async src="https://cdn.promotekit.com/promotekit.js"
         data-promotekit="6e339f87-dcc5-474f-b751-b204f36dc867"></script>
@@ -101,6 +101,30 @@
 
         stripe-pricing-table {
             background-color: var(--bg-main) !important;
+        }
+
+        /* ===== FINAL CTA ===== */
+        .final-cta {
+            background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-main) 100%);
+            border-top: 1px solid var(--border-gold);
+            border-bottom: 1px solid var(--border-gold);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .final-cta h2 {
+            color: var(--text-gold);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .final-cta p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         /* ===== FOOTER ===== */
@@ -604,6 +628,83 @@
             }
         }
 
+        /* ===== IMAGE CAROUSEL (for feature sections) ===== */
+        .image-carousel {
+            position: relative;
+            width: 100%;
+        }
+
+        .carousel-slide {
+            display: none;
+        }
+
+        .carousel-slide.active {
+            display: block;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .carousel-caption {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            font-style: italic;
+            margin-top: 0.75rem;
+            padding: 0 1rem;
+        }
+
+        .img-carousel-arrow {
+            position: absolute;
+            top: 45%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text-gold);
+            cursor: pointer;
+            padding: 0.5rem 0.75rem;
+            border-radius: 4px;
+            transition: background 0.25s ease;
+            user-select: none;
+            z-index: 10;
+        }
+
+        .img-carousel-arrow:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        .img-left-arrow {
+            left: 0.5rem;
+        }
+
+        .img-right-arrow {
+            right: 0.5rem;
+        }
+
+        .carousel-dots {
+            text-align: center;
+            margin-top: 0.75rem;
+        }
+
+        .carousel-dots .dot {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            margin: 0 5px;
+            background: var(--text-muted);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background 0.25s ease;
+        }
+
+        .carousel-dots .dot.active {
+            background: var(--text-gold);
+        }
+
+
         /* ===== FAQ ===== */
         .faq-section {
             padding: 2rem 1.5rem;
@@ -759,12 +860,51 @@
         }
 
         .image-modal img {
-            max-width: 95%;
-            max-height: 95%;
+            max-width: 85%;
+            max-height: 85%;
             border-radius: 10px;
             box-shadow: 0 0 30px rgba(250, 204, 21, 0.25);
             object-fit: contain;
             cursor: zoom-out;
+        }
+
+        .modal-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.6);
+            border: none;
+            font-size: 2.5rem;
+            color: var(--text-gold);
+            cursor: pointer;
+            padding: 1rem 1.25rem;
+            border-radius: 8px;
+            transition: background 0.25s ease;
+            z-index: 10000;
+        }
+
+        .modal-arrow:hover {
+            background: rgba(0, 0, 0, 0.9);
+        }
+
+        .modal-left {
+            left: 2rem;
+        }
+
+        .modal-right {
+            right: 2rem;
+        }
+
+        .modal-caption {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--text-muted);
+            font-size: 1rem;
+            font-style: italic;
+            text-align: center;
+            max-width: 80%;
         }
 
         /* Mobile responsiveness for side-by-side layout */
@@ -918,8 +1058,9 @@
         <h1>Buy More Gold. Save More Time. Make More Profit.</h1>
 
         <p class="hero-subtext">
-            The all-in-one tracking suite that gives active gold buyers instant online alerts, in-store inventory
-            visibility, and unbiased payout comparisons — so you never miss an opportunity.
+            The all-in-one <span style="color: var(--text-gold);">discovery, tracking, and profitability</span>
+            suite that gives you instant online alerts,
+            in-store inventory visibility, and unbiased payout comparisons — so you never miss an opportunity.
         </p>
 
         <p class="hero-community">
@@ -942,7 +1083,7 @@
 
     <!-- FEATURES SECTION (SIDE-BY-SIDE LAYOUT) -->
     <section id="features" class="features-alt">
-        <h2 class="section-title">The Complete Arsenal for Active Gold Buyers</h2>
+        <h2 class="section-title">The Complete Arsenal for Active Costco Precious Metals Buyers</h2>
         <p class="section-subtitle">Focused tools & features, all in one place, working together to give you a real
             edge.</p>
 
@@ -957,7 +1098,29 @@
             </div>
             <div class="feature-media">
                 <div class="feature-media-box">
-                    <img src="assets/features/instore.webp" alt="Instore Restock Results" class="feature-img">
+                    <div class="image-carousel" id="stock-carousel">
+                        <div class="carousel-slide active">
+                            <img src="assets/features/Stock Search.webp" alt="Stock Search" class="feature-img">
+                            <p class="carousel-caption">Three simple ways to search any SKU across warehouses</p>
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="assets/features/Stock Search Save Pref.webp" alt="Save Preferences"
+                                class="feature-img">
+                            <p class="carousel-caption">Save your search preferences for faster lookups</p>
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="assets/features/Stock Search Results.webp" alt="Stock Search Results"
+                                class="feature-img">
+                            <p class="carousel-caption">Get real-time availability with optimized route</p>
+                        </div>
+                        <button class="img-carousel-arrow img-left-arrow">❮</button>
+                        <button class="img-carousel-arrow img-right-arrow">❯</button>
+                        <div class="carousel-dots">
+                            <span class="dot active" data-index="0"></span>
+                            <span class="dot" data-index="1"></span>
+                            <span class="dot" data-index="2"></span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -973,7 +1136,7 @@
             </div>
             <div class="feature-media">
                 <div class="feature-media-box">
-                    <img src="assets/features/online.webp" alt="Online Restock Results" class="feature-img">
+                    <img src="assets/features/Online Restocks.webp" alt="Online Restock Results" class="feature-img">
                 </div>
             </div>
         </div>
@@ -983,14 +1146,14 @@
             <div class="feature-text">
                 <h3>Payout Comparisons</h3>
                 <p>
-                    Side-by-side payouts from the most common online gold buyers — fully agnostic, with zero bias,
+                    Side-by-side payouts from the most common online precious metals buyers — fully agnostic, with zero
+                    bias,
                     so you always know who pays the most.
                 </p>
             </div>
             <div class="feature-media">
                 <div class="feature-media-box">
-                    <img src="assets/features/payout_comparison.webp" alt="Payout Comparison Results"
-                        class="feature-img">
+                    <img src="assets/features/Buyer Payouts.webp" alt="Payout Comparison Results" class="feature-img">
                 </div>
             </div>
         </div>
@@ -1006,10 +1169,24 @@
             </div>
             <div class="feature-media">
                 <div class="feature-media-box">
-                    <img src="assets/features/profit_calculator.webp" alt="Profit Calculation Results"
-                        class="feature-img">
-                    <!-- <img src="assets/features/profit_results.webp" alt="Profit Calculation Results" class="feature-img"> -->
-
+                    <div class="image-carousel" id="profit-carousel">
+                        <div class="carousel-slide active">
+                            <img src="assets/features/Profit Calculator.webp" alt="Profit Calculator"
+                                class="feature-img">
+                            <p class="carousel-caption">Calculate your actual profit in just a few clicks</p>
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="assets/features/Profit Calculator Results.webp" alt="Profit Calculator Results"
+                                class="feature-img">
+                            <p class="carousel-caption">Quickly compare results to maximize your profit</p>
+                        </div>
+                        <button class="img-carousel-arrow img-left-arrow">❮</button>
+                        <button class="img-carousel-arrow img-right-arrow">❯</button>
+                        <div class="carousel-dots">
+                            <span class="dot active" data-index="0"></span>
+                            <span class="dot" data-index="1"></span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1034,20 +1211,94 @@
         <!-- ROW 6: Gold Spot Alerts (reversed) -->
         <div class="feature-row feature-row-reverse">
             <div class="feature-text">
-                <h3>Gold Spot Alerts</h3>
+                <h3>Spot Price Alerts</h3>
                 <p>
-                    Waiting for the right moment to sell? Get automatic alerts when gold crosses your target price
+                    Waiting for the right moment to sell? Get automatic alerts when gold or silver crosses your target
+                    price
                     levels — so you never miss the perfect exit point.
                 </p>
             </div>
             <div class="feature-media">
                 <div class="feature-media-box">
-                    <img src="assets/features/gold.webp" alt="Gold Alerts" class="feature-img">
+                    <img src="assets/features/Gold Alerts.webp" alt="Gold Alerts" class="feature-img">
                 </div>
             </div>
         </div>
 
-        <!-- ROW 7: Super Simple UI -->
+        <!-- ROW 7: Mobile-First Experience (replaces Super Simple UI) -->
+        <div class="feature-row">
+            <div class="feature-text">
+                <h3>Mobile-First Experience</h3>
+                <p>
+                    Take your entire toolkit on the road. Our mobile-first suite puts all of our tools and features
+                    right in your pocket — with instant push notifications so you never miss a restock.
+                </p>
+                <p style="margin-top: 0.75rem; font-style: italic; color: var(--text-muted);">
+                    Designed for buyers who can't afford to miss an opportunity.
+                </p>
+                <p style="margin-top: 0.75rem; color: var(--text-gold); font-size: 0.95rem;">
+                    🔒 Gold members get early access
+                </p>
+            </div>
+            <div class="feature-media">
+                <div class="feature-media-box">
+                    <img src="assets/features/Restocks + push notifications.webp"
+                        alt="Mobile Dashboard with Push Notifications" class="feature-img">
+                </div>
+            </div>
+        </div>
+
+        <!-- ROW 8: Profitability Dashboard -->
+        <div class="feature-row feature-row-reverse">
+            <div class="feature-text">
+                <h3>Profitability Dashboard</h3>
+                <p>
+                    Track every purchase, every sale, and every dollar of profit — all in one place. Our analytics
+                    dashboard gives you full visibility into your gold buying business with intuitive charts that
+                    break down profitability by item, buyer, and time period. Know exactly what's working and what's
+                    not.
+                </p>
+                <p style="margin-top: 0.75rem; color: var(--text-gold); font-size: 0.95rem;">
+                    🔒 Gold members get early access
+                </p>
+            </div>
+            <div class="feature-media">
+                <div class="feature-media-box">
+                    <div class="image-carousel" id="dashboard-carousel">
+                        <div class="carousel-slide active">
+                            <img src="assets/features/Profitability Dashboard 1.webp"
+                                alt="Profitability Dashboard Overview" class="feature-img">
+                            <p class="carousel-caption">See your most important profit metrics at a glance</p>
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="assets/features/Profitability Dashboard 2.webp" alt="Profit Breakdown"
+                                class="feature-img">
+                            <p class="carousel-caption">Discover what's driving your profits</p>
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="assets/features/Purchases Dashboard.webp" alt="Purchases Dashboard"
+                                class="feature-img">
+                            <p class="carousel-caption">Export all your Costco transactions and consolidate purchases
+                                across memberships</p>
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="assets/features/Sales Dashboard.webp" alt="Sales Dashboard" class="feature-img">
+                            <p class="carousel-caption">Monitor all your sales and track your revenue</p>
+                        </div>
+                        <button class="img-carousel-arrow img-left-arrow">❮</button>
+                        <button class="img-carousel-arrow img-right-arrow">❯</button>
+                        <div class="carousel-dots">
+                            <span class="dot active" data-index="0"></span>
+                            <span class="dot" data-index="1"></span>
+                            <span class="dot" data-index="2"></span>
+                            <span class="dot" data-index="3"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- OLD: Super Simple UI (commented out for reference)
         <div class="feature-row">
             <div class="feature-text">
                 <h3>Super Simple UI</h3>
@@ -1063,6 +1314,7 @@
                 </div>
             </div>
         </div>
+        -->
     </section>
 
     <!-- DIFFERENTIATORS -->
@@ -1078,14 +1330,15 @@
 
             <div class="diff-card">
                 <h3>True All-In-One Suite</h3>
-                <p>Track online and in‑store restocks, monitor availability, check payouts, analyze profit, set spot
-                    alerts, and automate custom lists — all in one place.</p>
+                <p>From restock alerts to profitability analytics — track every angle of your Costco precious metals
+                    business without switching between tools or spreadsheets.</p>
             </div>
 
             <div class="diff-card">
                 <h3>Faster Alerts</h3>
-                <p>Precision restock detection every 45 seconds — consistently faster than alternatives and quick enough
-                    to catch price mistakes before they disappear.</p>
+                <p>Precision restock detection every 45 seconds with instant push notifications straight to your phone —
+                    consistently faster than alternatives and quick enough to catch price mistakes before they
+                    disappear.</p>
             </div>
 
             <div class="diff-card">
@@ -1096,9 +1349,10 @@
 
             <div class="diff-card">
                 <h3>Built for Real Buyers. Proven to Deliver Results.</h3>
-                <p>Engineered around real Costco Gold buying behavior to power fast, profitable decisions. <strong
-                        style="color: var(--text-gold);">Our users collectively purchase millions in gold every
-                        month</strong> — making the suite pay for itself many times over.</p>
+                <p>Designed by active buyers, for active buyers. Access everything from your phone, act on opportunities
+                    instantly, and track your results over time. <strong style="color: var(--text-gold);">Our users
+                        collectively purchase millions every month</strong> — the suite pays for itself many times over.
+                </p>
             </div>
 
             <div class="diff-card">
@@ -1145,6 +1399,16 @@
                         <td>Limited - Varies by provider</td>
                         <td><span class="check-mark">✓</span> 2-4 daily queries, up to 100mi radius, any US zipcode
                         </td>
+                    </tr>
+                    <tr>
+                        <td>Mobile app with push notifications</td>
+                        <td>Limited - Varies by provider</td>
+                        <td><span class="check-mark">✓</span> Gold Early Access</td>
+                    </tr>
+                    <tr>
+                        <td>Full profitability analytics</td>
+                        <td><span class="check-x">×</span></td>
+                        <td><span class="check-mark">✓</span> Gold Early Access</td>
                     </tr>
                     <tr>
                         <td>Search local inventory for any SKU</td>
@@ -1322,6 +1586,15 @@
             </div>
         </div>
         <div class="faq-item">
+            <button class="faq-question">Do I need Slack to use Gold Restock Bot?</button>
+            <div class="faq-answer">
+                <p>No, Slack is optional. Our new web and mobile dashboard offers instant alerts, inventory checks, and
+                    analytics without needing Slack. That said, certain advanced features are still Slack-exclusive, and
+                    the Slack community is where active buyers share strategies, ask questions, and surface
+                    opportunities in real-time — so most users find it valuable.</p>
+            </div>
+        </div>
+        <div class="faq-item">
             <button class="faq-question">What makes Gold Restock Bot more accurate?</button>
             <div class="faq-answer">
                 <p>Our online monitor pulls directly from Costco's live inventory feed, not cached public endpoints.</p>
@@ -1357,6 +1630,13 @@
         </div>
     </section>
 
+    <!-- FINAL CTA -->
+    <section class="final-cta">
+        <h2>Ready to save time and maximize your profits?</h2>
+        <p>Join hundreds of active Costco precious metals buyers who trust Gold Restock Bot every day.</p>
+        <a href="#pricing" class="cta-btn">Start Your Free Trial</a>
+    </section>
+
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-links">
@@ -1381,7 +1661,10 @@
     </footer>
 
     <div id="imgModal" class="image-modal">
+        <button id="modalLeftArrow" class="modal-arrow modal-left">❮</button>
         <img id="modalImg" src="" alt="Expanded Image">
+        <button id="modalRightArrow" class="modal-arrow modal-right">❯</button>
+        <p id="modalCaption" class="modal-caption"></p>
     </div>
 
     <script>
@@ -1407,6 +1690,79 @@
         rightArrow.addEventListener('click', () => showTestimonial(index + 1));
     </script>
     <script>
+        // Image carousel for Profitability Dashboard
+        const dashboardCarousel = document.getElementById('dashboard-carousel');
+        if (dashboardCarousel) {
+            const slides = dashboardCarousel.querySelectorAll('.carousel-slide');
+            const dots = dashboardCarousel.querySelectorAll('.dot');
+            const leftArr = dashboardCarousel.querySelector('.img-left-arrow');
+            const rightArr = dashboardCarousel.querySelector('.img-right-arrow');
+            let currentSlide = 0;
+
+            function showSlide(i) {
+                slides[currentSlide].classList.remove('active');
+                dots[currentSlide].classList.remove('active');
+                currentSlide = (i + slides.length) % slides.length;
+                slides[currentSlide].classList.add('active');
+                dots[currentSlide].classList.add('active');
+            }
+
+            leftArr.addEventListener('click', () => showSlide(currentSlide - 1));
+            rightArr.addEventListener('click', () => showSlide(currentSlide + 1));
+            dots.forEach((dot, idx) => {
+                dot.addEventListener('click', () => showSlide(idx));
+            });
+        }
+
+        // Image carousel for Profit Calculator
+        const profitCarousel = document.getElementById('profit-carousel');
+        if (profitCarousel) {
+            const slides = profitCarousel.querySelectorAll('.carousel-slide');
+            const dots = profitCarousel.querySelectorAll('.dot');
+            const leftArr = profitCarousel.querySelector('.img-left-arrow');
+            const rightArr = profitCarousel.querySelector('.img-right-arrow');
+            let currentSlide = 0;
+
+            function showProfitSlide(i) {
+                slides[currentSlide].classList.remove('active');
+                dots[currentSlide].classList.remove('active');
+                currentSlide = (i + slides.length) % slides.length;
+                slides[currentSlide].classList.add('active');
+                dots[currentSlide].classList.add('active');
+            }
+
+            leftArr.addEventListener('click', () => showProfitSlide(currentSlide - 1));
+            rightArr.addEventListener('click', () => showProfitSlide(currentSlide + 1));
+            dots.forEach((dot, idx) => {
+                dot.addEventListener('click', () => showProfitSlide(idx));
+            });
+        }
+
+        // Image carousel for Stock Search
+        const stockCarousel = document.getElementById('stock-carousel');
+        if (stockCarousel) {
+            const slides = stockCarousel.querySelectorAll('.carousel-slide');
+            const dots = stockCarousel.querySelectorAll('.dot');
+            const leftArr = stockCarousel.querySelector('.img-left-arrow');
+            const rightArr = stockCarousel.querySelector('.img-right-arrow');
+            let currentSlide = 0;
+
+            function showStockSlide(i) {
+                slides[currentSlide].classList.remove('active');
+                dots[currentSlide].classList.remove('active');
+                currentSlide = (i + slides.length) % slides.length;
+                slides[currentSlide].classList.add('active');
+                dots[currentSlide].classList.add('active');
+            }
+
+            leftArr.addEventListener('click', () => showStockSlide(currentSlide - 1));
+            rightArr.addEventListener('click', () => showStockSlide(currentSlide + 1));
+            dots.forEach((dot, idx) => {
+                dot.addEventListener('click', () => showStockSlide(idx));
+            });
+        }
+    </script>
+    <script>
         document.querySelectorAll('.faq-question').forEach(btn => {
             btn.addEventListener('click', () => {
                 const faqItem = btn.closest('.faq-item');
@@ -1415,17 +1771,71 @@
         });
     </script>
     <script>
+        // Modal with carousel support
+        const modal = document.getElementById('imgModal');
+        const modalImg = document.getElementById('modalImg');
+        const modalCaption = document.getElementById('modalCaption');
+        const modalLeftArrow = document.getElementById('modalLeftArrow');
+        const modalRightArrow = document.getElementById('modalRightArrow');
+
+        let modalCarouselImages = [];
+        let modalCarouselCaptions = [];
+        let modalCurrentIndex = 0;
+
+        function openModal(img) {
+            const carousel = img.closest('.image-carousel');
+
+            if (carousel) {
+                // It's a carousel image - enable navigation
+                const slides = carousel.querySelectorAll('.carousel-slide');
+                modalCarouselImages = Array.from(slides).map(s => s.querySelector('img').src);
+                modalCarouselCaptions = Array.from(slides).map(s => {
+                    const cap = s.querySelector('.carousel-caption');
+                    return cap ? cap.textContent : '';
+                });
+                modalCurrentIndex = modalCarouselImages.indexOf(img.src);
+                modalLeftArrow.style.display = 'block';
+                modalRightArrow.style.display = 'block';
+                modalCaption.style.display = 'block';
+            } else {
+                // Regular image - no navigation
+                modalCarouselImages = [img.src];
+                modalCarouselCaptions = [''];
+                modalCurrentIndex = 0;
+                modalLeftArrow.style.display = 'none';
+                modalRightArrow.style.display = 'none';
+                modalCaption.style.display = 'none';
+            }
+
+            updateModalImage();
+            modal.style.display = 'flex';
+        }
+
+        function updateModalImage() {
+            modalImg.src = modalCarouselImages[modalCurrentIndex];
+            modalCaption.textContent = modalCarouselCaptions[modalCurrentIndex];
+        }
+
         document.querySelectorAll('.feature-img').forEach(img => {
-            img.addEventListener('dblclick', () => {
-                const modal = document.getElementById('imgModal');
-                const modalImg = document.getElementById('modalImg');
-                modalImg.src = img.src;
-                modal.style.display = 'flex';
-            });
+            img.addEventListener('dblclick', () => openModal(img));
         });
 
-        document.getElementById('imgModal').addEventListener('click', () => {
-            document.getElementById('imgModal').style.display = 'none';
+        modalLeftArrow.addEventListener('click', (e) => {
+            e.stopPropagation();
+            modalCurrentIndex = (modalCurrentIndex - 1 + modalCarouselImages.length) % modalCarouselImages.length;
+            updateModalImage();
+        });
+
+        modalRightArrow.addEventListener('click', (e) => {
+            e.stopPropagation();
+            modalCurrentIndex = (modalCurrentIndex + 1) % modalCarouselImages.length;
+            updateModalImage();
+        });
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal || e.target === modalImg) {
+                modal.style.display = 'none';
+            }
         });
     </script>
     <script>
