@@ -46,7 +46,7 @@ This document outlines actionable improvements to increase conversion rates on t
 
 ---
 
-### [ ] 2. Slack Dependency Is Unclear
+### [x] 2. Slack Dependency Is Unclear
 
 **Problem:** Slack is mentioned throughout (community, authentication, alerts) but visitors don't know if it's required or optional. Non-Slack users may hesitate to subscribe.
 
@@ -88,7 +88,7 @@ Add to subtext: "Currently serving all 50 US states."
 
 ---
 
-### [ ] 4. Mobile Experience Not Mentioned
+### [x] 4. Mobile Experience Not Mentioned
 
 **Problem:** In-store hunting is inherently mobile, yet the website doesn't mention mobile apps, PWA, or mobile-optimized experience. This is a major missed opportunity.
 
@@ -106,18 +106,11 @@ and access all tools right from your phone. No app download required.
 
 ## 🟡 Medium Priority Issues
 
-### [ ] 5. Target Audience Unclear
+### [~] 5. Target Audience Unclear — SKIPPED
 
-**Problem:** The page never explicitly states who this is designed for. First-time visitors may wonder if it's for hobbyists, serious resellers, or high-volume buyers.
+**Original Problem:** The page never explicitly states who this is designed for.
 
-**Location:** Hero section, after the main subtext (line 923-927)
-
-**Recommended:** Add a qualifier line:
-```html
-<p class="hero-qualifier" style="color: var(--text-muted); font-size: 1rem; margin-top: 0.5rem;">
-    Built for serious Costco gold buyers making regular purchases — whether stacking or reselling.
-</p>
-```
+**Decision:** Intentionally skipped. The product is for *anyone* buying gold at Costco — stackers, travel hackers, hobbyists, and resellers alike. Adding a qualifier would either exclude some users or add more text for visitors to parse without clear benefit. The current hero copy already speaks to the universal need ("never miss an opportunity") rather than a specific persona.
 
 ---
 
@@ -193,13 +186,11 @@ and access all tools right from your phone. No app download required.
 
 ## 🟢 Low Priority Issues
 
-### [ ] 10. Results Section Buried
+### [~] 10. Results Section Buried — SKIPPED
 
-**Problem:** The "Results From Our Users" section (50% buy $50K+/month, etc.) appears AFTER pricing. These stats should prime visitors before they see the price.
+**Original Problem:** The "Results From Our Users" section appears after pricing. Stats should prime visitors before they see the price.
 
-**Location:** Currently line 1252-1269
-
-**Recommended:** Move this section to appear BEFORE the pricing table (before line 1246).
+**Decision:** Intentionally skipped. The Trust Strip directly below the hero already displays key social proof stats (58% bought via alerts, 52% make $1,000+/month, 50% save 3+ hours). This addresses the original intent — visitors see compelling results before reaching the pricing section. Moving the Results section would be redundant.
 
 ---
 
@@ -222,23 +213,15 @@ and access all tools right from your phone. No app download required.
 
 ---
 
-### [ ] 12. Missing Alert Screenshot
+### [x] 12. Missing Alert Screenshot — COMPLETE
 
-**Problem:** No visual of what an actual Slack alert looks like. Users can't preview the core product experience.
-
-**Location:** Online Restock Tracking section or new section
-
-**Recommended:** Add a screenshot or mockup showing an actual Slack restock notification with price, link, and timestamp.
+All screenshots have been updated to the new PWA/web UI.
 
 ---
 
-### [ ] 13. Add "Support" to Navigation
+### [~] 13. Add "Support" to Navigation — SKIPPED
 
-**Problem:** Support email is buried in footer. No visible help option in nav.
-
-**Location:** Navigation links (line 901-910)
-
-**Recommended:** Add support link or FAQ direct link to nav.
+**Decision:** Keeping support in footer as-is. No change needed.
 
 ---
 
@@ -280,7 +263,7 @@ These questions were identified during analysis. Consider addressing them via co
 - [ ] **Live In-Store Searches** — Highlight that searches hit Costco's backend live (not cached). Add to In-Store Checker section or comparison table
 - [ ] **Homegrown Infrastructure** — Messaging about owning all core code, no third-party dependencies for key features. Add to differentiators section
 - [ ] **Gold + Silver Alerts** — Highlight that we track both gold and silver restocks
-- [ ] **Price Mistakes** — Gold members only feature for price mistake alerts
+- [x] **Price Mistakes** — Added Gold-only callout to Online Restock Tracking section
 
 ### Stripe / Backend Updates
 - [ ] Update Stripe pricing table to add "Mobile Dashboard (Early Access)" to Gold tier
