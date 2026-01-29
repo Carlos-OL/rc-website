@@ -266,14 +266,14 @@ These questions were identified during analysis. Consider addressing them via co
 - [x] **Price Mistakes** — Added Gold-only callout to Online Restock Tracking section
 
 ### Stripe / Backend Updates
-- [ ] Update Stripe pricing table to add "Mobile Dashboard (Early Access)" to Gold tier
-- [ ] Update Stripe pricing table to add "Profitability Analytics (Early Access)" to Gold tier
+- [x] Update Stripe pricing table to add "Mobile Dashboard (Early Access)" to Gold tier
+- [x] Update Stripe pricing table to add "Profitability Analytics (Early Access)" to Gold tier
 
 ### Post-Beta Launch
 - [ ] Update all "Gold Early Access" badges to "Gold Only" once out of beta
 
 ### Image Updates (Ongoing)
-- [ ] **Update all website images** — Replace remaining old screenshots with new PWA/web interface images
+- [x] **Update all website images** — Replace remaining old screenshots with new PWA/web interface images
 
 ---
 
