@@ -250,6 +250,7 @@ These questions were identified during analysis. Consider addressing them via co
 - [x] **Live In-Store Searches** — Added messaging to In-Store Checker section + new comparison table row
 - [x] **Homegrown Infrastructure** — Added "Built In-House" card to differentiators section
 - [ ] **Gold + Silver Alerts** — Highlight that we track both gold and silver restocks
+- [x] **Differentiator Card Highlights** — Added gold-colored keyword highlights to all differentiator cards
 - [x] **Price Mistakes** — Added Gold-only callout to Online Restock Tracking section
 
 ### Stripe / Backend Updates
