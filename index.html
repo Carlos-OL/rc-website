@@ -405,22 +405,34 @@
             text-align: center;
         }
 
-        .diff-grid {
+        .diff-grid-4 {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto 2rem auto;
+        }
+
+        .diff-grid-5 {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1.5rem;
             max-width: 1400px;
             margin: 0 auto;
         }
 
         @media (max-width: 1200px) {
-            .diff-grid {
+
+            .diff-grid-4,
+            .diff-grid-5 {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
 
         @media (max-width: 768px) {
-            .diff-grid {
+
+            .diff-grid-4,
+            .diff-grid-5 {
                 grid-template-columns: 1fr;
             }
         }
@@ -1095,6 +1107,10 @@
                     Search nearby warehouses, get real-time availability, and receive a fully optimized Google Maps
                     route automatically generated from your current location — so you can start your run immediately.
                 </p>
+                <p style="margin-top: 0.75rem; font-style: italic; color: var(--text-muted);">
+                    Every search queries Costco's inventory system <span style="color: var(--text-gold);">live</span> —
+                    no stale cached results.
+                </p>
             </div>
             <div class="feature-media">
                 <div class="feature-media-box">
@@ -1324,10 +1340,13 @@
     <section id="differentiators" class="diff-section">
         <h2 class="section-title">Why Gold Restock Bot Is Different</h2>
 
-        <div class="diff-grid">
+        <!-- Top row: 4 wider cards -->
+        <div class="diff-grid-4">
             <div class="diff-card">
-                <h3>Fully Agnostic</h3>
-                <p>No bias. Compare every tracked buyer's payout, ranked entirely by <strong>your</strong> net profit.
+                <h3>Built for Real Buyers. Proven to Deliver Results.</h3>
+                <p>Designed by active buyers, for active buyers. Access everything from your phone, act on opportunities
+                    instantly, and track your results over time. <strong style="color: var(--text-gold);">Our users
+                        collectively purchase millions every month</strong> — the suite pays for itself many times over.
                 </p>
             </div>
 
@@ -1349,31 +1368,30 @@
                 <p>Auto‑Add SKUs updates your tracking lists automatically, and the system continuously detects new
                     precious‑metal SKUs the moment they are released for sale.</p>
             </div>
+        </div>
 
+        <!-- Bottom row: 5 thinner cards -->
+        <div class="diff-grid-5">
             <div class="diff-card">
-                <h3>Built for Real Buyers. Proven to Deliver Results.</h3>
-                <p>Designed by active buyers, for active buyers. Access everything from your phone, act on opportunities
-                    instantly, and track your results over time. <strong style="color: var(--text-gold);">Our users
-                        collectively purchase millions every month</strong> — the suite pays for itself many times over.
-                </p>
+                <h3>Security &amp; Reliability</h3>
+                <p>Built on trusted, industry‑standard platforms. Billing through Stripe, access through Slack — we
+                    never store your credentials.</p>
             </div>
-
             <div class="diff-card">
-                <h3>Security & Reliability</h3>
-                <p>Built on trusted, industry‑standard platforms. All billing is handled securely through Stripe, and
-                    all access is managed through Slack authentication — so we never store your payment information or
-                    login credentials.</p>
+                <h3>Fully Agnostic</h3>
+                <p>No bias. Compare every buyer's payout, ranked by <strong>your</strong> net profit.</p>
+            </div>
+            <div class="diff-card">
+                <h3>Built In-House</h3>
+                <p>We own 100% of the code. No third-party dependencies that could disappear tomorrow.</p>
             </div>
             <div class="diff-card">
                 <h3>Proven Track Record</h3>
-                <p>Nearly 2 years of consistent operation, delivering thousands of alerts monthly to users
-                    who collectively buy millions in gold — with survey-verified results in time saved and
-                    profit earned.</p>
+                <p>Nearly 2 years of operation, thousands of alerts monthly, survey-verified results.</p>
             </div>
-
             <div class="diff-card">
                 <h3>Earn Free Months</h3>
-                <p>Refer friends and earn free months. Sharing the advantage, reduces your costs.</p>
+                <p>Refer friends and earn free months. Sharing the advantage reduces your costs.</p>
             </div>
         </div>
     </section>
@@ -1400,8 +1418,13 @@
                     <tr>
                         <td>In-store inventory checker</td>
                         <td>Limited - Varies by provider</td>
-                        <td><span class="check-mark">✓</span> 2-4 daily queries, up to 100mi radius, any US zipcode
+                        <td><span class="check-mark">✓</span> 2-4 daily, up to 100mi radius, any US zipcode
                         </td>
+                    </tr>
+                    <tr>
+                        <td>In-store query type</td>
+                        <td>Cached/delayed data</td>
+                        <td><span class="check-mark">✓</span> Live search</td>
                     </tr>
                     <tr>
                         <td>Mobile app with push notifications</td>

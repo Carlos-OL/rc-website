@@ -194,22 +194,9 @@ and access all tools right from your phone. No app download required.
 
 ---
 
-### [ ] 11. Missing Final CTA
+### [x] 11. Missing Final CTA — COMPLETE
 
-**Problem:** After the FAQ, the page just ends with the footer. No final conversion push.
-
-**Location:** After FAQ section, before footer
-
-**Recommended:** Add a closing CTA section:
-```html
-<section class="final-cta-section" style="padding: 3rem 1.5rem; text-align: center; background: var(--bg-card);">
-    <h2 class="section-title">Ready to Start Tracking?</h2>
-    <p style="color: var(--text-muted); margin-bottom: 1.5rem;">
-        Join hundreds of active gold buyers already using Gold Restock Bot.
-    </p>
-    <a href="#pricing" class="cta-btn">Start Tracking</a>
-</section>
-```
+Final CTA section added after FAQ.
 
 ---
 
@@ -260,8 +247,8 @@ These questions were identified during analysis. Consider addressing them via co
 - [x] Add profitability dashboard images carousel
 
 ### Phase 4: New Feature Messaging (from discussion)
-- [ ] **Live In-Store Searches** — Highlight that searches hit Costco's backend live (not cached). Add to In-Store Checker section or comparison table
-- [ ] **Homegrown Infrastructure** — Messaging about owning all core code, no third-party dependencies for key features. Add to differentiators section
+- [x] **Live In-Store Searches** — Added messaging to In-Store Checker section + new comparison table row
+- [x] **Homegrown Infrastructure** — Added "Built In-House" card to differentiators section
 - [ ] **Gold + Silver Alerts** — Highlight that we track both gold and silver restocks
 - [x] **Price Mistakes** — Added Gold-only callout to Online Restock Tracking section
 
