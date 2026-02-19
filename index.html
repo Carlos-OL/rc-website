@@ -1155,14 +1155,33 @@
                 <p>
                     Live detection every 45 seconds with low-noise, high-precision alerts — giving you a 15-second
                     head start over other tools and the ability to catch price mistakes before they disappear.
+                    When a product is listed below spot price, Gold members receive an instant alert so they can
+                    act in seconds — before the deal is gone.
                 </p>
                 <p style="margin-top: 0.75rem; color: var(--text-gold); font-size: 0.95rem;">
-                    🔒 Gold members get instant price mistake alerts
+                    🔒 Gold members get instant below-spot and price mistake alerts
                 </p>
             </div>
             <div class="feature-media">
                 <div class="feature-media-box">
-                    <img src="assets/features/Online Restocks.webp" alt="Online Restock Results" class="feature-img">
+                    <div class="image-carousel" id="restock-carousel">
+                        <div class="carousel-slide active">
+                            <img src="assets/features/Online Restocks.webp" alt="Online Restock Results"
+                                class="feature-img">
+                            <p class="carousel-caption">Real-time restock detection every 45 seconds</p>
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="assets/features/Below Spot Alert.webp" alt="Below Spot Price Alert"
+                                class="feature-img">
+                            <p class="carousel-caption">Gold-exclusive alert: 5.54% below spot — gone in seconds</p>
+                        </div>
+                        <button class="img-carousel-arrow img-left-arrow">&#10094;</button>
+                        <button class="img-carousel-arrow img-right-arrow">&#10095;</button>
+                        <div class="carousel-dots">
+                            <span class="dot active" data-index="0"></span>
+                            <span class="dot" data-index="1"></span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1784,6 +1803,30 @@
         rightArrow.addEventListener('click', () => showTestimonial(index + 1));
     </script>
     <script>
+        // Image carousel for Online Restock Tracking
+        const restockCarousel = document.getElementById('restock-carousel');
+        if (restockCarousel) {
+            const slides = restockCarousel.querySelectorAll('.carousel-slide');
+            const dots = restockCarousel.querySelectorAll('.dot');
+            const leftArr = restockCarousel.querySelector('.img-left-arrow');
+            const rightArr = restockCarousel.querySelector('.img-right-arrow');
+            let currentSlide = 0;
+
+            function showRestockSlide(i) {
+                slides[currentSlide].classList.remove('active');
+                dots[currentSlide].classList.remove('active');
+                currentSlide = (i + slides.length) % slides.length;
+                slides[currentSlide].classList.add('active');
+                dots[currentSlide].classList.add('active');
+            }
+
+            leftArr.addEventListener('click', () => showRestockSlide(currentSlide - 1));
+            rightArr.addEventListener('click', () => showRestockSlide(currentSlide + 1));
+            dots.forEach((dot, idx) => {
+                dot.addEventListener('click', () => showRestockSlide(idx));
+            });
+        }
+
         // Image carousel for Profitability Dashboard
         const dashboardCarousel = document.getElementById('dashboard-carousel');
         if (dashboardCarousel) {
