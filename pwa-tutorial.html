@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Save as PWA – Restock Bot Alerts</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg-main: #1b1b1d;
+    --bg-card: #262628;
+    --bg-surface: #2e2e30;
+    --text-main: #f0f0f0;
+    --text-muted: #c8c8c8;
+    --accent: #10e9df;
+    --accent-dim: #0cb8b0;
+    --accent-glow: rgba(16, 233, 223, 0.15);
+    --border: rgba(255, 138, 61, 0.25);
+    --border-subtle: rgba(255, 255, 255, 0.08);
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: var(--bg-main);
+    color: var(--text-main);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+  }
+
+  .slide {
+    width: 1280px;
+    max-width: 100%;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 40px 120px rgba(0,0,0,0.6), 0 0 0 1px rgba(16,233,223,0.06);
+  }
+
+  /* Header */
+  .header {
+    background: linear-gradient(135deg, var(--bg-main) 0%, #1d2225 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 28px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 220px; height: 220px;
+    background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .header-left { display: flex; align-items: center; gap: 14px; }
+  .logo-mark {
+    width: 42px; height: 42px;
+    border-radius: 50%;
+    border: 2px solid var(--accent);
+    overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+    background: radial-gradient(circle at center, rgba(16,233,223,0.15), var(--bg-main));
+    box-shadow: 0 0 12px rgba(16,233,223,0.2);
+    flex-shrink: 0;
+  }
+  .logo-mark img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  .header-title {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  .step-badge {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    padding: 6px 14px;
+    border-radius: 20px;
+  }
+
+  /* Headline */
+  .headline-block {
+    padding: 40px 48px 32px;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  h1 {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 12px;
+  }
+  h1 em {
+    font-style: normal;
+    background: linear-gradient(90deg, #facc15, #fde047);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .subtitle {
+    font-size: 16px;
+    color: var(--text-muted);
+    font-weight: 400;
+    max-width: 640px;
+    line-height: 1.6;
+  }
+
+  /* Pre-steps */
+  .presteps {
+    padding: 24px 48px;
+    border-bottom: 1px solid var(--border-subtle);
+    background: var(--bg-main);
+  }
+  .presteps-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 14px;
+  }
+  .presteps-items {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .prestep {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px 16px;
+    flex: 1;
+    min-width: 220px;
+  }
+  .prestep-num {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--accent);
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .prestep-text {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+  .prestep-text strong { color: var(--text-main); }
+  .prestep-arrow {
+    font-size: 18px;
+    color: rgba(255,255,255,0.15);
+    flex-shrink: 0;
+  }
+
+  /* Two columns */
+  .columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .col {
+    padding: 40px 48px;
+  }
+  .col:first-child { border-right: 1px solid var(--border-subtle); }
+
+  .platform-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+  .platform-icon {
+    width: 40px; height: 40px;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+  }
+  .ios .platform-icon { background: linear-gradient(135deg, #222224, #2c2c2e); border: 1px solid var(--border-subtle); }
+  .android .platform-icon { background: linear-gradient(135deg, #1f2520, #263028); border: 1px solid rgba(16,233,223,0.12); }
+
+  .platform-name {
+    font-size: 18px;
+    font-weight: 700;
+  }
+  .platform-sub {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+
+  .steps { list-style: none; }
+  .step-item {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 22px;
+    opacity: 0;
+    transform: translateY(12px);
+    animation: fadeUp 0.4s ease forwards;
+  }
+  .step-item:nth-child(1) { animation-delay: 0.1s; }
+  .step-item:nth-child(2) { animation-delay: 0.2s; }
+  .step-item:nth-child(3) { animation-delay: 0.3s; }
+  .step-item:nth-child(4) { animation-delay: 0.4s; }
+
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .step-num {
+    flex-shrink: 0;
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--accent);
+    margin-top: 1px;
+  }
+  .step-action {
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.4;
+    margin-bottom: 4px;
+  }
+  .step-detail {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  .tap-chip {
+    display: inline-block;
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 1px 7px;
+    font-size: 12px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, monospace;
+    color: var(--accent);
+    white-space: nowrap;
+  }
+
+  /* Callout */
+  .callout {
+    margin: 0 48px 40px;
+    background: linear-gradient(135deg, rgba(16,233,223,0.06), rgba(16,233,223,0.02));
+    border: 1px solid rgba(16,233,223,0.2);
+    border-left: 3px solid var(--accent);
+    border-radius: 12px;
+    padding: 20px 24px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    opacity: 0;
+    animation: fadeUp 0.4s ease 0.6s forwards;
+  }
+  .callout-icon {
+    font-size: 20px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .callout-title {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+  .callout-text {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-muted);
+  }
+  .callout-text strong { color: var(--text-main); font-weight: 500; }
+
+  /* Footer */
+  .footer-note {
+    border-top: 1px solid var(--border-subtle);
+    padding: 18px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--bg-main);
+  }
+  .footer-note-text {
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+  .footer-note-text strong { color: var(--accent); }
+  .footer-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+  }
+  .footer-url {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--accent-dim);
+    text-transform: uppercase;
+  }
+  .footer-support {
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+  .footer-support strong {
+    color: var(--accent);
+    font-weight: 500;
+  }
+</style>
+</head>
+<body>
+<div class="slide">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-left">
+      <div class="logo-mark">
+        <img src="assets/logo.png" alt="Restock Bot Alerts Logo">
+      </div>
+      <div class="header-title">Restock Bot Alerts</div>
+    </div>
+    <div class="step-badge">Settings &rarr; Push Notifications</div>
+  </div>
+
+  <!-- Headline -->
+  <div class="headline-block">
+    <h1>Save the App to Your <em>Home Screen</em></h1>
+    <p class="subtitle">Install the website as a PWA (Progressive Web App) to receive push notifications on your phone — even when your browser isn't open.</p>
+  </div>
+
+  <!-- Pre-steps -->
+  <div class="presteps">
+    <div class="presteps-label">First — log in on your mobile browser</div>
+    <div class="presteps-items">
+      <div class="prestep">
+        <div class="prestep-num">①</div>
+        <div class="prestep-text">On your phone, go to <span class="tap-chip">restockbotalerts.com</span> and tap <span class="tap-chip">Customer Portal</span> at the top of the page</div>
+      </div>
+      <div class="prestep-arrow">→</div>
+      <div class="prestep">
+        <div class="prestep-num">②</div>
+        <div class="prestep-text">Enter your email to log in — you'll receive a magic link to your inbox</div>
+      </div>
+      <div class="prestep-arrow">→</div>
+      <div class="prestep">
+        <div class="prestep-num">③</div>
+        <div class="prestep-text">Tap the magic link <strong>on your phone</strong> — it will open the dashboard in a new browser tab. Now save it from there.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Two columns -->
+  <div class="columns">
+
+    <!-- iOS -->
+    <div class="col ios">
+      <div class="platform-header">
+        <div class="platform-icon">🍎</div>
+        <div>
+          <div class="platform-name">iPhone / iPad</div>
+          <div class="platform-sub">Safari or Chrome</div>
+        </div>
+      </div>
+      <ol class="steps">
+        <li class="step-item">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <div class="step-action">With the dashboard open in your browser, tap the <span class="tap-chip">Share</span> button</div>
+            <div class="step-detail">It's the box-with-arrow icon at the bottom of the screen (or top on iPad).</div>
+          </div>
+        </li>
+        <li class="step-item">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <div class="step-action">Scroll down and tap <span class="tap-chip">Add to Home Screen</span></div>
+            <div class="step-detail">Give it a name if you'd like, then tap Add in the top right.</div>
+          </div>
+        </li>
+        <li class="step-item">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <div class="step-action">Open the app from your home screen icon</div>
+            <div class="step-detail">Important: always launch from the icon — not from the browser.</div>
+          </div>
+        </li>
+        <li class="step-item">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <div class="step-action">Go to <span class="tap-chip">Account → Settings</span> and enable push notifications</div>
+            <div class="step-detail">You're all set. Alerts will now arrive like native app notifications.</div>
+          </div>
+        </li>
+      </ol>
+    </div>
+
+    <!-- Android -->
+    <div class="col android">
+      <div class="platform-header">
+        <div class="platform-icon">🤖</div>
+        <div>
+          <div class="platform-name">Android</div>
+          <div class="platform-sub">Chrome browser required</div>
+        </div>
+      </div>
+      <ol class="steps">
+        <li class="step-item">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <div class="step-action">With the dashboard open in Chrome, tap the <span class="tap-chip">⋮</span> menu in the top right</div>
+            <div class="step-detail">This is the three-dot menu at the top right of the Chrome browser.</div>
+          </div>
+        </li>
+        <li class="step-item">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <div class="step-action">Tap <span class="tap-chip">Add to Home Screen</span> or <span class="tap-chip">Install App</span></div>
+            <div class="step-detail">The exact label may vary slightly by Android version — both do the same thing.</div>
+          </div>
+        </li>
+        <li class="step-item">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <div class="step-action">Tap <span class="tap-chip">Install</span> to confirm</div>
+            <div class="step-detail">The app icon will appear on your home screen immediately.</div>
+          </div>
+        </li>
+        <li class="step-item">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <div class="step-action">Open from the icon, then enable push notifications in <span class="tap-chip">Account → Settings</span></div>
+            <div class="step-detail">Always launch from the home screen icon — not from Chrome.</div>
+          </div>
+        </li>
+      </ol>
+    </div>
+
+  </div>
+
+  <!-- Callout -->
+  <div class="callout">
+    <div class="callout-icon">⚠️</div>
+    <div>
+      <div class="callout-title">Important — Enable Notifications From the App, Not the Browser</div>
+      <div class="callout-text">
+        Once the icon is on your home screen, <strong>always open the site from that icon</strong> — not from Safari or Chrome. Push notifications are only active when you're running the PWA. After opening it from the icon, go to <strong>Account → Settings → Push Notifications</strong> and enable the alerts you want. This step must be done from within the PWA.
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer-note">
+    <div class="footer-note-text">
+      Push notification settings are <strong>per device</strong> — repeat these steps on each device where you want alerts.<br>
+      All other settings (cashback %, Pure tier, buyer visibility) sync automatically across all your devices.
+    </div>
+    <div class="footer-right">
+      <div class="footer-url">restockbotalerts.com</div>
+      <div class="footer-support">Questions? <strong>support@tremscol.com</strong></div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
