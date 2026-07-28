@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Costco Tools Extension Privacy Policy - Restock Bot Alerts</title>
+    <meta name="description"
+        content="Privacy policy for the Costco Tools browser extension. Only precious-metal orders leave your computer; everything else is filtered out locally and never transmitted.">
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#1b1b1d">
+    <link rel="stylesheet" href="/theme.css">
+    <style>
+        /* Theme colors are now in theme.css */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-main);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: var(--text-main);
+            text-decoration: none;
+            margin-bottom: 2rem;
+            padding: 0.5rem 1rem;
+            background: var(--bg-card);
+            border-radius: 8px;
+            transition: background 0.3s ease;
+            border: 1px solid var(--border-gold);
+        }
+
+        .back-link:hover {
+            background: var(--bg-card);
+            border-color: var(--text-gold);
+        }
+
+        .privacy-content {
+            background: var(--bg-card);
+            border-radius: 15px;
+            padding: 3rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            margin-bottom: 2rem;
+            border: 1px solid var(--border-gold);
+        }
+
+        .privacy-content h1 {
+            color: var(--text-main);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            border-bottom: 3px solid var(--text-gold);
+            padding-bottom: 0.5rem;
+        }
+
+        .privacy-content h2 {
+            color: var(--text-main);
+            font-size: 1.4rem;
+            margin: 2rem 0 1rem 0;
+            padding-left: 1rem;
+            border-left: 4px solid var(--text-gold);
+        }
+
+        .privacy-content h3 {
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            margin: 1.5rem 0 0.5rem 0;
+        }
+
+        .privacy-content p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        .privacy-content ul {
+            margin: 1rem 0 1rem 2rem;
+        }
+
+        .privacy-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .privacy-content strong {
+            color: var(--text-main);
+        }
+
+        .privacy-content code {
+            background: var(--bg-main);
+            border: 1px solid var(--border-gold);
+            border-radius: 4px;
+            padding: 0.1rem 0.4rem;
+            font-size: 0.9em;
+        }
+
+        .privacy-content a {
+            color: var(--text-gold);
+        }
+
+        .last-updated {
+            font-style: italic;
+            color: var(--text-muted);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .callout {
+            background: var(--bg-main);
+            border: 1px solid var(--border-gold);
+            border-left: 4px solid var(--text-gold);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .callout p:last-child {
+            margin-bottom: 0;
+        }
+
+        hr {
+            border: none;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--text-gold), transparent);
+            margin: 2rem 0;
+        }
+
+        .footer {
+            background: var(--bg-main);
+            padding: 2rem 1rem;
+            text-align: center;
+            border-top: 1px solid var(--border-gold);
+            margin-top: 2rem;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            color: var(--text-gold);
+            text-decoration: none;
+            margin: 0 1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .footer-links a:hover {
+            color: var(--text-gold);
+            background-color: var(--bg-card);
+            text-decoration: underline;
+        }
+
+        .footer-text {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+
+        .divider {
+            color: var(--text-muted);
+            margin: 0 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .privacy-content {
+                padding: 1.5rem;
+            }
+
+            .footer-links a {
+                display: block;
+                margin: 0.5rem 0;
+            }
+
+            .divider {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <a href="/" class="back-link">&larr; Back to Home</a>
+
+        <div class="privacy-content">
+            <h1>Costco Tools Extension &mdash; Privacy Policy</h1>
+            <p class="last-updated"><strong>Last Updated: July 27th, 2026</strong></p>
+
+            <p>Tremscol LLC (&ldquo;we&rdquo;) operates the <strong>Costco Tools</strong> browser extension,
+                distributed under the Restock Bot Alerts brand. This policy explains what the extension collects, why,
+                and how it is handled. The extension is for <strong>active subscribers</strong> only.</p>
+
+            <p>This policy covers the browser extension specifically. Our general service privacy policy is available
+                at <a href="/privacy.html">restockbotalerts.com/privacy.html</a>.</p>
+
+            <h2>What the extension does</h2>
+            <p>Signed-in Costco members use the extension to (1) <strong>export their own precious-metal orders</strong>
+                to their personal Restock Bot Alerts dashboard, and (2) <strong>save Costco products to their own Costco
+                    wish lists</strong>.</p>
+
+            <h2>Only precious-metal orders ever leave your computer</h2>
+
+            <div class="callout">
+                <p>This is the most important thing to understand about the export, so we want to be exact about it.</p>
+                <p>When you run an export, the extension inspects your orders <strong>on your own computer</strong> and
+                    transmits <strong>only orders that contain precious metals</strong> (gold, silver and platinum
+                    bullion, bars and coins). Every other purchase is filtered out before anything is sent, and the
+                    filtering happens on your machine &mdash; not on our servers.</p>
+            </div>
+
+            <ul>
+                <li><strong>Online orders</strong> &mdash; the filter runs <em>first</em>. We never even request the
+                    details of an order that does not contain precious metals; those orders are identified and skipped
+                    before any detail page is opened.</li>
+                <li><strong>In-store receipts</strong> &mdash; Costco does not say what is on a receipt until it is
+                    opened, so each receipt is read <strong>in your browser</strong> to check it. Receipts without
+                    precious metals are discarded on your computer immediately and are <strong>never
+                        transmitted</strong>.</li>
+                <li><strong>Within a single order</strong> &mdash; the filter applies line by line, not just order by
+                    order. If you bought gold alongside groceries in the same transaction, only the gold line items are
+                    sent. The other items are dropped on your computer, the order total we receive is the precious-metal
+                    total (not what you actually paid), and the payment amount is scaled to the precious-metal share of
+                    the transaction.</li>
+            </ul>
+
+            <p>We therefore never receive a list of your other Costco purchases, and we have no way to reconstruct one.
+                If an export finds no precious-metal orders, nothing is sent at all.</p>
+
+            <h2>What we collect</h2>
+            <ul>
+                <li><strong>Email address</strong> &mdash; you enter it to sign in; we email you a one-time code (no
+                    passwords). Used to identify your subscription and authenticate you.</li>
+                <li><strong>Precious-metal order history</strong> &mdash; only when you choose to run an export, and
+                    only for orders containing precious metals (see above): order numbers, items, quantities, prices,
+                    dates, and payment method type/last-4 as shown in your Costco account. This is sent to your Restock
+                    Bot Alerts dashboard so you can view and analyze <strong>your own</strong> purchases.</li>
+                <li><strong>Authentication token</strong> &mdash; a short-lived login token, stored locally in the
+                    extension to keep you signed in and re-checked periodically. Never exposed to web pages.</li>
+            </ul>
+
+            <h2>What we do NOT collect</h2>
+            <ul>
+                <li>We do <strong>not</strong> collect your Costco password (login is a one-time email code) or your
+                    shipping address.</li>
+                <li>We do <strong>not</strong> collect browsing history, and the extension only runs on
+                    <code>costco.com</code>.</li>
+                <li>We do <strong>not</strong> receive your non-precious-metal purchases. They are filtered out on your
+                    own computer and never transmitted (see above).</li>
+                <li><strong>Wish list data is not stored on our servers</strong> &mdash; when you save an item, the
+                    extension writes to <strong>your</strong> Costco wish list via Costco&rsquo;s own API using your
+                    logged-in Costco session. We do not keep a copy.</li>
+            </ul>
+
+            <h2>How your data is used</h2>
+            <ul>
+                <li>Solely to provide the extension&rsquo;s features: authenticate you, confirm your subscription, and
+                    populate <strong>your</strong> dashboard with <strong>your</strong> order data.</li>
+                <li>We do <strong>not</strong> sell or transfer your data to third parties.</li>
+                <li>We do <strong>not</strong> use your data for advertising, creditworthiness, or lending, or for any
+                    purpose unrelated to the extension&rsquo;s function.</li>
+            </ul>
+
+            <h2>Storage and processors</h2>
+            <p>Order and account data is stored in our database (Supabase, hosted in the US) and billing is handled by
+                Stripe. These processors handle data only to provide the service.</p>
+
+            <h2>Retention and your rights</h2>
+            <ul>
+                <li>You can request deletion of your account and associated data at any time by contacting us at
+                    <a href="mailto:support@tremscol.com">support@tremscol.com</a>.</li>
+                <li>Deleting the extension stops all collection; your dashboard data can be removed on request.</li>
+            </ul>
+
+            <h2>Contact</h2>
+            <p>Questions about this policy: <a href="mailto:support@tremscol.com">support@tremscol.com</a></p>
+
+            <hr>
+
+            <p style="font-style: italic; text-align: center; color: var(--text-muted); margin-top: 2rem;">
+                Costco Tools is not affiliated with, endorsed by, or sponsored by Costco Wholesale Corporation. It
+                operates only on the member&rsquo;s own account data, at the member&rsquo;s direction.
+            </p>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="/privacy.html">Privacy Policy</a>
+                <span class="divider">&bull;</span>
+                <a href="/terms.html">Terms &amp; Conditions</a>
+                <span class="divider">&bull;</span>
+                <a href="mailto:support@tremscol.com">Support</a>
+            </div>
+            <div class="footer-text">
+                &copy; 2026 Tremscol LLC. All rights reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
