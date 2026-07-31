@@ -248,18 +248,22 @@
                 <p>Nothing about your cart or your checkout is sent to us.</p>
             </div>
 
-            <h2>Your order history is read on your computer &mdash; and stays there</h2>
+            <h2>The purchase-limit counters read your order history without sending it</h2>
+
+            <p>The extension reads your order history in two unrelated situations, and only one of them sends anything.
+                This section is about the one that does not; the export is covered in the next two sections.</p>
 
             <p>To tell you how many precious-metal units you have left today, the extension reads your own recent Costco
                 order history <strong>in your browser</strong>. Costco limits precious-metal purchases per delivery
                 address per day, so the count only means anything if it reflects what you actually ordered.</p>
 
-            <p><strong>That reading is never transmitted.</strong> It is held in your browser&rsquo;s memory and a
-                short-lived local cache so the extension does not re-request it on every page, and it is never sent to us
-                or to anyone else. It is used only to draw the counter you see in the panel.</p>
+            <p><strong>That particular reading is never transmitted.</strong> It is held in your browser&rsquo;s memory
+                and a short-lived local cache so the extension does not re-request it on every page, and it is never sent
+                to us or to anyone else. It is used only to draw the counter you see in the panel.</p>
 
-            <p>This is separate from the export below, which is the only thing that ever sends order data anywhere, and
-                only when you ask it to.</p>
+            <p>Running an export is a separate action, on a separate code path, and it is the only thing that ever sends
+                order data anywhere &mdash; and only when you ask it to. What it sends, and what it deliberately does
+                not, is set out below.</p>
 
             <h2>Only precious-metal orders ever leave your computer</h2>
 
