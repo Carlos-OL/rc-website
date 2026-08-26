@@ -35,8 +35,10 @@ Three crops are 2× upscales and noticeably softer than the rest. One 2× retina
 | `extension/assets/ext/panel-cart-guard.png` | 492×256, 2× upscale of `05-cart-guard.png` | Re-cut from a retina capture of the cart-guard state |
 
 Carlos will capture the panel open on a product page when items are next in stock (blocked
-2026-08-26: nothing available). Done so far: watch-list capture delivered 2026-08-26, cropped to
-`extension/assets/dash/watchlist.webp`, replacing `dash/alert.webp` in tour row 01.
+2026-08-26: nothing available). Done so far (2026-08-26): watch-list capture cropped to `extension/assets/dash/watchlist.webp`,
+replacing `dash/alert.webp` in tour row 01; restock-feed capture (Payout/Restock Match chips)
+cropped to `extension/assets/dash/restocks.webp`, added to row 01 with its own caption
+(sidebar cropped out — it showed admin-only menu items).
 
 `ext/panel-fewer-left.png` is already native retina — no reshoot needed.
 
