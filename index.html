@@ -12,8 +12,8 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://restockbotalerts.com/">
     <meta property="og:site_name" content="Restock Bot Alerts">
-    <meta property="og:image" content="https://restockbotalerts.com/android-chrome-512x512.png">
-    <meta name="twitter:card" content="summary">
+    <meta property="og:image" content="https://restockbotalerts.com/assets/og-card.png">
+    <meta name="twitter:card" content="summary_large_image">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -28,6 +28,51 @@
           "@type": "WebSite",
           "name": "Gold Restock Bot",
           "url": "https://restockbotalerts.com/"
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Does Gold Restock Bot auto-checkout?",
+              "acceptedAnswer": { "@type": "Answer", "text": "No. Gold Restock Bot is an advanced tracking and analytics suite — not an automated purchasing bot. The Costco Tools browser extension can take you from a restock to Costco's own checkout page in one click, but the final Place Order click is always yours." }
+            },
+            {
+              "@type": "Question",
+              "name": "Do I need to install anything?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Nothing is required — alerts, the dashboard and payout tools all run through Slack and the web. If you want the on-page experience, the optional Costco Tools extension for Chrome and Firefox adds live market data, restock history and 1-click checkout directly to costco.com." }
+            },
+            {
+              "@type": "Question",
+              "name": "Do I need Slack to use Gold Restock Bot?",
+              "acceptedAnswer": { "@type": "Answer", "text": "No, Slack is optional. Our new web and mobile dashboard offers instant alerts, inventory checks, and analytics without needing Slack. That said, certain advanced features are still Slack-exclusive, and the Slack community is where active buyers share strategies, ask questions, and surface opportunities in real-time — so most users find it valuable." }
+            },
+            {
+              "@type": "Question",
+              "name": "What makes Gold Restock Bot more accurate?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Our online monitor pulls directly from Costco's live inventory feed, not cached public endpoints." }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I cancel anytime?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Yes — your Stripe dashboard lets you cancel with a single click." }
+            },
+            {
+              "@type": "Question",
+              "name": "How does the free trial work?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Start with a free trial to experience the core features risk-free. You'll have full access to alerts, in-store inventory checks, and payout comparisons. After the trial ends, you can continue with your plan or upgrade. Cancel anytime before the trial ends and you won't be charged. The free trial is available to new customers only." }
+            },
+            {
+              "@type": "Question",
+              "name": "What is \"agnostic\" pricing?",
+              "acceptedAnswer": { "@type": "Answer", "text": "We show all buyer payouts with zero bias. You decide who makes sense for you." }
+            },
+            {
+              "@type": "Question",
+              "name": "How is this different from just checking Costco.com myself?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Manual checking or calling warehouses mean you're always behind. Our system monitors every 45 seconds and alerts you within seconds of a restock — giving you several minutes head start over people checking manually. And once you're on the page, the Costco Tools extension shows the premium over spot, restock history and buyer payouts right there, with 1-click checkout to finish before the restock sells out." }
+            }
+          ]
         }
       ]
     }
@@ -1107,7 +1152,8 @@
         <p class="hero-subtext">
             The all-in-one <span style="color: var(--text-gold);">discovery, tracking, and profitability</span>
             suite that gives you instant online alerts,
-            in-store inventory visibility, and unbiased payout comparisons — so you never miss an opportunity.
+            in-store inventory visibility, unbiased payout comparisons, and a browser extension that brings it all
+            onto costco.com — so you never miss an opportunity.
         </p>
 
         <p class="hero-community">
@@ -1122,9 +1168,9 @@
     <!-- TRUST STRIP -->
     <section class="trust-strip">
         <div class="trust-container">
-            <div class="trust-item"><strong>58%</strong> bought gold they found through in-store alerts*</div>
-            <div class="trust-item"><strong>52%</strong> make $1,000+ monthly profit using the suite*</div>
-            <div class="trust-item"><strong>50%</strong> save 3+ hours per month vs manual calling*</div>
+            <div class="trust-item"><strong>58%</strong> bought gold they found through in-store alerts</div>
+            <div class="trust-item"><strong>52%</strong> make $1,000+ monthly profit using the suite</div>
+            <div class="trust-item"><strong>50%</strong> save 3+ hours per month vs manual calling</div>
         </div>
     </section>
 
@@ -1214,8 +1260,30 @@
             </div>
         </div>
 
-        <!-- ROW 3: Payout Comparisons -->
+        <!-- ROW 3: Costco Tools Browser Extension -->
         <div class="feature-row">
+            <div class="feature-text">
+                <h3>Costco Tools Browser Extension</h3>
+                <p>
+                    Our Chrome &amp; Firefox extension builds the suite into costco.com itself: live premium over
+                    spot, restock history and buyer payouts on every precious metals page — plus 1-click checkout
+                    that turns a restock into a purchase in about seven seconds.
+                </p>
+                <p style="margin-top: 0.75rem;">
+                    <a href="/extension/" style="color: var(--text-gold); font-weight: 600;">Learn more about the
+                        extension &rarr;</a>
+                </p>
+            </div>
+            <div class="feature-media">
+                <div class="feature-media-box">
+                    <img src="assets/features/Browser Extension.webp"
+                        alt="The Costco Tools extension panel on a Costco gold bar product page" class="feature-img">
+                </div>
+            </div>
+        </div>
+
+        <!-- ROW 4: Payout Comparisons (reversed) -->
+        <div class="feature-row feature-row-reverse">
             <div class="feature-text">
                 <h3>Payout Comparisons</h3>
                 <p>
@@ -1231,8 +1299,8 @@
             </div>
         </div>
 
-        <!-- ROW 4: Profit & Margin Tools (reversed) -->
-        <div class="feature-row feature-row-reverse">
+        <!-- ROW 5: Profit & Margin Tools -->
+        <div class="feature-row">
             <div class="feature-text">
                 <h3>Profit &amp; Margin Tools</h3>
                 <p>
@@ -1264,8 +1332,8 @@
             </div>
         </div>
 
-        <!-- ROW 5: Custom Tracking Lists -->
-        <div class="feature-row">
+        <!-- ROW 6: Custom Tracking Lists (reversed) -->
+        <div class="feature-row feature-row-reverse">
             <div class="feature-text">
                 <h3>Personalized Alerts</h3>
                 <p>
@@ -1281,8 +1349,8 @@
             </div>
         </div>
 
-        <!-- ROW 6: Gold Spot Alerts (reversed) -->
-        <div class="feature-row feature-row-reverse">
+        <!-- ROW 7: Gold Spot Alerts -->
+        <div class="feature-row">
             <div class="feature-text">
                 <h3>Spot Price Alerts</h3>
                 <p>
@@ -1298,12 +1366,12 @@
             </div>
         </div>
 
-        <!-- ROW 7: Mobile-First Experience (replaces Super Simple UI) -->
-        <div class="feature-row">
+        <!-- ROW 8: Mobile-First Experience (reversed) -->
+        <div class="feature-row feature-row-reverse">
             <div class="feature-text">
                 <h3>Mobile-First Experience</h3>
                 <p>
-                    Take your entire toolkit on the road. Our mobile-first suite puts all of our tools and features
+                    Take your toolkit on the road. Our mobile-first suite puts alerts, inventory checks and analytics
                     right in your pocket — with instant push notifications so you never miss a restock.
                 </p>
                 <p style="margin-top: 0.75rem; font-style: italic; color: var(--text-muted);">
@@ -1318,8 +1386,8 @@
             </div>
         </div>
 
-        <!-- ROW 8: Profitability Dashboard -->
-        <div class="feature-row feature-row-reverse">
+        <!-- ROW 9: Profitability Dashboard -->
+        <div class="feature-row">
             <div class="feature-text">
                 <h3>Profitability Dashboard</h3>
                 <p>
@@ -1368,8 +1436,8 @@
             </div>
         </div>
 
-        <!-- ROW 9: Advanced Analytics -->
-        <div class="feature-row">
+        <!-- ROW 10: Advanced Analytics (reversed) -->
+        <div class="feature-row feature-row-reverse">
             <div class="feature-text">
                 <h3>Advanced Analytics</h3>
                 <p>
@@ -1418,37 +1486,29 @@
             </div>
         </div>
 
-        <!-- OLD: Super Simple UI (commented out for reference)
-        <div class="feature-row">
-            <div class="feature-text">
-                <h3>Super Simple UI</h3>
-                <p>
-                    A clean, button‑based interface that accelerates actions and makes every workflow effortless.
-                    Access every tool — including in‑store searches, online restock tracking, payout comparisons,
-                    profit calculators, spot alerts, and custom lists — all with one or two clicks.
-                </p>
-            </div>
-            <div class="feature-media">
-                <div class="feature-media-box">
-                    <img src="assets/features/tools.webp" alt="Simple UI" class="feature-img">
-                </div>
-            </div>
-        </div>
-        -->
     </section>
 
     <!-- DIFFERENTIATORS -->
     <section id="differentiators" class="diff-section">
         <h2 class="section-title">Why Gold Restock Bot Is Different</h2>
 
-        <!-- Top row: 4 wider cards -->
-        <div class="diff-grid-4">
+        <!-- 10 cards: 5x2 on desktop, 2x5 on tablet, stacked on mobile -->
+        <div class="diff-grid-5">
             <div class="diff-card">
                 <h3>Built for Real Buyers. Proven to Deliver Results.</h3>
                 <p>Designed by active buyers, for active buyers. Access everything from your phone, act on opportunities
                     instantly, and track your results over time. <strong style="color: var(--text-gold);">Our users
                         collectively purchase millions every month</strong> — the suite pays for itself many times over.
                 </p>
+            </div>
+
+            <div class="diff-card">
+                <h3>From Restock to Checkout in Seconds</h3>
+                <p>The <a href="/extension/" style="text-decoration: none;"><strong
+                            style="color: var(--text-gold);">Costco Tools extension</strong></a> optimizes the moment
+                    that matters: premium, history and payouts on the Costco page itself, and <strong
+                        style="color: var(--text-gold);">1-click checkout</strong> that turns a restock into a purchase
+                    in about seven seconds.</p>
             </div>
 
             <div class="diff-card">
@@ -1472,15 +1532,11 @@
                     automatically, and the system continuously detects new
                     precious‑metal SKUs the moment they are released for sale.</p>
             </div>
-        </div>
-
-        <!-- Bottom row: 5 thinner cards -->
-        <div class="diff-grid-5">
             <div class="diff-card">
                 <h3>Security &amp; Reliability</h3>
                 <p><strong style="color: var(--text-gold);">Built on trusted</strong>, industry‑standard <strong
                         style="color: var(--text-gold);">platforms</strong>. Billing through Stripe, access through
-                    Slack — we
+                    Slack and your dashboard — we
                     never store your credentials.</p>
             </div>
             <div class="diff-card">
@@ -1495,7 +1551,7 @@
             </div>
             <div class="diff-card">
                 <h3>Proven Track Record</h3>
-                <p>Nearly 2 years of operation, thousands of alerts monthly, <strong
+                <p>Nearly 3 years of operation, thousands of alerts monthly, <strong
                         style="color: var(--text-gold);">survey-verified results</strong>.</p>
             </div>
             <div class="diff-card">
@@ -1522,8 +1578,15 @@
                 <tbody>
                     <tr>
                         <td>Fast online restock detection</td>
-                        <td><span class="check-mark">✓</span> 1+ minute delays</td>
+                        <td>1+ minute delays</td>
                         <td><span class="check-mark">✓</span> Every 45s</td>
+                    </tr>
+                    <tr>
+                        <td>Browser extension (Chrome &amp; Firefox)</td>
+                        <td>Limited - Varies by provider</td>
+                        <td><span class="check-mark">✓</span> Market data + 1-click checkout — <a
+                                href="/extension/#spec" style="color: var(--text-gold);">see the full feature list</a>
+                        </td>
                     </tr>
                     <tr>
                         <td>In-store inventory checker</td>
@@ -1639,8 +1702,8 @@
             <div class="how-step">
                 <div class="how-icon">🔗</div>
                 <h3><span class="how-num">2.</span> Connect & Configure</h3>
-                <p>Join our Slack workspace, set your zip code for in-store alerts, and customize your tracking list —
-                    all in under 2 minutes.</p>
+                <p>Join our Slack workspace, set your zip code for in-store alerts, customize your tracking list, and
+                    optionally add the Costco Tools extension to Chrome or Firefox.</p>
             </div>
             <div class="how-step">
                 <div class="how-icon">📈</div>
@@ -1666,15 +1729,15 @@
         <div class="results-grid">
             <div class="result-card">
                 <strong>50%</strong>
-                <p>of users buy $50,000+ in gold monthly*</p>
+                <p>of users buy $50,000+ in gold monthly</p>
             </div>
             <div class="result-card">
                 <strong>60%</strong>
-                <p>say the tools drive over half their purchases*</p>
+                <p>say the tools drive over half their purchases</p>
             </div>
             <div class="result-card">
                 <strong>31%</strong>
-                <p>attribute 76%+ of their purchases to bot signals*</p>
+                <p>attribute 76%+ of their purchases to bot signals</p>
             </div>
         </div>
     </section>
@@ -1720,13 +1783,18 @@
             <button class="faq-question">Does Gold Restock Bot auto-checkout?</button>
             <div class="faq-answer">
                 <p>No. Gold Restock Bot is an advanced tracking and analytics suite — not an automated purchasing bot.
+                    The Costco Tools browser extension can take you from a restock to Costco's own checkout page in one
+                    click, but the final Place Order click is always yours.
                 </p>
             </div>
         </div>
         <div class="faq-item">
             <button class="faq-question">Do I need to install anything?</button>
             <div class="faq-answer">
-                <p>No installation needed. Everything runs directly through Slack and the Gold Restock Bot platform.</p>
+                <p>Nothing is required — alerts, the dashboard and payout tools all run through Slack and the web. If
+                    you want the on-page experience, the optional <a href="/extension/"
+                        style="color: var(--text-gold);">Costco Tools extension</a> for Chrome and Firefox adds live
+                    market data, restock history and 1-click checkout directly to costco.com.</p>
             </div>
         </div>
         <div class="faq-item">
@@ -1773,7 +1841,9 @@
             <div class="faq-answer">
                 <p>Manual checking or calling warehouses mean you're always behind. Our system monitors every 45 seconds
                     and alerts you within seconds of a restock —
-                    giving you several minutes head start over people checking manually.</p>
+                    giving you several minutes head start over people checking manually. And once you're on the page,
+                    the Costco Tools extension shows the premium over spot, restock history and buyer payouts right
+                    there, with 1-click checkout to finish before the restock sells out.</p>
             </div>
         </div>
     </section>
@@ -1798,7 +1868,7 @@
                 <a href="mailto:support@tremscol.com">Contact Us</a>
             </div>
             <div class="footer-text">
-                &copy; 2025 Tremscol LLC. All rights reserved.
+                &copy; 2026 Tremscol LLC. All rights reserved.
             </div>
             <p class="footer-disclaimer">
                 Disclaimer: This service is an independent third-party product and is not affiliated with, endorsed by,

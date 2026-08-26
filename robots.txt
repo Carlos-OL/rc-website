@@ -1,4 +1,7 @@
 User-agent: *
 Disallow: /design
+Disallow: /index-dev
+Disallow: /index copy.html
+Disallow: /index%20copy.html
 
 Sitemap: https://restockbotalerts.com/sitemap.xml
