@@ -113,6 +113,7 @@ body { margin:0; background:#1b1b1d; color:#f0f0f0; font-family:-apple-system,Bl
     [data-spec] td, [data-spec] th { padding:0.7rem 0.6rem !important; }
   }
 #lightbox[hidden]{display:none !important}
+  [data-tight] img[data-zoom] { max-height:none !important; width:100% !important; }
   #faq summary { font-weight:600; color:#f0f0f0; font-size:1.08rem; cursor:pointer; }
   #faq summary::marker { color:#10e9df; }
   #faq details[open] summary { margin-bottom:0.6rem; }
@@ -289,13 +290,13 @@ body { margin:0; background:#1b1b1d; color:#f0f0f0; font-family:-apple-system,Bl
         </div>
       </div>
       <div data-row-media="" style="display:flex;flex-direction:column;gap:1rem;">
-        <img data-zoom="" src="assets/ext/panel-quantity.png?v=2" alt="Close-up of the panel's quantity to checkout row, each quantity showing its running total" style="width:100%;max-width:600px;margin:0 auto;display:block;border-radius:14px;border:0.75px solid rgba(255,138,61,0.25);box-shadow:0 8px 28px rgba(0,0,0,0.6);background:#ffffff;">
-        <div data-grid-2="" style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;align-items:start;">
+        <div data-grid-2="" data-tight="" style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;align-items:center;">
+          <img data-zoom="" src="assets/ext/panel-quantity.png?v=2" alt="Close-up of the panel's quantity to checkout row, each quantity showing its running total" style="width:100%;display:block;border-radius:14px;border:0.75px solid rgba(255,138,61,0.25);box-shadow:0 8px 28px rgba(0,0,0,0.6);background:#ffffff;">
+          <img data-zoom="" src="assets/ext/panel-cart-guard.png" alt="Cart guard: one-click checkout is held back until the cart is empty, with a link to clear it and continue" style="width:100%;display:block;border-radius:14px;border:0.75px solid rgba(255,138,61,0.25);box-shadow:0 8px 28px rgba(0,0,0,0.6);background:#ffffff;">
           <img data-zoom="" src="assets/ext/panel-fewer-left.png" alt="The Fewer Left setting: show me what's left and let me choose, or buy what's left and keep going" style="width:100%;display:block;border-radius:14px;border:0.75px solid rgba(255,138,61,0.25);box-shadow:0 8px 28px rgba(0,0,0,0.6);background:#ffffff;">
-          <img data-zoom="" src="assets/ext/panel-cart-guard.png" alt="Cart guard: one-click checkout is held back until the cart is empty, with a link to clear it and continue" style="width:100%;max-width:480px;display:block;border-radius:14px;border:0.75px solid rgba(255,138,61,0.25);box-shadow:0 8px 28px rgba(0,0,0,0.6);background:#ffffff;">
+          <img data-zoom="" src="assets/ext/panel-limit-tracker.png" alt="The panel tracking Costco's daily purchase limit: 8 of 8 units left today from your recent orders, and when you can order again" style="width:100%;display:block;border-radius:14px;border:0.75px solid rgba(255,138,61,0.25);box-shadow:0 8px 28px rgba(0,0,0,0.6);background:#ffffff;">
         </div>
-        <img data-zoom="" src="assets/ext/panel-limit-tracker.png" alt="The panel tracking Costco's daily purchase limit: 8 of 8 units left today from your recent orders, and when you can order again" style="width:100%;max-width:600px;margin:0 auto;display:block;border-radius:14px;border:0.75px solid rgba(255,138,61,0.25);box-shadow:0 8px 28px rgba(0,0,0,0.6);background:#ffffff;">
-        <p style="font-size:0.85rem;color:#8f8f92;font-style:italic;margin:0;line-height:1.6;">Daily limits, tracked for you: how many units you have left today, and exactly when you can order again.</p>
+        <p style="font-size:0.85rem;color:#8f8f92;font-style:italic;margin:0;line-height:1.6;">Quantity totals, cart guard, the adaptive cart and daily-limit tracking — click any screenshot to enlarge.</p>
       </div>
     </div>
   </section>
