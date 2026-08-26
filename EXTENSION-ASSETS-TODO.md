@@ -20,13 +20,7 @@ Each video also needs a poster frame (first-frame PNG/WebP works).
 | 2 | 02 · Decide | ~15 s | Reading the panel on a live item: spot → item value → Costco's markup → history → payouts. Filmable any day, no restock needed. | Media column of row 02, below `ext/02-category-grid.png` |
 | 3 | 03 · Buy | ~12 s | Quantity → Costco checkout: tap 4, total updates, checkout loads. The single most convincing loop on the page. | Media column of row 03, below the screenshot tiles |
 
-### 2. Cart-guard reshoot (last soft screenshot)
-
-`extension/assets/ext/panel-cart-guard.png` is still a 492×256, 2× upscale of `05-cart-guard.png`.
-Needs a retina capture of the cart-guard state (one-click checkout held back until the cart is
-cleared). Everything else on the page is native resolution now.
-
-### 3. Copy numbers to re-verify before a traffic push
+### 2. Copy numbers to re-verify before a traffic push
 
 Not assets, but stale-prone: "636 gold restocks in July 2026" (stat strip + `#get` section),
 "7s average", "3s faster", "5s+ saved".
@@ -47,6 +41,8 @@ deployed; Claude crops from there. Screenshots at 2× (retina) PNG.
 - `panel-limit-tracker.png` — NEW, from the same capture: the expanded daily-limit box
   ("8 of 8 units left today… you can order this again now"), added to tour row 03 Buy.
 - `panel-fewer-left.png` — was already native retina, no reshoot needed.
+- `panel-cart-guard.png` — re-cut at native retina from the cart-guard-state capture
+  (2026-08-26 evening). Every screenshot on the page is now native resolution.
 - Buy row media rearranged: quantity + cart-guard tiled 2-up, fewer-left + limit-tracker
   height-matched side by side; lightbox handles detail.
 
