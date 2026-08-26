@@ -30,9 +30,12 @@ Three crops are 2× upscales and noticeably softer than the rest. One 2× retina
 
 | File | Current state | Fix |
 |---|---|---|
-| `extension/assets/ext/panel-market-data.png` | 622×704, 2× upscale of a 311px region | Re-cut from a retina capture |
-| `extension/assets/ext/panel-quantity.png` | 622×256, same upscale | Re-cut from the same capture |
-| `extension/assets/ext/panel-cart-guard.png` | 492×256, 2× upscale of `05-cart-guard.png` | Re-cut from a retina capture of the cart-guard state |
+| `extension/assets/ext/panel-market-data.png` | ~~soft upscale~~ DONE 2026-08-26: re-cut at native retina from the in-stock product-page capture | — |
+| `extension/assets/ext/panel-quantity.png` | ~~soft upscale~~ DONE 2026-08-26: re-cut from the same capture | — |
+| `extension/assets/ext/panel-cart-guard.png` | 492×256, 2× upscale of `05-cart-guard.png` — STILL PENDING | Needs a retina capture of the cart-guard state (checkout held until cart cleared) |
+
+Bonus from the same capture: `panel-limit-tracker.png` (new) — the expanded daily-limit box
+("8 of 8 units left today… you can order this again now"), added to tour row 03 Buy.
 
 Carlos will capture the panel open on a product page when items are next in stock (blocked
 2026-08-26: nothing available). Done so far (2026-08-26): watch-list capture cropped to `extension/assets/dash/watchlist.webp`,
