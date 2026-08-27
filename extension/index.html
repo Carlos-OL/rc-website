@@ -114,6 +114,7 @@ body { margin:0; background:#1b1b1d; color:#f0f0f0; font-family:-apple-system,Bl
   }
 #lightbox[hidden]{display:none !important}
   [data-tight] img[data-zoom] { max-height:none !important; width:100% !important; }
+  img[data-wide] { max-height:none !important; width:100% !important; }
   [data-match] { display:flex; gap:1rem; justify-content:center; align-items:flex-start; }
   [data-match] img[data-zoom] { height:330px !important; max-height:none !important; width:auto !important; }
   @media (max-width:760px) {
@@ -250,7 +251,11 @@ body { margin:0; background:#1b1b1d; color:#f0f0f0; font-family:-apple-system,Bl
         <p style="font-size:0.85rem;color:#8f8f92;font-style:italic;margin:0;line-height:1.6;">Your rules, not ours: alerts fire on the SKUs that clear the payout and margin you set.</p>
         <img data-zoom="" src="assets/dash/restocks.webp" alt="The restock feed, each item tagged Payout Match or Restock Match — the custom alerts that matched your watch list rules" style="width:100%;display:block;border-radius:14px;border:0.75px solid rgba(255,138,61,0.25);box-shadow:0 8px 28px rgba(0,0,0,0.6);background:#262628;">
         <p style="font-size:0.85rem;color:#8f8f92;font-style:italic;margin:0;line-height:1.6;">Payout Match or Restock Match: the custom alerts that cleared your rules — the same restocks the extension surfaces and auto-opens.</p>
-        <img data-zoom="" src="assets/ext/15-auto-open.png" alt="Auto-open settings: which tracked restocks open their own product page, with quiet hours and tab caps" style="width:100%;display:block;border-radius:14px;border:0.75px solid rgba(255,138,61,0.25);box-shadow:0 8px 28px rgba(0,0,0,0.6);background:#262628;">
+        <img data-zoom="" data-wide="" src="assets/ext/15-auto-open.png" alt="Auto-open settings: which tracked restocks open their own product page, with quiet hours and tab caps" style="width:100%;display:block;border-radius:14px;border:0.75px solid rgba(255,138,61,0.25);box-shadow:0 8px 28px rgba(0,0,0,0.6);background:#262628;">
+        <video autoplay muted loop playsinline poster="assets/ext/video-container-fanout-poster.webp" style="width:100%;display:block;border-radius:14px;border:0.75px solid rgba(255,138,61,0.25);box-shadow:0 8px 28px rgba(0,0,0,0.6);background:#262628;">
+          <source src="assets/ext/video-container-fanout.mp4" type="video/mp4">
+        </video>
+        <p style="font-size:0.85rem;color:#8f8f92;font-style:italic;margin:0;line-height:1.6;">Container fan-out, live: one click on the restock, and every container you ticked opens its own signed-in tab.</p>
       </div>
     </div>
   </section>

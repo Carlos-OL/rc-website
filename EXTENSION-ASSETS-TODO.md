@@ -16,9 +16,14 @@ Each video also needs a poster frame (first-frame PNG/WebP works).
 
 | # | Tour row | Length | Clip | Where it goes |
 |---|---|---|---|---|
-| 1 | 01 · Detect | ~8 s | Firefox container fan-out: one click, four account tabs open. Two test accounts are enough to film it. | Media column of row 01, below `ext/15-auto-open.png` |
-| 2 | 02 · Decide | ~15 s | Reading the panel on a live item: spot → item value → Costco's markup → history → payouts. Filmable any day, no restock needed. | Media column of row 02, below `ext/02-category-grid.png` |
-| 3 | 03 · Buy | ~12 s | Quantity → Costco checkout: tap 4, total updates, checkout loads. The single most convincing loop on the page. | Media column of row 03, below the screenshot tiles |
+| 2 | 02 · Decide | ~15 s | Reading the panel on a live item: spot → item value → Costco's markup → history → payouts. Needs an in-stock item (blocked 2026-08-27: no inventory). | Media column of row 02, below `ext/02-category-grid.png` |
+| 3 | 03 · Buy | ~12 s | Quantity → Costco checkout: tap 4, total updates, checkout loads. The single most convincing loop on the page. Needs an in-stock item. | Media column of row 03, below the screenshot tiles |
+
+DONE: video 1 (container fan-out, 11.7 s) shipped 2026-08-27 as
+`extension/assets/ext/video-container-fanout.mp4` + poster, in tour row 01. Filmed with the
+N Fresno decoy store; source raw in `design_handoff_extension_landing/raw/`.
+Pipeline for the rest: Screen Studio export MP4/4K/60fps/Studio → raw folder → Claude
+compresses (1600w, 30fps, crf 23, faststart, muted) + poster + frame-by-frame privacy check.
 
 ### 2. Copy numbers to re-verify before a traffic push
 
