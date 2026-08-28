@@ -36,16 +36,17 @@ on-screen in an uncut take. Arc: cart guard clear, quantity 4, PM acknowledgment
 vault recognizes the card and pastes the code. First take (Screen Studio white-slab mask)
 superseded; raw kept. Timer shows 0.0s from the first frame, starts counting at Carlos's
 actual quantity press (t=2.55 in the raw take, tuned with him), and freezes at 7.9s covering
-the full run including the cart-guard clear. NOTE from Carlos: the sitewide "7s" speed claim
-(stat strip "7s average", Buy row "seven seconds", FAQ) may need changing to 8s to be safe —
-his call, not yet applied.
+the full run including the cart-guard clear. DONE 2026-08-28 per Carlos: the sitewide speed
+claim moved from 7s to 8s everywhere (stat strip, Buy row headline and body, spec table,
+two-clicks FAQ + its JSON-LD copy, homepage extension blurb). The video's 7.9s counter now
+sits under the claim.
 Pipeline for the rest: Screen Studio export MP4/4K/60fps/Studio → raw folder → Claude
 compresses (1600w, 30fps, crf 23, faststart, muted) + poster + frame-by-frame privacy check.
 
 ### 2. Copy numbers to re-verify before a traffic push
 
 Not assets, but stale-prone: "636 gold restocks in July 2026" (stat strip + `#get` section),
-"7s average", "3s faster", "5s+ saved".
+"8s average" (moved from 7s on 2026-08-28), "3s faster", "5s+ saved".
 
 ### Where to drop raw captures
 
