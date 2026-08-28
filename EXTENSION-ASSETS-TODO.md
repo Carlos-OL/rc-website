@@ -14,9 +14,7 @@ The original dashed-placeholder markup is in the handoff bundle
 (`design_handoff_extension_landing/index.html`) and in git history if you want to restore a slot.
 Each video also needs a poster frame (first-frame PNG/WebP works).
 
-| # | Tour row | Length | Clip | Where it goes |
-|---|---|---|---|---|
-| 3 | 03 · Buy | ~12 s | Quantity → Costco checkout: tap 4, total updates, checkout loads. The single most convincing loop on the page. Needs an in-stock item. Raw take saved 2026-08-28; needs multi-region privacy masking in the ffmpeg pass (Screen Studio allows only one mask per clip). | Media column of row 03, below the screenshot tiles |
+All three tour videos are DONE — no videos owed.
 
 DONE: video 1 (container fan-out, 11.7 s) shipped 2026-08-27 as
 `extension/assets/ext/video-container-fanout.mp4` + poster, in tour row 01. Filmed with the
@@ -27,6 +25,20 @@ DONE: video 2 (product-page panel / Decide, 12.8 s) shipped 2026-08-28 as
 history, payouts); the desktop bookends with browser chrome were cut, removing third-party
 toolbar icons. Carlos approved showing buyer names and the Stockton / 95210 store on 2026-08-28.
 Full take kept in raw (settings + popup tour, potential future asset).
+DONE: video 3 (quantity → checkout / Buy, 14.95 s) staged 2026-08-28 as
+`extension/assets/ext/video-qty-checkout.mp4` + poster, in tour row 03. Second take
+("qty>checkout.mp4" raw): filmed with a frozen VIRTUAL card saved on both sides, so all card
+data (last4 1539, exp 08/30, CVV 500) shows uncensored. Masks are pixelation in the ffmpeg
+pass, Carlos's name and address only (cardholder field + billing block, across three zoom
+states including the mid-take card-form reflow). Burned-in stopwatch starts at the quantity
+click and freezes green at 4.1s when Costco's checkout renders, proving the sub-7s claim
+on-screen in an uncut take. Arc: cart guard clear, quantity 4, PM acknowledgment, checkout,
+vault recognizes the card and pastes the code. First take (Screen Studio white-slab mask)
+superseded; raw kept. Timer shows 0.0s from the first frame, starts counting at Carlos's
+actual quantity press (t=2.55 in the raw take, tuned with him), and freezes at 7.9s covering
+the full run including the cart-guard clear. NOTE from Carlos: the sitewide "7s" speed claim
+(stat strip "7s average", Buy row "seven seconds", FAQ) may need changing to 8s to be safe —
+his call, not yet applied.
 Pipeline for the rest: Screen Studio export MP4/4K/60fps/Studio → raw folder → Claude
 compresses (1600w, 30fps, crf 23, faststart, muted) + poster + frame-by-frame privacy check.
 
