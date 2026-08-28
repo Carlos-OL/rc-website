@@ -16,12 +16,17 @@ Each video also needs a poster frame (first-frame PNG/WebP works).
 
 | # | Tour row | Length | Clip | Where it goes |
 |---|---|---|---|---|
-| 2 | 02 · Decide | ~15 s | Reading the panel on a live item: spot → item value → Costco's markup → history → payouts. Needs an in-stock item (blocked 2026-08-27: no inventory). | Media column of row 02, below `ext/02-category-grid.png` |
-| 3 | 03 · Buy | ~12 s | Quantity → Costco checkout: tap 4, total updates, checkout loads. The single most convincing loop on the page. Needs an in-stock item. | Media column of row 03, below the screenshot tiles |
+| 3 | 03 · Buy | ~12 s | Quantity → Costco checkout: tap 4, total updates, checkout loads. The single most convincing loop on the page. Needs an in-stock item. Raw take saved 2026-08-28; needs multi-region privacy masking in the ffmpeg pass (Screen Studio allows only one mask per clip). | Media column of row 03, below the screenshot tiles |
 
 DONE: video 1 (container fan-out, 11.7 s) shipped 2026-08-27 as
 `extension/assets/ext/video-container-fanout.mp4` + poster, in tour row 01. Filmed with the
 N Fresno decoy store; source raw in `design_handoff_extension_landing/raw/`.
+DONE: video 2 (product-page panel / Decide, 12.8 s) shipped 2026-08-28 as
+`extension/assets/ext/video-product-panel.mp4` + poster, in tour row 02. Trimmed from the 42 s
+"Product Page Panel.mp4" raw take (zoomed-in Decide arc only, 3.4s to 16.2s: limit box, premium,
+history, payouts); the desktop bookends with browser chrome were cut, removing third-party
+toolbar icons. Carlos approved showing buyer names and the Stockton / 95210 store on 2026-08-28.
+Full take kept in raw (settings + popup tour, potential future asset).
 Pipeline for the rest: Screen Studio export MP4/4K/60fps/Studio → raw folder → Claude
 compresses (1600w, 30fps, crf 23, faststart, muted) + poster + frame-by-frame privacy check.
 
