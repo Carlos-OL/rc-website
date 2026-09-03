@@ -14,7 +14,10 @@
    in a different repo, that commit message must cite the origin, e.g.
    `[from Costco Orders Dashboard v2 UR-136 / REQ-346] <summary>`. The originating REQ file
    records the implementing repo's commit hash on completion.
-4. Historical numbering gaps are left alone; archived or committed REQs are never renumbered.
+4. **The next number is always the HIGHEST existing number + 1 — never the lowest unused number.**
+   Gaps are never back-filled: a number missing in this repo is usually a live REQ in another repo
+   (all four shared one interleaved sequence until 2026-09-03), so reusing it collides in commit
+   tags and cross-references. Archived or committed REQs are never renumbered.
 
 This rule is identical in all four linked repos: Costco_Bot, Costco Orders Dashboard v2,
 costco-extension, and the RC website.
