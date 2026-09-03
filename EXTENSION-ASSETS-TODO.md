@@ -16,6 +16,20 @@ Each video also needs a poster frame (first-frame PNG/WebP works).
 
 All three tour videos are DONE — no videos owed.
 
+BONUS (2026-09-03): video 4, auto-open captured live on Windows via OBS Replay Buffer
+(`Replay 2026-09-03 10-55-11.mkv` in raw, 4K/60, 117 s). Shipped as
+`extension/assets/ext/video-auto-open.mp4` + poster (10.0 s) in tour row 01 below the
+auto-open settings screenshot. Cut: 3 s idle Google, both tabs pop simultaneously at raw
+92.6 s, 4 s hold, one invisible trim of 5.7 s dead stillness, then the focus jump (raw 101.3)
+to the Sunshine Minting product page with the panel already loaded. Windows taskbar cropped
+out of frame (removed the MT clock that would contradict the PT captions, plus all tray
+icons). Two Menlo caption chips: "Restock detected and alerted · 9:54 AM PT" (white, from
+0.8 s) and "Tabs auto-opened · 9:54 AM PT" (green, at the pop). Decoy warehouse
+(Culver City / 90210), no name anywhere: zero masks. Carlos accepted the panel's
+"last one today 7:48 AM" history line as is.
+OBS pipeline for future captures: Display Capture, canvas = native res, 60 fps, NVENC CQP 18,
+MKV, Replay Buffer 120 s + Save Replay hotkey.
+
 DONE: video 1 (container fan-out, 11.7 s) shipped 2026-08-27 as
 `extension/assets/ext/video-container-fanout.mp4` + poster, in tour row 01. Filmed with the
 N Fresno decoy store; source raw in `design_handoff_extension_landing/raw/`.
