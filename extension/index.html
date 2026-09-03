@@ -55,7 +55,7 @@
         {
           "@type": "Question",
           "name": "Do I need a Restock Bot Alerts subscription, and which plan?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Yes — the extension comes with a Restock Bot Alerts subscription and signs in with a one-time code from your account. Everything on the product and listing pages works on any plan: premium over spot, history, buyer payouts, quantity to checkout, limit tracking, the card vault, order export. The restock feed, auto-open, container fan-out and the adaptive cart need the Gold plan. They're the hunt: the features that find the drop and win it for you." }
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes — the extension comes with a Restock Bot Alerts subscription and signs in with a one-time code from your account. Everything on the product and listing pages works on any plan: premium over spot, history, buyer payouts, quantity to checkout, limit tracking, the card vault, order export. The restock feed, auto-open, container fan-out and the adaptive cart need the Gold plan." }
         },
         {
           "@type": "Question",
@@ -121,7 +121,6 @@ body { margin:0; background:#1b1b1d; color:#f0f0f0; font-family:-apple-system,Bl
     [data-match] { flex-direction:column; }
     [data-match] img[data-zoom] { height:auto !important; width:100% !important; }
   }
-  .gold-pill { display:inline-block; color:#facc15; border:1px solid rgba(250,204,21,0.45); border-radius:999px; padding:0.12rem 0.55rem; font-size:0.7rem; letter-spacing:0.14em; font-weight:700; white-space:nowrap; font-style:normal; }
   #faq summary { font-weight:600; color:#f0f0f0; font-size:1.08rem; cursor:pointer; }
   #faq summary::marker { color:#10e9df; }
   #faq details[open] summary { margin-bottom:0.6rem; }
@@ -199,7 +198,7 @@ body { margin:0; background:#1b1b1d; color:#f0f0f0; font-family:-apple-system,Bl
         <div style="padding:1.9rem;background:#262628;border:1px solid rgba(255,138,61,0.25);border-radius:12px;">
           <div style="font-size:0.75rem;letter-spacing:0.18em;color:#10e9df;margin-bottom:0.8rem;">SPEED</div>
           <h3 style="font-size:1.28rem;margin:0 0 0.6rem;">Be on the page, not chasing an alert</h3>
-          <p style="color:#c8c8c8;line-height:1.7;margin:0;">The restock reaches you as an open product page, ready for you to take action. No alert to notice, find, click and then wait on a browser switch.<span style="color:#8f8f92;"> Auto-open is Chrome only.</span> <span class="gold-pill">◆ GOLD</span></p>
+          <p style="color:#c8c8c8;line-height:1.7;margin:0;">The restock reaches you as an open product page, ready for you to take action. No alert to notice, find, click and then wait on a browser switch.<span style="color:#8f8f92;"> Auto-open is Chrome only.</span></p>
         </div>
         <div style="padding:1.9rem;background:#262628;border:1px solid rgba(255,138,61,0.25);border-radius:12px;">
           <div style="font-size:0.75rem;letter-spacing:0.18em;color:#10e9df;margin-bottom:0.8rem;">PROFIT</div>
@@ -234,16 +233,15 @@ body { margin:0; background:#1b1b1d; color:#f0f0f0; font-family:-apple-system,Bl
           <span style="font-family:ui-monospace,Menlo,monospace;font-size:3rem;font-weight:700;color:rgba(16,233,223,0.32);line-height:1;">01</span>
           <span style="font-size:0.8rem;letter-spacing:0.18em;text-transform:uppercase;color:#10e9df;">Detect</span>
         </div>
-        <div style="margin:0 0 0.9rem;"><span class="gold-pill">◆ GOLD</span> <span style="color:#8f8f92;font-size:0.9rem;">Detection is the hunt: everything in this section is a Gold-plan feature.</span></div>
         <h3 style="font-size:2.1rem;line-height:1.18;margin:0 0 1rem;">Only the restocks that are worth your money.</h3>
         <p style="font-size:1.08rem;line-height:1.75;color:#c8c8c8;margin:0 0 1rem;">Being alerted to every restock is its own kind of noise — each one costs you time to work out whether it is even a deal for you, and some restocks are gone in seconds. You build the watch lists in your dashboard — the items you actually want, at the margins that actually work for you — and the extension only ever acts on those. Every restock it surfaces or opens is one you already decided was worth buying.</p>
         <p style="font-size:1.08rem;line-height:1.75;color:#c8c8c8;margin:0 0 1.25rem;">The panel keeps the last 24 hours behind it too, with price, premium and payout on each row — useful for reading how often something comes back, once the rush is over.</p>
         <div style="display:flex;flex-direction:column;gap:0.85rem;">
-          <div id="auto-open" style="padding:1rem 1.15rem;background:#262628;border:1px solid rgba(255,138,61,0.25);border-radius:10px;scroll-margin-top:90px;">
+          <div style="padding:1rem 1.15rem;background:#262628;border:1px solid rgba(255,138,61,0.25);border-radius:10px;">
             <div style="display:flex;align-items:baseline;gap:0.6rem;margin-bottom:0.35rem;"><span style="color:#10e9df;font-weight:700;">On Chrome</span><span style="font-family:ui-monospace,Menlo,monospace;font-size:0.78rem;color:#facc15;">3s FASTER, AVG.</span></div>
             <p style="color:#c8c8c8;line-height:1.65;margin:0;">Auto-open: a restock matching your tracked watch lists opens its own product page unattended — three seconds sooner, on average, than noticing an alert, clicking it and waiting for the tab. Quiet hours, a cap on how many open at once, and auto-close for tabs you never looked at.</p>
           </div>
-          <div id="fan-out" style="padding:1rem 1.15rem;background:#262628;border:1px solid rgba(255,138,61,0.25);border-radius:10px;scroll-margin-top:90px;">
+          <div style="padding:1rem 1.15rem;background:#262628;border:1px solid rgba(255,138,61,0.25);border-radius:10px;">
             <div style="display:flex;align-items:baseline;gap:0.6rem;margin-bottom:0.35rem;"><span style="color:#10e9df;font-weight:700;">On Firefox</span><span style="font-family:ui-monospace,Menlo,monospace;font-size:0.78rem;color:#facc15;">EVERY ACCOUNT AT ONCE</span></div>
             <p style="color:#c8c8c8;line-height:1.65;margin:0;">Container fan-out: one click opens the restock in every Costco account you keep — a tab each, all loaded. No juggling a second browser to hold a second account, and no signing out and back in while the stock disappears.</p>
           </div>
@@ -309,7 +307,7 @@ body { margin:0; background:#1b1b1d; color:#f0f0f0; font-family:-apple-system,Bl
         <h3 style="font-size:2.1rem;line-height:1.18;margin:0 0 1rem;">Pick a quantity, skip the cart, eight seconds.</h3>
         <p style="font-size:1.08rem;line-height:1.75;color:#c8c8c8;margin:0 0 1rem;">Pick a quantity, see how much you'll pay ahead of time, and land on Costco's checkout page automatically. Eight seconds on average, measured end to end. One-click to clear your cart and avoid anything else getting swept into your order. Costco's PM daily limits are automatically tracked and shown before you tap, so you find out now, not after the order gets cancelled.</p>
         <div style="border-left:2px solid #10e9df;padding:0.3rem 0 0.3rem 1.25rem;">
-          <div style="display:flex;align-items:baseline;gap:0.6rem;margin-bottom:0.4rem;"><span style="font-weight:600;color:#f0f0f0;">Down to the last few?</span><span style="font-family:ui-monospace,Menlo,monospace;font-size:0.78rem;color:#facc15;">5s+ SAVED</span><span class="gold-pill">◆ GOLD</span></div>
+          <div style="display:flex;align-items:baseline;gap:0.6rem;margin-bottom:0.4rem;"><span style="font-weight:600;color:#f0f0f0;">Down to the last few?</span><span style="font-family:ui-monospace,Menlo,monospace;font-size:0.78rem;color:#facc15;">5s+ SAVED</span></div>
           <p style="color:#c8c8c8;line-height:1.7;margin:0;">Ask for four when three are left and Costco just throws an error — so you guess again, and again, while the last units go. And that error is the tell: if fewer than four remain, this was a one or two unit restock. The adaptive cart shows exactly how many are left, greys out what would fail, and can take the rest straight to checkout on the first try.</p>
         </div>
       </div>
@@ -395,12 +393,12 @@ body { margin:0; background:#1b1b1d; color:#f0f0f0; font-family:-apple-system,Bl
         </ul>
       </div>
     </div>
-    <p style="text-align:center;color:#c8c8c8;font-size:0.98rem;margin:1.75rem auto 0;max-width:640px;">Running both is fine, and plenty of people do. Pick the flow that best suits you. Auto-open, web push and container fan-out are <span class="gold-pill">◆ GOLD</span> features.</p>
+    <p style="text-align:center;color:#c8c8c8;font-size:0.98rem;margin:1.75rem auto 0;max-width:640px;">Running both is fine, and plenty of people do. Pick the flow that best suits you.</p>
   </section>
 
   <section id="spec" data-sec="" style="padding:4.5rem 2rem;">
     <h2 style="font-size:2.15rem;color:#10e9df;text-align:center;margin:0 0 0.75rem;">Everything it does on Costco's precious metals pages</h2>
-    <p style="text-align:center;color:#c8c8c8;font-size:1.08rem;max-width:620px;margin:0 auto 2.5rem;">What it does, which browser has it, and which plan unlocks it. <span class="gold-pill">◆ GOLD</span> marks the hunt: the features that find and win the drop for you.</p>
+    <p style="text-align:center;color:#c8c8c8;font-size:1.08rem;max-width:620px;margin:0 auto 2.5rem;">What it does, which browser has it, and which plan unlocks it.</p>
     <div style="max-width:1160px;margin:auto;overflow-x:auto;border:1px solid rgba(255,138,61,0.25);border-radius:12px;background:#262628;">
       <table data-spec="" style="width:100%;border-collapse:collapse;font-size:0.97rem;">
         <thead>
@@ -419,35 +417,35 @@ body { margin:0; background:#1b1b1d; color:#f0f0f0; font-family:-apple-system,Bl
             <td style="padding:0.95rem;border-top:1px solid rgba(250,204,21,0.1);color:#c8c8c8;line-height:1.6;">The extension only acts on the items and margins you track in your dashboard — not on everything Costco restocks.</td>
             <td style="padding:0.95rem;border-top:1px solid rgba(250,204,21,0.1);text-align:center;color:#22c55e;font-weight:700;">✓</td>
             <td style="padding:0.95rem;border-top:1px solid rgba(250,204,21,0.1);text-align:center;color:#22c55e;font-weight:700;">✓</td>
-            <td style="padding:0.95rem;border-top:1px solid rgba(250,204,21,0.1);text-align:center;"><span class="gold-pill">◆ GOLD</span></td>
+            <td style="padding:0.95rem;border-top:1px solid rgba(250,204,21,0.1);text-align:center;color:#c8c8c8;font-size:0.88rem;">Gold</td>
           </tr>
           <tr>
             <td style="padding:0.95rem 1.25rem;border-top:1px solid rgba(250,204,21,0.1);font-weight:600;">Restock feed</td>
             <td style="padding:0.95rem;border-top:1px solid rgba(250,204,21,0.1);color:#c8c8c8;line-height:1.6;">The last 24 hours of restocks with price, premium and payout, and an unseen count on the toolbar.</td>
             <td style="padding:0.95rem;border-top:1px solid rgba(250,204,21,0.1);text-align:center;color:#22c55e;font-weight:700;">✓</td>
             <td style="padding:0.95rem;border-top:1px solid rgba(250,204,21,0.1);text-align:center;color:#22c55e;font-weight:700;">✓</td>
-            <td style="padding:0.95rem;border-top:1px solid rgba(250,204,21,0.1);text-align:center;"><span class="gold-pill">◆ GOLD</span></td>
+            <td style="padding:0.95rem;border-top:1px solid rgba(250,204,21,0.1);text-align:center;color:#c8c8c8;font-size:0.88rem;">Gold</td>
           </tr>
           <tr>
             <td style="padding:0.95rem 1.25rem;border-top:1px solid rgba(250,204,21,0.1);font-weight:600;">Auto-open the drop</td>
             <td style="padding:0.95rem;border-top:1px solid rgba(250,204,21,0.1);color:#c8c8c8;line-height:1.6;">Restocks matching your tracked watch lists open their own page unattended, with quiet hours, tab caps and auto-close.</td>
             <td style="padding:0.95rem;border-top:1px solid rgba(250,204,21,0.1);text-align:center;color:#22c55e;font-weight:700;">✓</td>
             <td style="padding:0.95rem;border-top:1px solid rgba(250,204,21,0.1);text-align:center;color:#5c5c60;font-weight:700;">—</td>
-            <td style="padding:0.95rem;border-top:1px solid rgba(250,204,21,0.1);text-align:center;"><span class="gold-pill">◆ GOLD</span></td>
+            <td style="padding:0.95rem;border-top:1px solid rgba(250,204,21,0.1);text-align:center;color:#c8c8c8;font-size:0.88rem;">Gold</td>
           </tr>
           <tr>
             <td style="padding:0.95rem 1.25rem;border-top:1px solid rgba(250,204,21,0.1);font-weight:600;">Web push</td>
             <td style="padding:0.95rem;border-top:1px solid rgba(250,204,21,0.1);color:#c8c8c8;line-height:1.6;">The drop still reaches you with the tab closed and the browser in the background.</td>
             <td style="padding:0.95rem;border-top:1px solid rgba(250,204,21,0.1);text-align:center;color:#22c55e;font-weight:700;">✓</td>
             <td style="padding:0.95rem;border-top:1px solid rgba(250,204,21,0.1);text-align:center;color:#5c5c60;font-weight:700;">—</td>
-            <td style="padding:0.95rem;border-top:1px solid rgba(250,204,21,0.1);text-align:center;"><span class="gold-pill">◆ GOLD</span></td>
+            <td style="padding:0.95rem;border-top:1px solid rgba(250,204,21,0.1);text-align:center;color:#c8c8c8;font-size:0.88rem;">Gold</td>
           </tr>
           <tr>
             <td style="padding:0.95rem 1.25rem;border-top:1px solid rgba(250,204,21,0.1);font-weight:600;">Container fan-out</td>
             <td style="padding:0.95rem;border-top:1px solid rgba(250,204,21,0.1);color:#c8c8c8;line-height:1.6;">One click opens the restock in every Costco account you keep — a tab each, all loaded.</td>
             <td style="padding:0.95rem;border-top:1px solid rgba(250,204,21,0.1);text-align:center;color:#5c5c60;font-weight:700;">—</td>
             <td style="padding:0.95rem;border-top:1px solid rgba(250,204,21,0.1);text-align:center;color:#22c55e;font-weight:700;">✓</td>
-            <td style="padding:0.95rem;border-top:1px solid rgba(250,204,21,0.1);text-align:center;"><span class="gold-pill">◆ GOLD</span></td>
+            <td style="padding:0.95rem;border-top:1px solid rgba(250,204,21,0.1);text-align:center;color:#c8c8c8;font-size:0.88rem;">Gold</td>
           </tr>
 
           <tr><td colspan="5" style="padding:0.75rem 1.25rem;background:#1b1b1d;font-family:ui-monospace,Menlo,monospace;font-size:0.72rem;letter-spacing:0.16em;color:#10e9df;border-top:1px solid rgba(255,138,61,0.25);">DECIDE</td></tr>
@@ -500,7 +498,7 @@ body { margin:0; background:#1b1b1d; color:#f0f0f0; font-family:-apple-system,Bl
             <td style="padding:0.95rem;border-top:1px solid rgba(250,204,21,0.1);color:#c8c8c8;line-height:1.6;">On low stock: how many remain, impossible quantities greyed out, and an opt-in that takes what's left. Saves 5s+.</td>
             <td style="padding:0.95rem;border-top:1px solid rgba(250,204,21,0.1);text-align:center;color:#22c55e;font-weight:700;">✓</td>
             <td style="padding:0.95rem;border-top:1px solid rgba(250,204,21,0.1);text-align:center;color:#22c55e;font-weight:700;">✓</td>
-            <td style="padding:0.95rem;border-top:1px solid rgba(250,204,21,0.1);text-align:center;"><span class="gold-pill">◆ GOLD</span></td>
+            <td style="padding:0.95rem;border-top:1px solid rgba(250,204,21,0.1);text-align:center;color:#c8c8c8;font-size:0.88rem;">Gold</td>
           </tr>
           <tr>
             <td style="padding:0.95rem 1.25rem;border-top:1px solid rgba(250,204,21,0.1);font-weight:600;">Cart guard + one-click cart clearing</td>
@@ -563,7 +561,7 @@ body { margin:0; background:#1b1b1d; color:#f0f0f0; font-family:-apple-system,Bl
         </details>
         <details style="border:1px solid rgba(255,138,61,0.25);border-radius:10px;background:#1b1b1d;padding:1.4rem 1.6rem;">
           <summary>Do I need a Restock Bot Alerts subscription, and which plan?</summary>
-          <p style="color:#c8c8c8;line-height:1.75;margin:0;">Yes — the extension comes with a Restock Bot Alerts subscription and signs in with a one-time code from your account. Everything on the product and listing pages works on any plan: premium over spot, history, buyer payouts, quantity → checkout, limit tracking, the card vault, order export. The restock feed, auto-open, container fan-out and the adaptive cart need the Gold plan. They're the hunt: the features that find the drop and win it for you.</p>
+          <p style="color:#c8c8c8;line-height:1.75;margin:0;">Yes — the extension comes with a Restock Bot Alerts subscription and signs in with a one-time code from your account. Everything on the product and listing pages works on any plan: premium over spot, history, buyer payouts, quantity → checkout, limit tracking, the card vault, order export. The restock feed, auto-open, container fan-out and the adaptive cart need the Gold plan.</p>
         </details>
         <details style="border:1px solid rgba(255,138,61,0.25);border-radius:10px;background:#1b1b1d;padding:1.4rem 1.6rem;">
           <summary>Does it need my Costco password, and what leaves my computer?</summary>
@@ -586,7 +584,7 @@ body { margin:0; background:#1b1b1d; color:#f0f0f0; font-family:-apple-system,Bl
       <div>
         <div style="font-size:0.75rem;letter-spacing:0.18em;color:#10e9df;margin-bottom:0.8rem;">THE EXTENSION IS ONE PART OF IT</div>
         <h2 style="font-size:1.9rem;line-height:1.2;margin:0 0 1rem;">The alerts, the dashboard and the payout data behind it.</h2>
-        <p style="color:#c8c8c8;font-size:1.06rem;line-height:1.75;margin:0 0 1.5rem;">The extension is the part that lives on costco.com. Behind it sits the rest of the subscription: the online restock alerts that find the drops, in-store inventory data and warehouse alerts for the items sitting on shelves near you, the dashboard that tracks what you bought and what it's worth, and the buyer payout data that tells you where to sell. One subscription covers all of it. <a href="/#plans">Silver verifies, Gold hunts: see which one you are</a>.</p>
+        <p style="color:#c8c8c8;font-size:1.06rem;line-height:1.75;margin:0 0 1.5rem;">The extension is the part that lives on costco.com. Behind it sits the rest of the subscription: the online restock alerts that find the drops, in-store inventory data and warehouse alerts for the items sitting on shelves near you, the dashboard that tracks what you bought and what it's worth, and the buyer payout data that tells you where to sell. One subscription covers all of it.</p>
         <a href="/" style="display:inline-block;padding:0.8rem 1.6rem;border:1px solid #10e9df;color:#10e9df;border-radius:8px;font-weight:600;">See the full suite</a>
       </div>
       <div style="display:flex;flex-direction:column;gap:0.75rem;">
