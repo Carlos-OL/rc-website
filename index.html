@@ -1190,6 +1190,51 @@
             vertical-align: middle;
         }
 
+        /* Plans section: Marksman vs Hunter */
+        .plans-section {
+            padding: 4rem 2rem;
+            background: linear-gradient(180deg, var(--bg-card), var(--bg-main) 70%);
+            border-top: 1px solid var(--border-gold);
+        }
+        .plan-cards {
+            max-width: 1060px;
+            margin: 2.25rem auto 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        .plan-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-gold);
+            border-radius: 14px;
+            padding: 2rem;
+        }
+        .plan-card.plan-gold {
+            border: 1.5px solid rgba(250, 204, 21, 0.75);
+            box-shadow: 0 12px 36px rgba(250, 204, 21, 0.15);
+        }
+        .plan-eyebrow {
+            font-size: 0.75rem;
+            letter-spacing: 0.18em;
+            margin-bottom: 0.9rem;
+            font-weight: 700;
+        }
+        .plan-card h3 {
+            font-size: 1.45rem;
+            margin: 0 0 0.8rem;
+        }
+        .plan-card p {
+            line-height: 1.7;
+            margin: 0 0 1rem;
+        }
+        .plan-pick {
+            color: var(--text-muted);
+            font-style: italic;
+            margin-bottom: 0 !important;
+        }
+        @media (max-width: 900px) {
+            .plan-cards { grid-template-columns: 1fr; }
+        }
     </style>
 
 </head>
@@ -1809,8 +1854,43 @@
         </div>
     </section>
 
+    <!-- PLANS: THE MARKSMAN VS THE HUNTER -->
+    <section id="plans" class="plans-section">
+        <h2 class="section-title">Which One Are You?</h2>
+        <p class="section-subtitle">Two plans, two types of buyers. Both verify before you commit. The difference is
+            how far you see, and how fast you move.</p>
+        <div class="plan-cards">
+            <div class="plan-card">
+                <div class="plan-eyebrow" style="color: #c9ced6;">SILVER · THE MARKSMAN</div>
+                <h3>You know your stores. You pick your moment.</h3>
+                <p>The Marksman works known ground: your warehouses, your products, your margins. Two in-store
+                    searches a day, run against Costco's inventory at the exact moment you ask. No stale data, no
+                    guesswork. Then the full toolkit to act on what you find: premium over spot, buyer payouts,
+                    restock history, and a checkout measured in seconds.</p>
+                <p class="plan-pick">Pick Silver if you work a handful of local warehouses and want certainty before
+                    you drive.</p>
+            </div>
+            <div class="plan-card plan-gold">
+                <div class="plan-eyebrow" style="color: #facc15;">GOLD · THE HUNTER</div>
+                <h3>The whole country is your territory, and speed is your edge.</h3>
+                <p>The Hunter doesn't wait to stumble onto an opportunity. The system finds it first. Instant
+                    below-spot and price-mistake alerts, the live restock feed with
+                    <a href="/extension/#auto-open" style="color: var(--text-gold);">auto-open in the extension</a>
+                    (Chrome), <a href="/extension/#fan-out" style="color: var(--text-gold);">multi-account
+                    fan-out</a> (Firefox), the extra analytics tables, and four daily in-store searches, because
+                    seeing more means verifying more.</p>
+                <p>The nationwide inventory map shows every warehouse with metal on the shelf. Others burn hours
+                    driving on data that was already stale when it was scanned. You re-check Costco's own inventory
+                    at the moment you ask, the freshest read anyone can get, before spending a single mile.</p>
+                <p class="plan-pick">Pick Gold if you want the system watching all of it, around the clock, and you
+                    move the second it flags something.</p>
+            </div>
+        </div>
+    </section>
+
     <script async src="https://js.stripe.com/v3/pricing-table.js"></script>
     <div id="pricing">
+        <h2 class="section-title" style="margin-bottom: 1.5rem;">Silver Verifies. Gold Hunts.</h2>
         <p style="text-align:center; color: var(--text-gold); font-size: 0.95rem; margin: 0 0 0.25rem; font-weight: 600;">
             Have a CB40 code from us? It applies to the Gold plan &mdash; select Gold below.
         </p>
@@ -1930,6 +2010,17 @@
                     to Restock Bot Alerts, you are not eligible for another free trial. See our
                     <a href="terms.html#subscription" style="color: var(--text-gold);">Terms & Conditions</a> for full
                     details.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question">Which plan is right for me: Silver or Gold?</button>
+            <div class="faq-answer">
+                <p>Silver is the Marksman's plan: you know your stores and your products, so you verify live, with
+                    two in-store searches a day at the moment you ask, and execute with the full toolkit. Gold is
+                    the Hunter's plan: every online restock reaches you the moment it happens, through instant
+                    below-spot and price-mistake alerts and the live restock feed with auto-open in the extension,
+                    plus extra analytics tables (Market Timing, with more on the way) and four daily in-store
+                    searches. Start where you are. Upgrading later takes one click in your Stripe portal.</p>
             </div>
         </div>
         <div class="faq-item">
