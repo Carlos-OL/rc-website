@@ -112,6 +112,49 @@
             color: var(--text-main);
         }
 
+        /* ===== UTILITY BAR (tier 1) ===== */
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+
+        .utility-bar {
+            background: var(--bg-main);
+            border-bottom: 1px solid var(--border-gold);
+        }
+
+        .utility-links {
+            max-width: 1300px;
+            margin: auto;
+            padding: 0.35rem 2rem;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 1.5rem;
+            font-size: 0.82rem;
+            letter-spacing: .04em;
+        }
+
+        .utility-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+        }
+
+        .utility-links a:hover {
+            color: var(--text-gold);
+        }
+
+        @media (max-width: 768px) {
+            .utility-links {
+                justify-content: center;
+                flex-wrap: nowrap;
+                gap: 1rem;
+                padding: 0.35rem 1rem;
+                font-size: 0.75rem;
+            }
+        }
+
         /* ===== NAVIGATION ===== */
         .navbar {
             position: sticky;
@@ -141,6 +184,7 @@
             display: flex;
             align-items: center;
             gap: 0.6rem;
+            text-decoration: none;
         }
 
         .nav-logo-img {
@@ -157,6 +201,14 @@
             font-weight: 700;
             color: var(--text-gold);
             letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            align-items: center;
+            row-gap: 0.5rem;
         }
 
         .nav-links a {
@@ -1143,26 +1195,35 @@
 </head>
 
 <body>
+    <!-- UTILITY BAR -->
+    <div class="site-header">
+    <div class="utility-bar">
+        <div class="utility-links">
+            <a href="/blog/">Blog</a>
+            <a href="/extension/">Extension</a>
+            <a href="https://dashboard.restockbotalerts.com">Customer Portal</a>
+        </div>
+    </div>
+
     <!-- NAVIGATION BAR -->
     <header class="navbar">
         <div class="nav-container">
-            <div class="nav-logo">
+            <a href="/" class="nav-logo">
                 <img src="assets/logo.png" alt="Gold Restock Bot Logo" class="nav-logo-img">
                 <span class="nav-logo-text">Gold Restock Bot</span>
-            </div>
+            </a>
             <nav class="nav-links">
                 <a href="#features">Features</a>
-                <a href="/extension/">Extension</a>
                 <a href="#differentiators">Why Us</a>
                 <a href="#comparison">Compare</a>
                 <a href="#howitworks">How It Works</a>
                 <a href="#testimonials">Testimonials</a>
                 <a href="#faq">FAQ</a>
-                <a href="https://dashboard.restockbotalerts.com">Customer Portal</a>
                 <a href="#pricing" class="nav-cta">Start Free Trial</a>
             </nav>
         </div>
     </header>
+    </div>
 
     <section class="hero">
         <div class="hero-logo">

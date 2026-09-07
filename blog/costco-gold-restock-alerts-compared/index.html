@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Costco Gold Restock Alerts: 15 Weeks of Timed Data</title>
+    <meta name="description" content="I timed 15 weeks of Costco gold restock alerts against two other feeds: who was first, who missed restocks, and which new gold SKUs got caught.">
+    <link rel="canonical" href="https://restockbotalerts.com/blog/costco-gold-restock-alerts-compared/">
+    <meta property="og:title" content="Costco Gold Restock Alerts: 15 Weeks of Timed Data">
+    <meta property="og:description" content="I timed 15 weeks of Costco gold restock alerts against two other feeds: who was first, who missed restocks, and which new gold SKUs got caught.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://restockbotalerts.com/blog/costco-gold-restock-alerts-compared/">
+    <meta property="og:site_name" content="Restock Bot Alerts">
+    <meta property="og:image" content="https://restockbotalerts.com/assets/blog/costco-gold-restock-alerts-compared/og.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Costco Gold Restock Alerts: 15 Weeks of Timed Data">
+    <meta name="twitter:description" content="I timed 15 weeks of Costco gold restock alerts against two other feeds: who was first, who missed restocks, and which new gold SKUs got caught.">
+    <meta name="twitter:image" content="https://restockbotalerts.com/assets/blog/costco-gold-restock-alerts-compared/og.png">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "BlogPosting",
+          "headline": "Costco Gold Restock Alerts: 15 Weeks of Timed Data",
+          "alternativeHeadline": "Not all Costco gold restock alerts are created equal",
+          "description": "I timed 15 weeks of Costco gold restock alerts against two other feeds: who was first, who missed restocks, and which new gold SKUs got caught.",
+          "datePublished": "2026-09-07",
+          "dateModified": "2026-09-07",
+          "image": "https://restockbotalerts.com/assets/blog/costco-gold-restock-alerts-compared/og.png",
+          "mainEntityOfPage": "https://restockbotalerts.com/blog/costco-gold-restock-alerts-compared/",
+          "author": {
+            "@type": "Person",
+            "name": "Carlos"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "Restock Bot Alerts",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://restockbotalerts.com/assets/logo.png"
+            }
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://restockbotalerts.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://restockbotalerts.com/blog/" },
+            { "@type": "ListItem", "position": 3, "name": "Costco gold restock alerts compared", "item": "https://restockbotalerts.com/blog/costco-gold-restock-alerts-compared/" }
+          ]
+        }
+      ]
+    }
+    </script>
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#1b1b1d">
+    <link rel="stylesheet" href="/theme.css">
+
+    <style>
+        /* Chart segment colors: kept from the source charts so the three feeds
+           stay distinguishable. Everything else uses the site theme variables. */
+        :root {
+            --ours: #2a78d6;
+            --tie: #1baf7a;
+            --them: #eb6834;
+            --api: #4a3aa7;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background-color: var(--bg-main);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            color: var(--text-main);
+        }
+
+        /* ===== UTILITY BAR (tier 1) ===== */
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+
+        .utility-bar {
+            background: var(--bg-main);
+            border-bottom: 1px solid var(--border-gold);
+        }
+
+        .utility-links {
+            max-width: 1300px;
+            margin: auto;
+            padding: 0.35rem 2rem;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 1.5rem;
+            font-size: 0.82rem;
+            letter-spacing: .04em;
+        }
+
+        .utility-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+        }
+
+        .utility-links a:hover {
+            color: var(--text-gold);
+        }
+
+        @media (max-width: 768px) {
+            .utility-links {
+                justify-content: center;
+                flex-wrap: nowrap;
+                gap: 1rem;
+                padding: 0.35rem 1rem;
+                font-size: 0.75rem;
+            }
+        }
+
+        /* ===== NAVIGATION (tier 2) ===== */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            background: var(--bg-card);
+            border-bottom: 1px solid var(--border-gold);
+        }
+
+        .nav-container {
+            max-width: 1300px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem 2rem;
+            align-items: center;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            text-decoration: none;
+        }
+
+        .nav-logo-img {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--text-gold);
+            background: radial-gradient(circle at center, rgba(250, 204, 21, 0.25), rgba(15, 23, 42, 1));
+        }
+
+        .nav-logo-text {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-gold);
+            letter-spacing: 1px;
+        }
+
+        .nav-links a {
+            margin-left: 1.5rem;
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-gold);
+        }
+
+        .nav-cta {
+            padding: 0.4rem 1rem;
+            background: var(--text-gold);
+            color: #0f0f0f !important;
+            border-radius: 6px;
+            margin-left: 2rem;
+            font-weight: 600;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 0.85rem 1rem;
+            }
+
+            .nav-logo-text {
+                font-size: 1.1rem;
+            }
+
+            .nav-links a {
+                margin-left: 0.75rem;
+                font-size: 0.9rem;
+            }
+
+            .nav-cta {
+                margin-left: 0.75rem;
+                padding: 0.4rem 0.8rem;
+            }
+        }
+
+        /* ===== ARTICLE ===== */
+        .post {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 40px 22px 72px;
+            font-size: 1.125rem;
+            line-height: 1.7;
+        }
+
+        .crumbs {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin: 0 0 22px;
+        }
+
+        .crumbs a {
+            color: var(--text-muted);
+            text-decoration: none;
+        }
+
+        .crumbs a:hover {
+            color: var(--text-gold);
+        }
+
+        .crumbs span {
+            margin: 0 0.4rem;
+            opacity: 0.6;
+        }
+
+        .kicker {
+            font-size: 0.75rem;
+            font-weight: 600;
+            line-height: 1;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--text-gold);
+            margin: 0 0 14px;
+        }
+
+        h1 {
+            font-size: 2.25rem;
+            line-height: 1.15;
+            font-weight: 700;
+            letter-spacing: -.01em;
+            margin: 0 0 10px;
+        }
+
+        .byline {
+            font-size: 0.875rem;
+            line-height: 1.5;
+            color: var(--text-muted);
+            margin: 0 0 36px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-gold);
+        }
+
+        .counter {
+            font-size: 0.8125rem;
+            line-height: 1.4;
+            font-weight: 500;
+            color: var(--text-muted);
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            margin: 44px 0 0;
+        }
+
+        .counter + h2 {
+            margin-top: 6px;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            line-height: 1.25;
+            font-weight: 700;
+            margin: 44px 0 12px;
+        }
+
+        .post p {
+            margin: 0 0 18px;
+        }
+
+        .post a {
+            color: var(--text-gold);
+        }
+
+        .post a:hover {
+            color: #5df3ec;
+        }
+
+        strong {
+            font-weight: 700;
+        }
+
+        .anchors {
+            font-weight: 700;
+            font-size: 1.1875rem;
+            letter-spacing: .01em;
+        }
+
+        .post ul {
+            margin: 0 0 18px;
+            padding-left: 22px;
+        }
+
+        .post li {
+            margin-bottom: 10px;
+        }
+
+        .sig {
+            margin-top: 36px;
+            font-style: italic;
+        }
+
+        /* ===== FIGURES / CHARTS ===== */
+        figure {
+            margin: 28px 0 30px;
+            padding: 18px 18px 12px;
+            border: 1px solid var(--border-gold);
+            border-radius: 10px;
+            background: var(--bg-card);
+        }
+
+        figure h3 {
+            font-size: 0.9375rem;
+            line-height: 1.35;
+            font-weight: 600;
+            margin: 0 0 2px;
+        }
+
+        figure .sub {
+            font-size: 0.8125rem;
+            line-height: 1.4;
+            color: var(--text-muted);
+            margin: 0 0 14px;
+        }
+
+        .row {
+            display: grid;
+            grid-template-columns: 160px 1fr;
+            gap: 12px;
+            align-items: center;
+            margin: 10px 0;
+        }
+
+        .row .lab {
+            font-size: 0.8125rem;
+            line-height: 1.3;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .row .lab span {
+            display: block;
+            font-weight: 400;
+            color: var(--text-muted);
+        }
+
+        .bar {
+            display: flex;
+            height: 30px;
+            gap: 2px;
+        }
+
+        .seg {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8125rem;
+            line-height: 1;
+            font-weight: 600;
+            color: #fff;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
+            border-radius: 3px;
+            min-width: 0;
+            cursor: default;
+        }
+
+        .seg.ours { background: var(--ours); }
+        .seg.api { background: var(--api); }
+        .seg.tie { background: var(--tie); color: #fff; }
+        .seg.them { background: var(--them); }
+
+        .seg.ours:first-child { border-radius: 4px 3px 3px 4px; }
+        .seg:last-child { border-radius: 3px 4px 4px 3px; }
+
+        .seg .tip {
+            display: none;
+            position: absolute;
+            left: 50%;
+            bottom: calc(100% + 8px);
+            transform: translateX(-50%);
+            white-space: nowrap;
+            background: #0f0f10;
+            border: 1px solid var(--border-gold);
+            color: var(--text-main);
+            font-size: 0.75rem;
+            line-height: 1.35;
+            padding: 6px 9px;
+            border-radius: 6px;
+            font-weight: 400;
+            text-shadow: none;
+            z-index: 2;
+        }
+
+        .seg:hover .tip,
+        .seg:focus .tip {
+            display: block;
+        }
+
+        .legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px 18px;
+            margin: 14px 0 4px;
+            font-size: 0.8125rem;
+            line-height: 1.4;
+            color: var(--text-muted);
+        }
+
+        .legend i {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 3px;
+            margin-right: 6px;
+            vertical-align: -1px;
+        }
+
+        figcaption {
+            font-size: 0.78rem;
+            line-height: 1.5;
+            color: var(--text-muted);
+            margin-top: 10px;
+        }
+
+        .note {
+            background: rgba(16, 233, 223, 0.07);
+            border-left: 3px solid var(--text-gold);
+            padding: 10px 14px;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            color: var(--text-muted);
+            margin: 0 0 28px;
+            border-radius: 0 6px 6px 0;
+        }
+
+        /* ===== TABLE ===== */
+        figure.tbl table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.84rem;
+            line-height: 1.4;
+        }
+
+        figure.tbl caption {
+            caption-side: bottom;
+            text-align: left;
+            font-size: 0.75rem;
+            line-height: 1.5;
+            color: var(--text-muted);
+            padding-top: 10px;
+            opacity: 0.85;
+            /* The table is wider than its scroll container; pin the caption to the
+               left edge and cap its width so it stays readable without scrolling. */
+            position: sticky;
+            left: 0;
+            width: min(686px, calc(100vw - 88px));
+        }
+
+        figure.tbl th,
+        figure.tbl td {
+            padding: 7px 8px;
+            border-bottom: 1px solid var(--border-gold);
+            text-align: left;
+            white-space: nowrap;
+            vertical-align: top;
+        }
+
+        figure.tbl th {
+            font-weight: 600;
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            letter-spacing: .03em;
+            text-transform: uppercase;
+        }
+
+        figure.tbl td small {
+            display: block;
+            font-size: 0.72rem;
+            font-weight: 600;
+            margin-top: 2px;
+        }
+
+        figure.tbl small.d-w { color: #4ade80; }
+        figure.tbl small.d-l { color: #fb7185; }
+
+        figure.tbl td.d-n {
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        figure.tbl td:first-child {
+            white-space: normal;
+            min-width: 180px;
+        }
+
+        figure .scroll {
+            overflow-x: auto;
+        }
+
+        /* ===== SCREENSHOTS ===== */
+        figure.shot {
+            padding: 0;
+            overflow: hidden;
+            background: #0f0f10;
+        }
+
+        figure.shot img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        figure.shot figcaption {
+            padding: 10px 14px 12px;
+            background: var(--bg-card);
+            margin-top: 0;
+        }
+
+        .post .disclaimer {
+            margin-top: 48px;
+            padding-top: 18px;
+            border-top: 1px solid var(--border-gold);
+            font-size: 0.78rem;
+            line-height: 1.5;
+            color: var(--text-muted);
+        }
+
+        @media (max-width: 560px) {
+            .row { grid-template-columns: 1fr; }
+            h1 { font-size: 1.85rem; }
+            .post { font-size: 1.0625rem; }
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background-color: var(--bg-main);
+            padding: 2rem 1rem;
+            text-align: center;
+            border-top: 1px solid var(--border-gold);
+            margin-top: 2rem;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            color: var(--text-gold);
+            text-decoration: none;
+            margin: 0 1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #fde047;
+            text-decoration: underline;
+        }
+
+        .footer-text {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+
+        .footer-disclaimer {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+        }
+
+        .divider {
+            color: var(--text-muted);
+            margin: 0 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .footer-links a {
+                display: block;
+                margin: 0.5rem 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- UTILITY BAR -->
+    <div class="site-header">
+    <div class="utility-bar">
+        <div class="utility-links">
+            <a href="/blog/">Blog</a>
+            <a href="/extension/">Extension</a>
+            <a href="https://dashboard.restockbotalerts.com">Customer Portal</a>
+        </div>
+    </div>
+
+    <!-- NAVIGATION BAR -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">
+                <img src="/assets/logo.png" alt="Gold Restock Bot Logo" class="nav-logo-img">
+                <span class="nav-logo-text">Gold Restock Bot</span>
+            </a>
+            <nav class="nav-links">
+                <a href="/#pricing" class="nav-cta">Start Free Trial</a>
+            </nav>
+        </div>
+    </header>
+    </div>
+
+    <article class="post">
+        <nav class="crumbs" aria-label="Breadcrumb">
+            <a href="/">Home</a><span>/</span><a href="/blog/">Blog</a><span>/</span>Costco gold restock alerts compared
+        </nav>
+
+        <p class="kicker">Restock Bot Alerts</p>
+        <h1>Not all Costco gold restock alerts are created equal</h1>
+        <p class="byline">By Carlos &middot; <time datetime="2026-09-07">September 7, 2026</time></p>
+
+  <p>In 2026 alone, Costco has listed 44 new precious-metal SKUs, 23 of them gold. That is already more than the 41 it listed in all of 2025, and nearly double the 24 from 2024. Costco keeps expanding its catalog and bringing more SKUs to market. And yet, when the market conditions are profitable, every restock still disappears in minutes, sometimes seconds.</p>
+
+  <p>If you buy gold at Costco, you already know the feeling. The alert comes in, you fumble for the link, you click, the page opens, and by the time you go to add it to your cart you get the dreaded message that the item is no longer available. Or worse, you make it to the cart, you are about to check out, and it goes out of stock right there.</p>
+
+  <p>The alert is where the game starts, so what better place to start this series than with alerts? There are a lot of ways to get a Costco gold restock alert now: paid services, free feeds, or build your own. It is fair to ask whether one alert is as good as another.</p>
+
+  <p>It is not, and I just spent fifteen weeks measuring exactly that. To me, an alert has to do three things to earn its place on your phone: reach you fast, reach you every time, and be worth acting on when it does. <span class="anchors">Fast, reliable, personalized.</span> I built my service around those three, and to make sure I was delivering on that promise, I measured the first two against two other popular feeds. The third one I will show you.</p>
+
+  <p class="counter">1 of 3</p>
+  <h2>Fast</h2>
+
+  <p>There are about half a dozen ways to find out that a Costco SKU is back in stock. I have timed all of them. The cheapest ones to run are the slowest, because they watch the same page you could watch yourself, and that page is already a few minutes behind. The fast ones take real effort to keep running, day after day. That is most of the reason alert services cost what they cost.</p>
+
+  <p>Here is the part that matters to you. If you use a feed that watches the category page, or you watch it yourself, by the time a restock shows up there the people with the fastest alerts have already placed their orders. Some restocks are so small they sell out before they ever appear there. Either way, you were never in the race.</p>
+
+  <p>That is a big claim, so I tested it. From May 18 to September 3 I logged every gold restock alert from my service next to two others: a lower-priced alert service and an API feed that several other services rely on. To keep the comparison fair, I scored only 16 gold SKUs that all three of us alerted on during that window, which carry about two thirds of all the gold restocks I logged, including the 1 oz PAMP Suisse Lady Fortuna bar, the most restocked gold SKU at Costco this year. Every time any of us fired, I asked two questions: who was first, and who missed it.</p>
+
+  <p><strong>Against the lower-priced service.</strong> Of 471 restocks we both alerted, mine was first on 469. The typical gap was 5 minutes 46 seconds. Not seconds. <strong>Minutes.</strong> On a gold bar that is the difference between buying and reading about it. And that is only the restocks we both saw. There were 429 more that my service alerted and that service never sent at all. If that service was your only alert, you never knew those restocks happened.</p>
+
+  <p><strong>Against the API feed.</strong> This one is fast. During normal hours, weekdays from 4am to 10pm Pacific, I was first on 44% of the restocks <strong>we both caught</strong> (more on that later), we landed in the same minute on 38%, and I was slower on 18%. Call it even, with a small edge. I am not going to pretend otherwise.</p>
+
+  <figure role="img" aria-label="Bar chart of who sent the Costco gold restock alert first. Against the lower-priced service I was first on 469 of 471 restocks. Against the API feed I was first on 44 percent, in the same minute on 38 percent, and slower on 18 percent.">
+    <h3>Who alerted first, on restocks we both caught</h3>
+    <p class="sub">16 gold SKUs, May 18 to September 3, 2026. Share of shared restocks.</p>
+    <div class="row">
+      <div class="lab">Lower-priced service<span>471 shared restocks</span></div>
+      <div class="bar" role="img" aria-label="Lower-priced service: I was first on 469 of 471, 99.6 percent; they were first on 2">
+        <div class="seg ours" style="flex:469" tabindex="0">99.6%<span class="tip">I was first: 469 of 471 &middot; typical lead 5m46s</span></div>
+        <div class="seg them" style="flex:2;min-width:6px" tabindex="0"><span class="tip">They were first: 2 of 471</span></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="lab">API feed<span>962 shared restocks, normal hours</span></div>
+      <div class="bar" role="img" aria-label="API feed, normal hours: I was first on 44 percent, same minute on 38 percent, they were first on 18 percent">
+        <div class="seg ours" style="flex:44" tabindex="0">44%<span class="tip">I was first: 419 of 962</span></div>
+        <div class="seg tie" style="flex:38" tabindex="0">38%<span class="tip">Same minute, too close to call: 366 of 962</span></div>
+        <div class="seg them" style="flex:18" tabindex="0">18%<span class="tip">They were first: 177 of 962</span></div>
+      </div>
+    </div>
+    <div class="legend"><span><i style="background:var(--ours)"></i>I was first</span><span><i style="background:var(--tie)"></i>Same minute</span><span><i style="background:var(--them)"></i>They were first</span></div>
+    <figcaption>The API feed's timestamps are rounded to the minute, so a same-minute result is a tie, not a loss. Normal hours are weekdays 4am to 10pm Pacific. Hours when my own service was down are excluded for all three feeds.</figcaption>
+  </figure>
+
+  <p>Detection is only half the story. The other half is the last leg, from my system to your hand. My alerts arrive as push notifications and in Slack, and there is no limit on how many you get. If you are on your computer and use the <a href="https://restockbotalerts.com/extension/">browser extension</a>, the Costco product page is already opening by the time you look at your phone. That part deserves its own post, and it will get one.</p>
+
+  <p class="counter">2 of 3</p>
+  <h2>Reliable</h2>
+
+  <p>Speed is only worth something if the restock alert actually comes.</p>
+
+  <p>Another finding of this analysis that surprised me was the gap in how many restocks each service caught at all. I expected some difference, from downtime, from noise, from ordinary variation. What I did not expect was that the lower-priced service would miss about half of the restocks that my service and the API feed both caught in the same window.</p>
+
+  <figure role="img" aria-label="Bar chart of 964 Costco gold restocks. My service caught 900, or 93 percent. The API feed caught 870, or 90 percent. The lower-priced service caught 477, or 49 percent.">
+    <h3>Restocks each feed caught</h3>
+    <p class="sub">16 gold SKUs, May 18 to September 3, 2026. Of 964 restocks that at least one feed caught.</p>
+    <div class="row">
+      <div class="lab">My service<span>900 restocks</span></div>
+      <div class="bar" role="img" aria-label="My service caught 900 of 964 restocks, 93 percent"><div class="seg ours" style="flex:900" tabindex="0">93%<span class="tip">900 of 964</span></div><div style="flex:64"></div></div>
+    </div>
+    <div class="row">
+      <div class="lab">API feed<span>870 restocks</span></div>
+      <div class="bar" role="img" aria-label="API feed caught 870 of 964 restocks, 90 percent"><div class="seg api" style="flex:870" tabindex="0">90%<span class="tip">870 of 964</span></div><div style="flex:94"></div></div>
+    </div>
+    <div class="row">
+      <div class="lab">Lower-priced service<span>477 restocks</span></div>
+      <div class="bar" role="img" aria-label="Lower-priced service caught 477 of 964 restocks, 49 percent"><div class="seg them" style="flex:477" tabindex="0">49%<span class="tip">477 of 964</span></div><div style="flex:487"></div></div>
+    </div>
+    <figcaption>A restock counts once per feed no matter how many alerts it produced. These are restocks that at least one of the three feeds caught. Hours my own service was down are excluded for all three feeds, to keep the comparison as equal as possible.</figcaption>
+  </figure>
+
+  <p>Excluding downtime, my service alerted 429 restocks that the lower-priced service never sent, and 94 that the API feed did not alert on. The API feed caught 64 that I did not, and the lower-priced service caught 6. My next job is to understand those 70 and bring them to zero.</p>
+
+  <p><strong>New SKUs are the other gap that matters.</strong> Remember &ldquo;restocks we both caught&rdquo; from the API-feed comparison above? If some restocks were caught by both of us, then some were caught by only one of us. Most of those are ordinary restocks on SKUs everyone was already tracking. The ones that matter most are the new SKUs Costco had just released, because that is where the head start is measured in days, not minutes. When Costco lists a new item, somebody or something has to add it to the tracking system. From what I measured, on other feeds that step happens after the first restock, not before it, so their users do not hear about a new SKU until it has already come and gone at least once. My system, however, detects new SKUs and adds them to my tracking catalog automatically. <strong>That gives my subscribers a head start on new Costco SKUs, sometimes by several days.</strong></p>
+
+  <p>Ten gold SKUs restocked for the very first time during the research window. Compared with the API feed, I alerted the first restock earlier on seven of them, by more than four days on each of a pair of Argor-Heraeus bars. On two, that feed beat me: one by two days and the other by four minutes. Compared with the lower-priced service, I was ahead on eight of the ten, by fifteen minutes to a full day, and it was ahead on one.</p>
+
+  <figure class="tbl">
+    <h3>New gold SKUs this window: who alerted the first restock</h3>
+    <p class="sub">Every gold SKU whose first-ever online restock fell between May 18 and September 3, 2026. All times Mountain. Under each feed: how much later or earlier than my alert.</p>
+    <div class="scroll"><table><caption>First-restock alert times for the ten new gold SKUs listed by Costco during the research window, compared across three feeds.</caption><thead><tr><th scope="col">SKU</th><th scope="col">Listed by Costco</th><th scope="col">My first alert</th><th scope="col">API feed&rsquo;s first alert</th><th scope="col">Lower-priced service&rsquo;s first alert</th></tr></thead><tbody>
+<tr><td>PAMP Liberty at 250, 1 oz</td><td>May 13</td><td>May 19, 11:35am</td><td>May 19, 1:06pm<small class="d-w">1.5 hours later</small></td><td>May 20, 9:45am<small class="d-w">22 hours later</small></td></tr>
+<tr><td>PAMP Lady Fortuna, 10 g</td><td>May 18</td><td>May 19, 11:35am</td><td>May 19, 11:38pm<small class="d-w">12 hours later</small></td><td>May 19, 11:50am<small class="d-w">15 minutes later</small></td></tr>
+<tr><td>PAMP Lady Fortuna, 5 g</td><td>May 19</td><td>May 20, 10:49am</td><td>May 20, 12:17pm<small class="d-w">1.5 hours later</small></td><td>May 21, 12:08pm<small class="d-w">1 day later</small></td></tr>
+<tr><td>PAMP 250th Anniversary, 2.5 g</td><td>May 28</td><td>May 28, 1:32pm</td><td>May 29, 8:00am<small class="d-w">18.5 hours later</small></td><td>May 28, 5:11pm<small class="d-w">3.5 hours later</small></td></tr>
+<tr><td>PAMP West Coast Kayaker, 1 oz</td><td>Jun 9</td><td>Jun 15, 11:52am</td><td>Jun 15, 1:24pm<small class="d-w">1.5 hours later</small></td><td>Jun 15, 1:07pm<small class="d-w">1.3 hours later</small></td></tr>
+<tr><td>PAMP Good Luck Maneki Neko, 1/2 oz</td><td>Jul 2</td><td>Jul 8, 1:37pm</td><td>Jul 6, 1:19pm<small class="d-l">2 days earlier</small></td><td>Jul 7, 11:23am<small class="d-l">1 day earlier</small></td></tr>
+<tr><td>Argor-Heraeus, 1 oz</td><td>Jul 22</td><td>Jul 24, 3:05pm</td><td>Jul 29, 3:46am<small class="d-w">4.5 days later</small></td><td>Jul 24, 7:36pm<small class="d-w">4.5 hours later</small></td></tr>
+<tr><td>Argor-Heraeus, 10 g</td><td>Jul 22</td><td>Jul 24, 3:05pm</td><td>Jul 29, 3:44am<small class="d-w">4.5 days later</small></td><td>Jul 24, 7:36pm<small class="d-w">4.5 hours later</small></td></tr>
+<tr><td>PAMP Good Luck Phoenix, 5 g</td><td>Aug 10</td><td>Aug 11, 12:25pm</td><td>Aug 11, 12:22pm<small class="d-l">4 minutes earlier</small></td><td>Aug 11, 1:12pm<small class="d-w">47 minutes later</small></td></tr>
+<tr><td>Sunshine Minting Breakaway, 1 oz</td><td>Aug 3</td><td>Sep 1, 11:15am</td><td class="d-n">never</td><td class="d-n">never</td></tr>
+    </tbody></table></div>
+    <figcaption>Against the API feed: seven earlier, two later, one it never alerted. Against the lower-priced service: eight earlier, one later, one it never alerted. The other feeds&rsquo; times come from their own published records, read on September 4, and the API feed&rsquo;s are rounded to the minute.</figcaption>
+    </figure>
+
+  <p><strong>The curious case of the missing Sunshine bar.</strong> Here is a clear example of a difference I did not expect to be this drastic. Costco listed the Sunshine Minting Breakaway gold bar (SKU 2095085) on August 3. It restocked for the first time on September 1 and seven more times over the next two days, and my subscribers got an alert for every one of them, eight restocks plus four price changes, twelve alerts in all. The other two feeds have yet to send a single alert on it. One had not added it to its system at all, while the other added it only after those restocks had come and gone.</p>
+
+  <p><strong>Something else worth mentioning: ownership.</strong> The alert system I offer is my own code, end to end. Detection, pricing, filtering, delivery, and ultimately responsibility. Many alert services pass along a feed that somebody else runs. When that feed adds a SKU late, they add it late. When it goes quiet, they go quiet. Owning the whole thing matters for three reasons. For starters, every restock and price I log ends up in the <a href="https://restockbotalerts.com/#features">dashboard</a>&rsquo;s analytics, available to all subscribers. It lets me measure my own service and run analyses like this one. And most importantly, it lets me react quickly when something goes wrong: fix it fast, then harden the code so it does not happen again. That is what reliable means to me. Not a promise that nothing will ever break, but a system where, when something does, it gets fixed quickly.</p>
+
+  <p class="counter">3 of 3</p>
+  <h2>Personalized</h2>
+
+  <p>Over time, <strong>a generic alert can simply turn into noise.</strong> By generic I mean the same ping everyone gets, with nothing on it but the fact that something restocked. For an alert to be truly useful, it needs the level of detail that makes it actionable for you, and neither of the feeds I measured offers it.</p>
+
+  <p>Think about it. Of the last fifty restock alerts you received, how many were actually a good deal for you, at your own profit and margin thresholds? If the honest answer is a handful, then the rest were noise. And a feed that pings you for every one of them trains you to ignore it. That is how the good deals get missed.</p>
+
+  <p>The layer on top of the alert, the one that adds value, is the part you customize. It starts in your dashboard, with a watchlist you can set up or change in a minute: the SKUs you care about, by metal, by weight or by name. That alone cuts the noise down to the SKUs you actually want to hear about. You can set that watchlist to alert you only at a Costco price you are willing to pay, or at a percentage over spot you are willing to accept. You can go further still and add the buyers you are interested in selling to and the payouts they are offering, so you are only alerted when a SKU meets your buy price, your sell price, or the margin between them. After that, an alert means one thing: this item just restocked at a price that makes it a good deal for you. You act instead of evaluate.</p>
+
+  <figure class="shot">
+    <img src="/assets/blog/costco-gold-restock-alerts-compared/costco-restock-alert-watchlist-setup.webp" width="3420" height="1762" alt="Costco restock alert watchlist setup: the Watchlists page with metal, weight and type filters at the top, and a dialog setting a target price, a discount margin and the buyers to match for 34 selected SKUs." loading="lazy">
+    <figcaption>Setting up a buyer payout watchlist: filter to the SKUs you want, then set your target price, your margin and the buyers you sell to, for all of them at once. The toggle at the top right adds new SKUs to the list automatically.</figcaption>
+  </figure>
+
+  <figure class="shot">
+    <img src="/assets/blog/costco-gold-restock-alerts-compared/costco-gold-restock-alert-payout-match-feed.webp" width="1201" height="801" alt="Costco gold restock alerts filtered to payout matches: the Restocks feed with several cards outlined in green and tagged Payout Match, each showing the Costco price, the premium over spot, the best buyer payout and the margin." loading="lazy">
+    <figcaption>What an alert looks like once it is yours: only the restocks that match your numbers light up, with the buyer payout and the margin already worked out.</figcaption>
+  </figure>
+
+  <p>Yes, there are options out there that will alert you whenever a Costco SKU restocks, and some of them are quite fast. What those alternatives do not offer is everything that turns a stock signal into a decision: the filters, the margin math against live buyer payouts, the new SKUs that appear on their own, the alert that reaches your phone with the number you actually care about on it. That is the part that usually goes unnoticed. Yet once you put it to work, it does not just speed up your decisions, it puts your own numbers in front of you, so you do not have to work them out on the spot.</p>
+
+  <figure class="shot">
+    <img src="/assets/blog/costco-gold-restock-alerts-compared/costco-gold-restock-alert-buyer-payout-margin.webp" width="1200" height="474" alt="A delivered Costco gold restock alert: the SKUs at or above your desired payout or below your desired margin, listing the Kinebar with its Costco price, three buyer payouts, and the net profit on each." loading="lazy">
+    <figcaption>What the alert itself says: the SKU, the Costco price, and each buyer&rsquo;s payout with the net profit already worked out. The number you care about is on it.</figcaption>
+  </figure>
+
+  <p>Personalize your alerts: <a href="https://dashboard.restockbotalerts.com/dashboard/watchlists">set up your watchlist</a>.</p>
+
+  <h2>Don&rsquo;t take my word for it!</h2>
+
+  <p>Let's be honest: I built this service, so of course I believe in it. But none of that matters if you do not see it the same way. So do not take my word for it. Put my service to the test. Compare it against any other alternative you are exploring, and if you find a place where it falls short, tell me. Everything I have built here is the product of iteration, customer feedback and fair criticism, so I welcome any chance to strengthen my alerts and my service overall based on what you find. Please do not hesitate to reach out.</p>
+
+  <p>Not a subscriber? <a href="https://restockbotalerts.com/#pricing">The free trial gives you seven days to put all of this to the test.</a></p>
+
+  <p class="sig">Thank you,<br>Carlos</p>
+
+  <h2 id="methodology">Methodology: how I measured these restock alerts</h2>
+
+  <p>Everything above comes from alert timestamps, side by side, on the same SKUs.</p>
+  <ul>
+    <li><strong>Window:</strong> May 18 to September 3, 2026.</li>
+    <li><strong>Coverage:</strong> I selected 16 gold SKUs that all three services alerted on during the window, including the most restocked one, the 1 oz PAMP Suisse Lady Fortuna bar.</li>
+    <li><strong>What &ldquo;first&rdquo; means:</strong> timestamps were compared to the minute. The same minute counts as a tie, and only a full minute earlier counts as first.</li>
+    <li><strong>Exclusions:</strong> the numbers exclude the hours my service was down for maintenance, proxy problems or bugs. I excluded those hours for all three feeds.</li>
+  </ul>
+
+  <div class="disclaimer">Costco and the Costco logo are trademarks of Costco Wholesale Corporation. Restock Bot Alerts is an independent service and is not affiliated with, endorsed by or sponsored by Costco, PAMP, Argor-Heraeus, Sunshine Minting or any buyer named on this page. Prices and payouts shown are historical examples, not offers.</div>
+    </article>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="/terms.html">Terms &amp; Conditions</a>
+                <span class="divider">&bull;</span>
+                <a href="/privacy.html">Privacy Policy</a>
+                <span class="divider">&bull;</span>
+                <a href="mailto:support@tremscol.com">Contact Us</a>
+            </div>
+            <div class="footer-text">
+                &copy; 2026 Tremscol LLC. All rights reserved.
+            </div>
+            <p class="footer-disclaimer">
+                Disclaimer: This service is an independent third-party product and is not affiliated with, endorsed by,
+                or sponsored by Costco.
+            </p>
+            <p class="footer-disclaimer">
+                Costco&reg; is a registered trademark of Costco Wholesale Corporation. All product names, logos, and brands
+                are property of their respective owners.
+            </p>
+        </div>
+    </footer>
+</body>
+
+</html>

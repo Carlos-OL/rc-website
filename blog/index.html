@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Restock Bot Alerts</title>
+    <meta name="description" content="Notes on buying and selling Costco precious metals: insights, analysis, lessons learned, tips and tricks. From the maker of Restock Bot Alerts.">
+    <link rel="canonical" href="https://restockbotalerts.com/blog/">
+    <meta property="og:title" content="Blog | Restock Bot Alerts">
+    <meta property="og:description" content="Notes on buying and selling Costco precious metals: insights, analysis, lessons learned, tips and tricks.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://restockbotalerts.com/blog/">
+    <meta property="og:site_name" content="Restock Bot Alerts">
+    <meta property="og:image" content="https://restockbotalerts.com/assets/og-card.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Blog | Restock Bot Alerts">
+    <meta name="twitter:description" content="Notes on buying and selling Costco precious metals: insights, analysis, lessons learned, tips and tricks.">
+    <meta name="twitter:image" content="https://restockbotalerts.com/assets/og-card.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#1b1b1d">
+    <link rel="stylesheet" href="/theme.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background-color: var(--bg-main);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            color: var(--text-main);
+        }
+
+        /* ===== UTILITY BAR (tier 1) ===== */
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+
+        .utility-bar {
+            background: var(--bg-main);
+            border-bottom: 1px solid var(--border-gold);
+        }
+
+        .utility-links {
+            max-width: 1300px;
+            margin: auto;
+            padding: 0.35rem 2rem;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 1.5rem;
+            font-size: 0.82rem;
+            letter-spacing: .04em;
+        }
+
+        .utility-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+        }
+
+        .utility-links a:hover {
+            color: var(--text-gold);
+        }
+
+        @media (max-width: 768px) {
+            .utility-links {
+                justify-content: center;
+                flex-wrap: nowrap;
+                gap: 1rem;
+                padding: 0.35rem 1rem;
+                font-size: 0.75rem;
+            }
+        }
+
+        /* ===== NAVIGATION (tier 2) ===== */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            background: var(--bg-card);
+            border-bottom: 1px solid var(--border-gold);
+        }
+
+        .nav-container {
+            max-width: 1300px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem 2rem;
+            align-items: center;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            text-decoration: none;
+        }
+
+        .nav-logo-img {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--text-gold);
+            background: radial-gradient(circle at center, rgba(250, 204, 21, 0.25), rgba(15, 23, 42, 1));
+        }
+
+        .nav-logo-text {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-gold);
+            letter-spacing: 1px;
+        }
+
+        .nav-links a {
+            margin-left: 1.5rem;
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-gold);
+        }
+
+        .nav-cta {
+            padding: 0.4rem 1rem;
+            background: var(--text-gold);
+            color: #0f0f0f !important;
+            border-radius: 6px;
+            margin-left: 2rem;
+            font-weight: 600;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 0.85rem 1rem;
+            }
+
+            .nav-logo-text {
+                font-size: 1.1rem;
+            }
+
+            .nav-links a {
+                margin-left: 0.75rem;
+                font-size: 0.9rem;
+            }
+
+            .nav-cta {
+                margin-left: 0.75rem;
+                padding: 0.4rem 0.8rem;
+            }
+        }
+
+        /* ===== BLOG INDEX ===== */
+        .blog-wrap {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 56px 22px 72px;
+        }
+
+        .blog-wrap h1 {
+            font-size: 2.5rem;
+            line-height: 1.1;
+            font-weight: 700;
+            letter-spacing: -.01em;
+            margin: 0 0 12px;
+        }
+
+        .blog-intro {
+            font-size: 1.125rem;
+            line-height: 1.7;
+            color: var(--text-muted);
+            margin: 0 0 40px;
+            max-width: 640px;
+        }
+
+        .post-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr));
+            gap: 1.5rem;
+        }
+
+        .post-card {
+            display: block;
+            background: var(--bg-card);
+            border: 1px solid var(--border-gold);
+            border-radius: 12px;
+            padding: 0 0 1.75rem;
+            overflow: hidden;
+            min-width: 0;
+            text-decoration: none;
+            color: inherit;
+            transition: border-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .post-card:hover {
+            border-color: var(--text-gold);
+            transform: translateY(-2px);
+        }
+
+        .post-card .thumb {
+            display: block;
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            border-bottom: 1px solid var(--border-gold);
+            margin-bottom: 1.25rem;
+        }
+
+        .post-card .post-body {
+            padding: 0 1.75rem;
+        }
+
+        .post-card .date {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--text-gold);
+            margin-bottom: 0.75rem;
+        }
+
+        .post-card h2 {
+            font-size: 1.375rem;
+            line-height: 1.3;
+            font-weight: 700;
+            margin: 0 0 0.75rem;
+            color: var(--text-main);
+        }
+
+        .post-card p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background-color: var(--bg-main);
+            padding: 2rem 1rem;
+            text-align: center;
+            border-top: 1px solid var(--border-gold);
+            margin-top: 2rem;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            color: var(--text-gold);
+            text-decoration: none;
+            margin: 0 1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #fde047;
+            text-decoration: underline;
+        }
+
+        .footer-text {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+
+        .footer-disclaimer {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+        }
+
+        .divider {
+            color: var(--text-muted);
+            margin: 0 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .footer-links a {
+                display: block;
+                margin: 0.5rem 0;
+            }
+
+            .blog-wrap h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- UTILITY BAR -->
+    <div class="site-header">
+    <div class="utility-bar">
+        <div class="utility-links">
+            <a href="/blog/">Blog</a>
+            <a href="/extension/">Extension</a>
+            <a href="https://dashboard.restockbotalerts.com">Customer Portal</a>
+        </div>
+    </div>
+
+    <!-- NAVIGATION BAR -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">
+                <img src="/assets/logo.png" alt="Gold Restock Bot Logo" class="nav-logo-img">
+                <span class="nav-logo-text">Gold Restock Bot</span>
+            </a>
+            <nav class="nav-links">
+                <a href="/#pricing" class="nav-cta">Start Free Trial</a>
+            </nav>
+        </div>
+    </header>
+    </div>
+
+    <main class="blog-wrap">
+        <h1>Blog</h1>
+        <p class="blog-intro">Notes on buying and selling Costco precious metals: insights, analysis, lessons learned, tips and tricks.</p>
+
+        <div class="post-grid">
+            <a class="post-card" href="/blog/costco-gold-restock-alerts-compared/">
+                <img class="thumb" src="/assets/blog/costco-gold-restock-alerts-compared/card.png" width="1200" height="675" alt="Bar chart: of 964 Costco gold restocks, my service caught 93 percent, the API feed 90 percent, the lower-priced service 49 percent">
+                <div class="post-body">
+                    <span class="date">September 7, 2026</span>
+                    <h2>Not all Costco gold restock alerts are created equal</h2>
+                    <p>I timed 15 weeks of Costco gold restock alerts against two other feeds: who was first, who missed restocks, and which new gold SKUs got caught.</p>
+                </div>
+            </a>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="/terms.html">Terms &amp; Conditions</a>
+                <span class="divider">&bull;</span>
+                <a href="/privacy.html">Privacy Policy</a>
+                <span class="divider">&bull;</span>
+                <a href="mailto:support@tremscol.com">Contact Us</a>
+            </div>
+            <div class="footer-text">
+                &copy; 2026 Tremscol LLC. All rights reserved.
+            </div>
+            <p class="footer-disclaimer">
+                Disclaimer: This service is an independent third-party product and is not affiliated with, endorsed by,
+                or sponsored by Costco.
+            </p>
+            <p class="footer-disclaimer">
+                Costco&reg; is a registered trademark of Costco Wholesale Corporation. All product names, logos, and brands
+                are property of their respective owners.
+            </p>
+        </div>
+    </footer>
+</body>
+
+</html>
