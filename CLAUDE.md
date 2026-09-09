@@ -21,3 +21,27 @@
 
 This rule is identical in all four linked repos: Costco_Bot, Costco Orders Dashboard v2,
 costco-extension, and the RC website.
+
+## Analytics Snippet on Every New Page (MANDATORY — Carlos, 2026-09-09)
+
+**Every new page added to this site ships with the Cloudflare Web Analytics beacon.** No
+exceptions, no reminders needed: a page without it is invisible in traffic reporting, and
+backfilling means the launch-window numbers are lost for good.
+
+Paste this immediately before the closing `</body>` tag:
+
+```html
+    <!-- Cloudflare Web Analytics: cookieless page views. Token is a public site identifier,
+         not a secret. Stats live at Cloudflare dashboard > Analytics & Logs > Web Analytics. -->
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js"
+            data-cf-beacon='{"token": "e79a71574679418ea506fba0b05a0014"}'></script>
+```
+
+- **Applies to:** every page served to visitors — new blog posts under `blog/`, landing pages,
+  legal pages, tutorials.
+- **Does not apply to:** dev and design scratch files that are never linked publicly
+  (`index-dev*.html`, `design-*.html`, `index copy.html`, `design_handoff_*/`).
+- **The token is the same on every page** and is safe to commit. It identifies the site to
+  Cloudflare; it grants nothing and is public by design in client-side HTML.
+- Stats break down by path, so each post shows as its own line without any extra setup.
+- When adding a page, also add it to `sitemap.xml`.
