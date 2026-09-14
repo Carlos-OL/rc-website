@@ -1,6 +1,9 @@
 ---
 metadata:
-  last_updated: "2026-09-11T11:05:22-06:00"
+  last_updated: "2026-09-11T11:23:26-06:00"
+  sync_source: "/Users/Carlos/Documents/GitHub/rc-website/CLAUDE.md"
+  source_last_updated: "2026-09-11T11:05:22-06:00"
+  source_digest: "sha256:f1e18a50dd5a9bb4d0bb892bc1c4f4b9dcb526b0ecfefb6497dd88b10c388d6d"
 ---
 
 # rc-website
