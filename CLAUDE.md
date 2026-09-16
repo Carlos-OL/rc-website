@@ -1,6 +1,6 @@
 ---
 metadata:
-  last_updated: "2026-09-11T11:05:22-06:00"
+  last_updated: "2026-09-15T20:55:00-06:00"
 ---
 
 # rc-website
@@ -50,3 +50,45 @@ Paste this immediately before the closing `</body>` tag:
   Cloudflare; it grants nothing and is public by design in client-side HTML.
 - Stats break down by path, so each post shows as its own line without any extra setup.
 - When adding a page, also add it to `sitemap.xml`.
+
+## Stripe Pricing Table Feature Lists (MANDATORY — Carlos, 2026-09-15)
+
+**The Silver and Gold bullet lists under the pricing table are not in this repo.** They are
+`marketing_features` on live Stripe products, rendered at runtime by `<stripe-pricing-table>` in
+`index.html`. Everything about them, product IDs, the live lists, and how to write them, lives in
+`STRIPE-PRICING-FEATURES.md` at the repo root. **Read that file instead of re-deriving the lists
+from the Stripe API.** Re-deriving them costs a multi-repo research pass every time and is the
+exact waste this rule exists to prevent.
+
+⚠️ **That file is gitignored and local-only, on purpose. This repo is PUBLIC.** The ledger holds
+subscriber counts, private backend `file:line` references and notes on which tier gates are
+enforced versus not. None of it is a credential; all of it is business information that must not
+be world-readable. **Never commit it, never move its contents into a tracked file, and never paste
+its internals into a commit message.** If it is missing (fresh clone, another machine), do not
+recreate it from guesswork: read the current lists from Stripe with `stripe_api_read` /
+`GetProducts` and ask Carlos for the rest.
+
+**Whenever you change the homepage (`index.html`) or the extension page (`extension/index.html`)
+in a way that touches what the product can do, you must, in the same session:**
+
+1. **Ask Carlos** whether the Stripe feature list should be updated too. Ask in one line, naming
+   the specific bullet you would add or reword. Do not ask a vague "should we update Stripe?".
+2. **Log it in `STRIPE-PRICING-FEATURES.md` under "Pending updates" either way.** The log is not
+   conditional on him saying yes. A "not now" still gets a row, so the tally survives until he
+   wants to publish. This is the whole point: he should never have to reconstruct what changed.
+3. **If he says yes, make the change yourself.** Claude can write `marketing_features` directly
+   through the Stripe MCP (`stripe_api_write` / `PostProductsId`), so Carlos does not have to
+   hand-edit the pricing table.
+   **The write applies immediately.** Measured 2026-09-15: a product update on this account did
+   NOT trigger the tool's human-confirmation step, despite the tool description implying it might.
+   Do not tell Carlos an approval link is coming, and do not treat the approval flow as a safety
+   net. His spoken "yes" in the conversation is the only gate, which is why the rule below is
+   absolute. After applying, verify on the live page rather than trusting the API echo, then update
+   the "Current live lists" snapshot and its capture date in the (untracked) ledger and clear the
+   pending row.
+
+Applies to feature, capability, tier, limit, and pricing copy. Does not apply to purely visual
+changes: a new screenshot, a carousel reorder, styling, or a typo fix with no capability claim.
+
+**Never write to Stripe without explicit approval from Carlos in the conversation.** It is a live
+payments account and the pricing table is public. Reading is always fine.

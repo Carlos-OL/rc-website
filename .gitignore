@@ -1,0 +1,7 @@
+# This repository is PUBLIC. Anything committed here is world-readable.
+
+# Internal pricing ledger. Holds Stripe product IDs, subscriber counts, private
+# backend file:line references and notes on which tier gates are enforced vs not.
+# None of it is a credential, but all of it is business information that does not
+# belong in a public repo. Local-only by decision (Carlos, 2026-09-15).
+STRIPE-PRICING-FEATURES.md
