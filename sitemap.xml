@@ -30,4 +30,9 @@
         <loc>https://restockbotalerts.com/extension-privacy/</loc>
         <priority>0.5</priority>
     </url>
+    <url>
+        <loc>https://restockbotalerts.com/ptf2026/</loc>
+        <lastmod>2026-10-10</lastmod>
+        <priority>0.3</priority>
+    </url>
 </urlset>

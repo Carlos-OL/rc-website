@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Tracking stats</title>
+    <!-- Private stats view for tracked pages (table website_events). The shell is public, the numbers
+         are not: they come from the website-track Supabase function only after it checks the password
+         server-side. No analytics beacon on
+         purpose, so checking the stats does not count as a visit. -->
+    <style>
+        :root {
+            --bg-main: #1b1b1d;
+            --bg-card: #262628;
+            --text-main: #f0f0f0;
+            --text-muted: #c8c8c8;
+            --text-gold: #10e9df;
+            --line: rgba(255, 255, 255, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg-main);
+            color: var(--text-main);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        main {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 1.5rem 1rem 3rem;
+        }
+
+        h1 {
+            font-size: 1.4rem;
+            margin: 0 0 1rem;
+        }
+
+        form {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        input {
+            flex: 1;
+            min-width: 0;
+            padding: 0.7rem;
+            font-size: 1rem;
+            border-radius: 8px;
+            border: 1px solid var(--line);
+            background: var(--bg-card);
+            color: var(--text-main);
+        }
+
+        button {
+            padding: 0.7rem 1rem;
+            font-size: 1rem;
+            font-weight: 700;
+            border: 0;
+            border-radius: 8px;
+            background: var(--text-gold);
+            color: #0b1f1e;
+        }
+
+        select {
+            margin: 0 0 0.5rem;
+            padding: 0.5rem;
+            font-size: 1rem;
+            border-radius: 8px;
+            border: 1px solid var(--line);
+            background: var(--bg-card);
+            color: var(--text-main);
+        }
+
+        h2 {
+            font-size: 1rem;
+            margin: 1.5rem 0 0.4rem;
+            color: var(--text-muted);
+        }
+
+        .msg {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .tiles {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.6rem;
+            margin: 1rem 0 1.5rem;
+        }
+
+        .tile {
+            background: var(--bg-card);
+            border-radius: 10px;
+            padding: 0.8rem;
+        }
+
+        .tile .n {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--text-gold);
+        }
+
+        .tile .l {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .table-wrap {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+            font-variant-numeric: tabular-nums;
+        }
+
+        th,
+        td {
+            padding: 0.5rem 0.4rem;
+            border-bottom: 1px solid var(--line);
+            text-align: right;
+            white-space: nowrap;
+        }
+
+        th:first-child,
+        td:first-child {
+            text-align: left;
+        }
+
+        th {
+            color: var(--text-muted);
+            font-weight: 600;
+            font-size: 0.75rem;
+        }
+
+        .muted {
+            color: #8f8f92;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <h1>Tracking stats</h1>
+        <form id="f">
+            <input id="pw" type="password" autocomplete="current-password" placeholder="Password" required>
+            <button type="submit">Show</button>
+        </form>
+        <p id="msg" class="msg"></p>
+        <div id="out"></div>
+    </main>
+
+    <script>
+        (function () {
+            var FN = 'https://nzcbrnvrutvacaaxypzb.supabase.co/functions/v1/website-track';
+            var KEY = 'tracking-stats-pw';
+            var current = new URLSearchParams(location.search).get('c') || '';
+            var password = '';
+            var form = document.getElementById('f');
+            var pw = document.getElementById('pw');
+            var msg = document.getElementById('msg');
+            var out = document.getElementById('out');
+
+            /**
+             * Escape a value for safe insertion into HTML.
+             *
+             * Args:
+             *     v (any): Value to render.
+             *
+             * Returns:
+             *     string: HTML-escaped text.
+             *
+             * Called by: render().
+             */
+            function esc(v) {
+                return String(v).replace(/[&<>"']/g, function (c) {
+                    return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+                });
+            }
+
+            /**
+             * Draw the campaign picker, totals tiles, by-day table and by-source table.
+             *
+             * Args:
+             *     d (object): Response from POST /stats: { campaigns[], campaign, timezone, totals, days[], sources[] }.
+             *
+             * Returns:
+             *     undefined. Writes into #out.
+             *
+             * Called by: load().
+             */
+            function render(d) {
+                var t = d.totals;
+                var qr = d.sources.filter(function (s) { return s.src === 'qr'; })[0] || { visits: 0 };
+                current = d.campaign;
+                var html = '<select id="camp" aria-label="Campaign">' + d.campaigns.map(function (c) {
+                    return '<option' + (c === d.campaign ? ' selected' : '') + '>' + esc(c) + '</option>';
+                }).join('') + '</select>';
+                html += '<div class="tiles">' +
+                    tile(t.visits, 'Page visits') +
+                    tile(t.downloads, 'Downloads') +
+                    tile(qr.visits, 'Visits from QR') +
+                    tile(t.downloads_mobile, 'Downloads on mobile') +
+                    '</div>';
+                html += '<h2>By day</h2><div class="table-wrap"><table><thead><tr>' +
+                    '<th>Day (' + esc(d.timezone) + ')</th><th>Visits</th><th>Downloads</th>' +
+                    '<th>mobile</th><th>desktop</th><th>via fallback</th><th class="muted">test hits</th>' +
+                    '</tr></thead><tbody>';
+                if (!d.days.length) {
+                    html += '<tr><td colspan="7" class="muted">No events yet.</td></tr>';
+                }
+                d.days.forEach(function (r) {
+                    html += '<tr><td>' + esc(r.day) + '</td><td>' + r.visits + '</td><td>' + r.downloads +
+                        '</td><td>' + r.downloads_mobile + '</td><td>' + r.downloads_desktop + '</td><td>' +
+                        r.downloads_fallback + '</td><td class="muted">' +
+                        r.test_visits + ' / ' + r.test_downloads + '</td></tr>';
+                });
+                html += '</tbody></table></div>';
+                html += '<h2>By source</h2><div class="table-wrap"><table><thead><tr>' +
+                    '<th>Source</th><th>Visits</th><th>Downloads</th></tr></thead><tbody>';
+                if (!d.sources.length) {
+                    html += '<tr><td colspan="3" class="muted">No events yet.</td></tr>';
+                }
+                d.sources.forEach(function (r) {
+                    html += '<tr><td>' + esc(r.src) + '</td><td>' + r.visits + '</td><td>' + r.downloads + '</td></tr>';
+                });
+                html += '</tbody></table></div>' +
+                    '<p class="msg">Test hits (visits / downloads) come from ?test=1 or a local preview and are left out of every other number.</p>';
+                out.innerHTML = html;
+                document.getElementById('camp').addEventListener('change', function (e) {
+                    current = e.target.value;
+                    load(password);
+                });
+            }
+
+            /**
+             * Build one totals tile.
+             *
+             * Args:
+             *     n (number): The count.
+             *     label (string): Caption under the count.
+             *
+             * Returns:
+             *     string: Tile HTML.
+             *
+             * Called by: render().
+             */
+            function tile(n, label) {
+                return '<div class="tile"><div class="n">' + esc(n) + '</div><div class="l">' + esc(label) + '</div></div>';
+            }
+
+            /**
+             * Ask the function for the selected campaign's stats and render them.
+             *
+             * Args:
+             *     pw (string): Checked server-side against the TRACKING_STATS_PASSWORD secret.
+             *                  The campaign comes from `current` (?c= on first load, then the picker).
+             *
+             * Returns:
+             *     Promise<void>. On 401 it clears the remembered password.
+             *
+             * Called by: form submit, and on page load when a password is remembered for this tab.
+             */
+            function load(pw) {
+                password = pw;
+                msg.textContent = 'Loading...';
+                // text/plain keeps this a simple CORS request (no preflight round trip).
+                return fetch(FN + '/stats', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'text/plain' },
+                    body: JSON.stringify({ password: password, campaign: current })
+                }).then(function (r) {
+                    if (r.status === 401) {
+                        try { sessionStorage.removeItem(KEY); } catch (e) { }
+                        throw new Error('Wrong password.');
+                    }
+                    if (!r.ok) throw new Error('Stats unavailable (HTTP ' + r.status + ').');
+                    return r.json();
+                }).then(function (d) {
+                    try { sessionStorage.setItem(KEY, password); } catch (e) { }
+                    msg.textContent = 'Updated ' + new Date().toLocaleTimeString();
+                    render(d);
+                }).catch(function (e) {
+                    msg.textContent = e.message || 'Could not load stats.';
+                });
+            }
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                load(pw.value);
+            });
+
+            var saved = null;
+            try { saved = sessionStorage.getItem(KEY); } catch (e) { }
+            if (saved) load(saved);
+        })();
+    </script>
+</body>
+
+</html>
