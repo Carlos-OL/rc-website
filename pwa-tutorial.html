@@ -330,6 +330,176 @@
     color: var(--accent);
     font-weight: 500;
   }
+
+  /* Links: every link is a 44px tap target */
+  .jump-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    margin-top: 2px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .jump-link:hover, .jump-link:focus-visible { text-decoration: underline; }
+  .footer-support a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    color: var(--accent);
+    font-weight: 500;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  /* Extra sections: "Tapped Don't Allow?" and "Which alerts you get" */
+  .info-section {
+    padding: 36px 48px 40px;
+    border-top: 1px solid var(--border-subtle);
+    scroll-margin-top: 16px;
+  }
+  .info-section.alt { background: var(--bg-main); }
+  .section-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+  .info-section h2 {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.25;
+    margin-bottom: 10px;
+  }
+  .section-intro {
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    max-width: 760px;
+    margin-bottom: 22px;
+  }
+  .section-intro strong { color: var(--text-main); font-weight: 600; }
+  .fix-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .fix-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    padding: 20px 22px;
+  }
+  .fix-card .platform-header { margin-bottom: 14px; }
+  .fix-steps {
+    padding-left: 20px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-muted);
+  }
+  .fix-steps li { margin-bottom: 6px; }
+  .fix-steps li::marker { color: var(--accent); font-weight: 700; }
+  .fix-steps strong, .fix-alt strong { color: var(--text-main); font-weight: 600; }
+  .fix-alt {
+    margin-top: 10px;
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--text-muted);
+  }
+  .fix-then {
+    margin-top: 18px;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--text-muted);
+  }
+  .fix-then strong { color: var(--text-main); font-weight: 600; }
+  .alert-types {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .alert-type {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
+  }
+  .alert-name {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-main);
+    margin-bottom: 4px;
+  }
+  .alert-setting {
+    font-weight: 500;
+    color: var(--text-muted);
+  }
+  .alert-detail {
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--text-muted);
+  }
+  .alert-detail strong { color: var(--text-main); font-weight: 600; }
+
+  /* Phones and small tablets: one column, full-width content, readable text.
+     Desktop above 768px is unchanged. */
+  @media (max-width: 768px) {
+    body { padding: 0; display: block; }
+    .slide {
+      border: 0;
+      border-radius: 0;
+      box-shadow: none;
+    }
+    .header { padding: 14px 16px; }
+    .header-left { gap: 10px; min-width: 0; }
+    .logo-mark { width: 36px; height: 36px; }
+    .header-title { font-size: 13px; letter-spacing: 0.08em; white-space: nowrap; }
+    .headline-block { padding: 24px 16px 20px; }
+    h1 { font-size: 28px; }
+    .subtitle { font-size: 16px; }
+    .presteps { padding: 20px 16px; }
+    .presteps-items { flex-direction: column; align-items: stretch; gap: 10px; }
+    .prestep { min-width: 0; padding: 14px; }
+    .prestep-arrow { display: none; }
+    .prestep-text { font-size: 16px; }
+    .columns { grid-template-columns: 1fr; }
+    .col { padding: 28px 16px 8px; }
+    .col:first-child { border-right: 0; border-bottom: 1px solid var(--border-subtle); }
+    .platform-header { margin-bottom: 20px; }
+    .platform-sub { font-size: 14px; }
+    .step-action { font-size: 17px; }
+    .step-detail { font-size: 16px; }
+    .tap-chip { font-size: 14px; white-space: normal; }
+    .jump-link { font-size: 16px; }
+    .callout { margin: 8px 16px 28px; padding: 16px; gap: 12px; }
+    .callout-text { font-size: 16px; }
+    .info-section { padding: 28px 16px 32px; }
+    .info-section h2 { font-size: 22px; }
+    .section-intro, .fix-then { font-size: 16px; }
+    .fix-grid, .alert-types { grid-template-columns: 1fr; }
+    .fix-card { padding: 16px; }
+    .fix-steps { font-size: 16px; }
+    .fix-alt { font-size: 16px; }
+    .alert-name { font-size: 16px; }
+    .alert-detail { font-size: 16px; }
+    .footer-note {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 20px 16px 28px;
+    }
+    .footer-note-text { font-size: 16px; }
+    .footer-right { align-items: flex-start; }
+    .footer-support { font-size: 16px; }
+  }
+  /* Phones: the header keeps one line, so the badge goes. */
+  @media (max-width: 600px) {
+    .step-badge { display: none; }
+  }
 </style>
 </head>
 <body>
@@ -343,7 +513,7 @@
       </div>
       <div class="header-title">Restock Bot Alerts</div>
     </div>
-    <div class="step-badge">Settings &rarr; Push Notifications</div>
+    <div class="step-badge">Install &rarr; Turn On Alerts</div>
   </div>
 
   <!-- Headline -->
@@ -410,8 +580,9 @@
         <li class="step-item">
           <div class="step-num">4</div>
           <div class="step-content">
-            <div class="step-action">Go to <span class="tap-chip">Account → Settings</span> and enable push notifications</div>
-            <div class="step-detail">You're all set. Alerts will now arrive like native app notifications.</div>
+            <div class="step-action">The app asks you to turn on alerts — tap <span class="tap-chip">Turn on alerts</span>, then <span class="tap-chip">Allow</span></div>
+            <div class="step-detail">A test alert arrives on this phone right away, and from then on alerts arrive like native app notifications. Tapped Not now? Turn alerts on any time in <span class="tap-chip">Account → Settings</span> (on a phone, tap the <span class="tap-chip"><span aria-hidden="true">☰</span> menu</span> button at the top right first).</div>
+            <a class="jump-link" href="#dont-allow">Tapped “Don't Allow”? Here's the fix <span aria-hidden="true">↓</span></a>
           </div>
         </li>
       </ol>
@@ -451,8 +622,9 @@
         <li class="step-item">
           <div class="step-num">4</div>
           <div class="step-content">
-            <div class="step-action">Open from the icon, then enable push notifications in <span class="tap-chip">Account → Settings</span></div>
-            <div class="step-detail">Always launch from the home screen icon — not from Chrome.</div>
+            <div class="step-action">Open the app from the icon — it asks you to turn on alerts. Tap <span class="tap-chip">Turn on alerts</span>, then <span class="tap-chip">Allow</span></div>
+            <div class="step-detail">Always launch from the home screen icon — not from Chrome. A test alert arrives right away. Tapped Not now? Turn alerts on any time in <span class="tap-chip">Account → Settings</span> (on a phone, tap the <span class="tap-chip"><span aria-hidden="true">☰</span> menu</span> button at the top right first).</div>
+            <a class="jump-link" href="#dont-allow">Tapped “Don't Allow”? Here's the fix <span aria-hidden="true">↓</span></a>
           </div>
         </li>
       </ol>
@@ -466,10 +638,79 @@
     <div>
       <div class="callout-title">Important — Enable Notifications From the App, Not the Browser</div>
       <div class="callout-text">
-        Once the icon is on your home screen, <strong>always open the site from that icon</strong> — not from Safari or Chrome. Push notifications are only active when you're running the PWA. After opening it from the icon, go to <strong>Account → Settings → Push Notifications</strong> and enable the alerts you want. This step must be done from within the PWA.
+        Once the icon is on your home screen, <strong>always open the site from that icon</strong> — not from Safari or Chrome. Push notifications are only active when you're running the PWA. After opening it from the icon, tap <strong>Turn on alerts</strong> when the app asks (or go to <strong>Account → Settings → Push Notifications</strong>) and choose the alerts you want. This step must be done from within the PWA.
       </div>
     </div>
   </div>
+
+  <!-- Tapped Don't Allow? (the dashboard's blocked-alerts message links straight to #dont-allow; keep this id) -->
+  <section class="info-section alt" id="dont-allow" aria-labelledby="dont-allow-title">
+    <div class="section-label">Alerts blocked?</div>
+    <h2 id="dont-allow-title">Tapped “Don't Allow”?</h2>
+    <p class="section-intro">The app can only ask once. If you tapped <strong>Don't Allow</strong>, it can't ask again — turn alerts back on in your phone's settings:</p>
+    <div class="fix-grid">
+      <div class="fix-card ios">
+        <div class="platform-header">
+          <div class="platform-icon" aria-hidden="true">🍎</div>
+          <div>
+            <div class="platform-name">iPhone / iPad</div>
+          </div>
+        </div>
+        <ol class="fix-steps">
+          <li>Open your phone's <strong>Settings</strong> app</li>
+          <li>Tap <strong>Notifications</strong>, then <strong>Gold Bot</strong> (or the name the app has on your home screen)</li>
+          <li>Turn on <strong>Allow Notifications</strong></li>
+        </ol>
+      </div>
+      <div class="fix-card android">
+        <div class="platform-header">
+          <div class="platform-icon" aria-hidden="true">🤖</div>
+          <div>
+            <div class="platform-name">Android</div>
+          </div>
+        </div>
+        <ol class="fix-steps">
+          <li>Press and hold the <strong>Gold Bot</strong> app icon, then tap <strong>App info</strong></li>
+          <li>Tap <strong>Notifications</strong> and turn them on</li>
+        </ol>
+        <p class="fix-alt">Or in Chrome: tap <strong>⋮</strong> → <strong>Settings</strong> → <strong>Site settings</strong> → <strong>Notifications</strong>, and allow <strong>dashboard.restockbotalerts.com</strong>.</p>
+      </div>
+    </div>
+    <p class="fix-then"><strong>Then come back to the app</strong> (open it from the icon) and tap <strong>Turn on alerts</strong>, or go to <strong>Account → Settings → Push Notifications</strong>.</p>
+  </section>
+
+  <!-- Which alerts you get: each type with the name of its switch in the app's Settings -->
+  <section class="info-section" id="which-alerts" aria-labelledby="which-alerts-title">
+    <div class="section-label">Which alerts you get</div>
+    <h2 id="which-alerts-title">Alerts work without Slack</h2>
+    <p class="section-intro">You don't need Slack — these alerts come straight to your phone through the app. Turn each one on or off in <strong>Account → Settings → Push Notifications</strong>; the name in brackets is the switch you'll see there. Follow products and set up payout watch lists on the dashboard's <strong>Watchlists</strong> page — no Slack needed. In-store alerts have no switch: they follow your saved in-store search.</p>
+    <ul class="alert-types" role="list">
+      <li class="alert-type">
+        <div class="alert-name">All online restocks <span class="alert-setting">(All Online Restocks)</span></div>
+        <div class="alert-detail">An alert for every online restock at Costco.</div>
+      </li>
+      <li class="alert-type">
+        <div class="alert-name">Only the products you follow <span class="alert-setting">(Subscribed SKUs Only)</span></div>
+        <div class="alert-detail">A filter on restock alerts: follow products on the <strong>Watchlists</strong> page (Online Restocks tab), turn this on, and restock alerts come only for those products.</div>
+      </li>
+      <li class="alert-type">
+        <div class="alert-name">Gold &amp; silver price alerts <span class="alert-setting">(Spot Price Alerts)</span></div>
+        <div class="alert-detail">When gold or silver hits your price targets.</div>
+      </li>
+      <li class="alert-type">
+        <div class="alert-name">Payout alerts <span class="alert-setting">(Payout Alerts)</span></div>
+        <div class="alert-detail">When a product hits your payout target. Set up your payout watch list on the <strong>Watchlists</strong> page (Payouts tab).</div>
+      </li>
+      <li class="alert-type">
+        <div class="alert-name">In-store stock alerts <span class="alert-setting">(no switch)</span></div>
+        <div class="alert-detail">When your saved in-store stock search finds the product at a nearby warehouse. These follow your saved in-store search.</div>
+      </li>
+      <li class="alert-type">
+        <div class="alert-name">Price error alerts <span class="alert-setting">(Price Error Alerts)</span></div>
+        <div class="alert-detail">When someone at Costco fat-fingers a price and an item is listed at a mistaken price. Gold plan only.</div>
+      </li>
+    </ul>
+  </section>
 
   <!-- Footer -->
   <div class="footer-note">
@@ -479,7 +720,7 @@
     </div>
     <div class="footer-right">
       <div class="footer-url">restockbotalerts.com</div>
-      <div class="footer-support">Questions? <strong>support@tremscol.com</strong></div>
+      <div class="footer-support">Questions? <a href="mailto:support@tremscol.com">support@tremscol.com</a></div>
     </div>
   </div>
 
